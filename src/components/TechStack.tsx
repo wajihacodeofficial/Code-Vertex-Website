@@ -99,3 +99,4 @@ const TechStack: React.FC = () => {
 };
 
 export default TechStack;
+// Technology stack icons and labels
