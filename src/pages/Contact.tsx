@@ -402,3 +402,4 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+// Form submission handler
