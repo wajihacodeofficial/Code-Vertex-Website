@@ -855,3 +855,4 @@ const CaseStudy: React.FC = () => {
 };
 
 export default CaseStudy;
+// Project breakdown
