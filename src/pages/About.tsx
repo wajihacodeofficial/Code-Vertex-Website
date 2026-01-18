@@ -560,3 +560,4 @@ const About: React.FC = () => {
 
 export default About;
 // Company mission and values
+// Team member profiles
