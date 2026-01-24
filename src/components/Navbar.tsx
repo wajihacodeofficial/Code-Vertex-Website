@@ -420,3 +420,4 @@ const Navbar: React.FC = () => {
 
 export default Navbar;
 // Base navigation layout
+// Smooth mobile drawer
