@@ -151,3 +151,4 @@ const FAQ: React.FC = () => {
 };
 
 export default FAQ;
+// Common questions
