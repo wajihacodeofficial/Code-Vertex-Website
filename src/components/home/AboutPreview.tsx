@@ -34,7 +34,7 @@ const AboutPreview: React.FC = () => {
                 lineHeight: '1.8',
               }}
             >
-              We don't just write code; we architect solutions. RapidWave is
+              We don't just write code; we architect solutions. Code Vertex is
               dedicated to building software that is clean, maintainable, and
               built for scale. Our focus is on delivering high-performance
               products that solve real world problems.

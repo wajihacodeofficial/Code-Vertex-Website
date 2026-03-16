@@ -1,52 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Brand Colors - Deep Engineering Palette */
-  --bg-primary: #050505;
-  --bg-secondary: rgba(10, 10, 11, 0.4);
-  --bg-tertiary: rgba(17, 17, 18, 0.3);
+  /* Brand Colors - Code Vertex Palette */
+  --bg-primary: #1F1F1F; /* Dark Charcoal */
+  --bg-secondary: rgba(31, 31, 31, 0.5);
+  --bg-tertiary: rgba(40, 40, 40, 0.6);
 
-  --accent-primary: #00d2ff;
-  --accent-secondary: #0070f3;
-  --accent-glow: rgba(0, 210, 255, 0.2);
-  --accent-gradient: linear-gradient(135deg, #00d2ff 0%, #0070f3 100%);
+  --accent-primary: #FFC300; /* Vibrant Yellow */
+  --accent-secondary: #00CFFF; /* Electric Blue */
+  --accent-glow: rgba(255, 195, 0, 0.2);
+  --accent-gradient: linear-gradient(135deg, #FFC300 0%, #00CFFF 100%);
 
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-primary: #FFFFFF;
+  --text-secondary: #F5F5F5;
+  --text-muted: rgba(255, 255, 255, 0.5);
 
-  --card-bg: #121214;
-  --card-border: rgba(255, 255, 255, 0.1);
+  --card-bg: #262626;
+  --card-border: rgba(255, 255, 255, 0.05);
 
   /* Typography */
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
 
   /* Layout */
   --nav-height: 80px;
-  --container-max: 1300px;
-  --section-padding: clamp(100px, 15vh, 200px);
+  --container-max: 1400px;
+  --section-padding: clamp(60px, 10vh, 120px);
 
   --transition-premium: cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.4);
+  --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-/* Fixed Light Theme - Elegant & Professional */
+/* Fixed Light Theme - Updated for Code Vertex Premium */
 [data-theme='light'] {
-  --bg-primary: #ffffff;
-  --bg-secondary: rgba(248, 250, 252, 0.4);
-  --bg-tertiary: rgba(241, 245, 249, 0.6);
+  --bg-primary: #F3F5F9; /* Softer, more premium blue-tinted light grey */
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #E2E8F0;
 
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-primary: #0F172A; /* Slate 900 for modern deep contrast */
+  --text-secondary: #334155; /* Slate 700 */
+  --text-muted: #64748B; /* Slate 500 */
 
-  --accent-glow: rgba(0, 112, 243, 0.08);
-  --card-bg: rgba(255, 255, 255, 0.7);
-  --card-border: rgba(0, 0, 0, 0.05);
-  --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.02);
+  --accent-glow: rgba(255, 195, 0, 0.3);
+  --card-bg: #FFFFFF;
+  --card-border: rgba(15, 23, 42, 0.06);
+  --shadow-premium: 0 20px 40px rgba(15, 23, 42, 0.05);
 
-  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.7);
 }
 
 section {
@@ -81,17 +81,31 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.5;
-  font-size: 0.92rem; /* Slightly smaller base font */
+  font-size: 0.92rem;
   overflow-x: hidden;
   width: 100%;
   position: relative;
   -webkit-font-smoothing: antialiased;
-  transition:
-    background-color 0.8s var(--transition-premium),
-    color 0.8s var(--transition-premium);
+  transition: background-color 0.8s var(--transition-premium), color 0.8s var(--transition-premium);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Global transitions for theme-dependent properties */
+.glass-card, 
+.btn, 
+nav, 
+footer, 
+.section-title, 
+p, 
+span, 
+h1, h2, h3, h4, h5, h6 {
+  transition: background-color 0.6s var(--transition-premium), 
+              color 0.6s var(--transition-premium), 
+              border-color 0.6s var(--transition-premium),
+              box-shadow 0.6s var(--transition-premium),
+              backdrop-filter 0.6s var(--transition-premium);
 }
 
 html {
@@ -268,9 +282,8 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1.1;
-  text-transform: uppercase;
 }
 
 .hero-title {
@@ -305,16 +318,16 @@ h4 {
 
 /* --- Premium Card System --- */
 .glass-card {
-  background: transparent;
+  background: var(--bg-secondary);
   border: 1px solid var(--card-border);
-  border-radius: 2rem;
-  padding: 3.5rem;
+  border-radius: 2.5rem;
+  padding: 3rem;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.5s var(--transition-premium);
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
 }
 
 .glass-card::before {
@@ -356,14 +369,13 @@ h4 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  padding: 1.5rem 3.5rem;
+  gap: 0.75rem;
+  padding: 1.25rem 3rem;
   border-radius: 100px;
-  font-weight: 800;
+  font-weight: 700;
   font-family: var(--font-heading);
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
   transition: all 0.5s var(--transition-premium);
   border: none;
   position: relative;
@@ -372,14 +384,21 @@ h4 {
 }
 
 .btn-primary {
-  background: var(--accent-gradient);
-  color: #fff;
-  box-shadow: 0 15px 35px var(--accent-glow);
+  background: var(--accent-primary);
+  color: #000;
+  box-shadow: 0 10px 30px var(--accent-glow);
 }
 
 .btn-primary:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0, 210, 255, 0.4);
+  transform: translateY(-3px);
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 15px 40px rgba(255, 195, 0, 0.4);
+}
+
+[data-theme='light'] .btn-primary:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
 .btn-outline {
@@ -389,8 +408,15 @@ h4 {
 }
 
 .btn-outline:hover {
-  background: var(--text-primary);
-  color: var(--bg-primary) !important;
+  background: var(--accent-primary) !important;
+  color: #000000 !important;
+  border-color: var(--accent-primary) !important;
+}
+
+[data-theme='light'] .btn-outline:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
 }
 
 /* --- Grid System --- */
@@ -502,6 +528,4 @@ nav.scrolled {
     padding: 0 1.25rem !important;
   }
 }
-// Initial project scaffold
-/* Dark mode variables */
-/* Framer motion variants */
+/* End of styles */

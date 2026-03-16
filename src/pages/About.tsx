@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { team } from '../data/team';
+import TechRadar from '../components/premium/TechRadar';
 
 const About: React.FC = () => {
   return (
@@ -38,7 +40,7 @@ const About: React.FC = () => {
                   marginTop: '2rem',
                 }}
               >
-                RapidWave Software is an elite engineering house built on the
+                Code Vertex Software is an elite engineering house built on the
                 principles of architectural integrity and global scalability. We
                 partner with startups and enterprises to deploy mission-critical
                 software that outperforms competition.
@@ -133,7 +135,7 @@ const About: React.FC = () => {
             <div>
               <span className="text-label">Our Vision</span>
               <h2 className="section-title">
-                The RapidWave <span className="accent-text">Manifesto</span>
+                The Code Vertex <span className="accent-text">Manifesto</span>
               </h2>
               <div
                 style={{
@@ -208,26 +210,7 @@ const About: React.FC = () => {
             className="grid grid-2"
             style={{ maxWidth: '1000px', margin: '0 auto' }}
           >
-            {[
-              {
-                name: 'Muhammad Rehan Hussain',
-                role: 'Co-Founder & Lead Engineer',
-                email: 'rehancodeoffical@gmail.com',
-                bio: 'Muhammad Rehan Hussain is a Backend & Full-Stack Software Engineer specializing in designing robust backend systems, high-performance APIs, and scalable architectures. With over 4 years of experience across system architecture and product development, he focuses on engineering solutions that create real business impact.',
-                img: '/team/rehan.png',
-                github: 'https://github.com/rehancodeofficial',
-                linkedin: 'https://www.linkedin.com/in/rehancodeofficial/',
-              },
-              {
-                name: 'Wajiha Zehra',
-                role: 'Co-Founder & UI/UX Specialist',
-                email: 'wajihacodeoffical@gmail.com',
-                bio: 'Wajiha Zehra is a Frontend & UI/UX Engineer with expertise in translating complex requirements into clean, intuitive interfaces. From Figma prototypes to deployed applications, she specializes in building responsive, accessible, and high-performance SaaS interfaces.',
-                img: '/team/wajiha.png',
-                github: 'https://github.com/wajihacodeofficial',
-                linkedin: 'https://www.linkedin.com/in/wajihacodeofficial/',
-              },
-            ].map((member, i) => (
+            {team.map((member, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
@@ -430,23 +413,16 @@ const About: React.FC = () => {
                 icon: '🕸️',
               },
               {
-                title: 'Mobile Ecosystems',
-                desc: 'Seamless cross-platform deployments that feel truly native. We handle the complexity of iOS and Android with unified technical standards.',
-                techs: ['Flutter', 'Firebase', 'Fastlane', 'App Store Ops'],
+                title: 'Native Android',
+                desc: 'Specialized native application development for the Android ecosystem. We focus on high-performance Java cores and seamless hardware integration.',
+                techs: ['Java', 'Android SDK', 'Firebase', 'SQLite', 'REST APIs'],
                 icon: '📱',
               },
               {
-                title: 'Design-to-Code',
-                desc: 'Bridge the gap between vision and reality. We transform high-fidelity Figma designs into pixel-perfect, performant React components.',
-                techs: [
-                  'Figma',
-                  'Framer Motion',
-                  'Tailwind CSS',
-                  'Storybook',
-                  'Lottie',
-                  'Three.js',
-                ],
-                icon: '🎨',
+                title: 'Maintenance & Debugging',
+                desc: 'Mission-critical technical support and code optimization for existing systems. We ensure your software remains performant and secure.',
+                techs: ['Bug Fixing', 'Security Patching', 'Refactoring', 'Optimization'],
+                icon: '🛠️',
               },
             ].map((stack, i) => (
               <motion.div
@@ -495,10 +471,13 @@ const About: React.FC = () => {
               </motion.div>
             ))}
           </div>
+          <div style={{ marginTop: '8rem' }}>
+            <TechRadar />
+          </div>
         </div>
       </section>
 
-      {/* Why RapidWave */}
+      {/* Why Code Vertex */}
       <section style={{ padding: 'var(--section-padding) 0' }}>
         <div className="container">
           <div
@@ -510,7 +489,7 @@ const About: React.FC = () => {
             }}
           >
             <h2 className="section-title">
-              The RapidWave <br />
+              The Code Vertex <br />
               <span className="accent-text">Advantage</span>
             </h2>
             <div

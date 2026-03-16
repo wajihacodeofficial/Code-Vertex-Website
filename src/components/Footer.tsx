@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   return (
@@ -28,11 +29,7 @@ const Footer: React.FC = () => {
                 textDecoration: 'none',
               }}
             >
-              <img
-                src="/logo.png"
-                alt="RapidWave Logo"
-                style={{ width: '32px', height: '32px', borderRadius: '8px' }}
-              />
+              <Logo size={36} />
               <span
                 style={{
                   fontFamily: 'var(--font-heading)',
@@ -42,7 +39,7 @@ const Footer: React.FC = () => {
                   letterSpacing: '-0.02em',
                 }}
               >
-                RAPIDWAVE
+                CODE <span style={{ color: 'var(--accent-primary)' }}>VERTEX</span>
               </span>
             </Link>
             <p
@@ -52,9 +49,9 @@ const Footer: React.FC = () => {
                 lineHeight: '1.7',
               }}
             >
-              Advanced Software Engineering & Architectural Consulting.
-              Architecting global-scale infrastructure for mission-critical
-              enterprise operations.
+              Specialized Engineering & Digital Strategy.
+              Building high-performance Web, Mobile, and Desktop 
+              solutions with uncompromised quality and reliability.
             </p>
           </div>
 
@@ -117,12 +114,12 @@ const Footer: React.FC = () => {
                   }}
                   className="footer-link"
                 >
-                  Mobile App Development
+                  Native Android Development
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#logic"
+                  to="/services#maintenance"
                   onClick={() => window.scrollTo(0, 0)}
                   style={{
                     fontSize: '0.75rem',
@@ -131,7 +128,7 @@ const Footer: React.FC = () => {
                   }}
                   className="footer-link"
                 >
-                  Custom Logic Design
+                  Bug Fixing & Maintenance
                 </Link>
               </li>
             </ul>
@@ -224,7 +221,7 @@ const Footer: React.FC = () => {
             >
               <li>
                 <a
-                  href="https://www.linkedin.com/company/rapidwavesoftware/"
+                  href="https://www.linkedin.com/in/rehancodeofficial/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -240,7 +237,22 @@ const Footer: React.FC = () => {
 
               <li>
                 <a
-                  href="https://www.instagram.com/rapidwavesoftware/"
+                  href="https://github.com/rehancodeofficial"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: '0.75rem',
+                    color: 'var(--text-secondary)',
+                    textDecoration: 'none',
+                  }}
+                  className="footer-link"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/codevertexofficial/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -251,21 +263,6 @@ const Footer: React.FC = () => {
                   className="footer-link"
                 >
                   Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/people/RapidWave-Software/61587627214444/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--text-secondary)',
-                    textDecoration: 'none',
-                  }}
-                  className="footer-link"
-                >
-                  Facebook
                 </a>
               </li>
               <li>
@@ -429,7 +426,7 @@ const Footer: React.FC = () => {
               letterSpacing: '0.1em',
             }}
           >
-            © 2026 RAPIDWAVE SOFTWARE. ALL RIGHTS RESERVED.
+            © 2026 CODE VERTEX DIGITAL. ALL RIGHTS RESERVED.
           </p>
           <p
             style={{

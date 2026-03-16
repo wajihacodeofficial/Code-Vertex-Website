@@ -4,6 +4,8 @@ import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Sun, Moon } from 'lucide-react';
 
+import Logo from './Logo';
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -49,25 +51,7 @@ const Navbar: React.FC = () => {
               }}
             >
               <div style={{ position: 'relative' }}>
-                <img
-                  src="/logo.png"
-                  alt="RapidWave Logo"
-                  style={{
-                    width: '45px',
-                    height: '45px',
-                    borderRadius: '12px',
-                    boxShadow: '0 0 30px var(--accent-glow)',
-                  }}
-                />
-                <div
-                  style={{
-                    position: 'absolute',
-                    inset: -2,
-                    border: '1px solid var(--accent-primary)',
-                    borderRadius: '14px',
-                    opacity: 0.3,
-                  }}
-                />
+                <Logo size={48} />
               </div>
               <div
                 style={{
@@ -80,26 +64,25 @@ const Navbar: React.FC = () => {
                 <span
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontWeight: 900,
+                    fontWeight: 800,
                     color: 'var(--text-primary)',
-                    fontSize: '1.6rem',
-                    letterSpacing: '-0.04em',
-                    textTransform: 'uppercase',
+                    fontSize: '1.7rem',
+                    letterSpacing: '-0.03em',
                   }}
                 >
-                  RAPIDWAVE
+                  Code <span style={{ color: 'var(--accent-primary)' }}>Vertex</span>
                 </span>
                 <span
                   style={{
-                    fontSize: '11px',
-                    fontWeight: 800,
-                    color: 'var(--accent-primary)',
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    color: 'var(--text-muted)',
                     textTransform: 'uppercase',
-                    letterSpacing: '0.45em',
-                    marginTop: '0.2rem',
+                    letterSpacing: '0.4em',
+                    marginTop: '0.3rem',
                   }}
                 >
-                  SOFTWARE
+                  Digital Innovation
                 </span>
               </div>
             </Link>

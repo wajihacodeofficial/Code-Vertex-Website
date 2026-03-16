@@ -21,8 +21,8 @@ export const emailService = {
         {
           to_email: email,
           verification_code: code,
-          from_name: 'RapidWave Software',
-          reply_to: 'rapidwavesoftware@gmail.com',
+          from_name: 'Code Vertex Software',
+          reply_to: 'rehancodeofficial@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );
@@ -54,8 +54,8 @@ export const emailService = {
           to_email: email,
           subject,
           message,
-          from_name: 'RapidWave Software',
-          reply_to: 'rapidwavesoftware@gmail.com',
+          from_name: 'Code Vertex Software',
+          reply_to: 'rehancodeofficial@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );
@@ -82,8 +82,8 @@ export const emailService = {
         {
           to_email: email,
           full_name: fullName,
-          from_name: 'RapidWave Software',
-          reply_to: 'rapidwavesoftware@gmail.com',
+          from_name: 'Code Vertex Software',
+          reply_to: 'rehancodeofficial@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );

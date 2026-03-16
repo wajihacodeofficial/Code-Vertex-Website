@@ -6,103 +6,81 @@ const Portfolio: React.FC = () => {
   const [filter, setFilter] = useState('ALL');
 
   const projects = [
-    // Web Applications
-    // Web Applications
     {
       id: 1,
-      title: 'Bitedash',
+      title: 'BiteDash',
       category: 'Web',
-      image:
-        'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2832&auto=format&fit=crop',
-      desc: 'Multi-restaurant food delivery platform with real-time order tracking and payment integration.',
-      tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
+      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2832&auto=format&fit=crop',
+      desc: 'MERN-stack food delivery platform with real-time order tracking and restaurant orchestration.',
+      tech: ['MongoDB', 'Express', 'React', 'Node.js'],
     },
     {
       id: 2,
-      title: 'Medify',
+      title: 'TranspoPilot',
       category: 'Web',
-      image:
-        'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=2944&auto=format&fit=crop',
-      desc: 'Comprehensive pharmacy management system with inventory tracking and admin dashboard.',
-      tech: ['React', 'Express.js', 'MongoDB', 'Tailwind'],
+      image: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=2940&auto=format&fit=crop',
+      desc: 'AI-powered fleet management console for real-time operation monitoring and route optimization.',
+      tech: ['Next.js', 'Supabase', 'AI', 'Tailwind'],
     },
     {
       id: 3,
-      title: 'Clinic Management System',
-      category: 'Web',
-      image:
-        'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2944&auto=format&fit=crop',
-      desc: 'Digital healthcare solution for patient registration, appointment booking, and billing.',
-      tech: ['Next.js', 'PostgreSQL', 'Node.js'],
+      title: 'Medify',
+      category: 'SaaS',
+      image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=2944&auto=format&fit=crop',
+      desc: 'Scalable healthcare SaaS for clinical scheduling, patient records, and workflow automation.',
+      tech: ['React', 'Node.js', 'Vite', 'SQL'],
     },
     {
       id: 4,
-      title: 'E-Commerce Platform',
-      category: 'Web',
-      image:
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2815&auto=format&fit=crop',
-      desc: 'Scalable online retail solution with product catalog, shopping cart, and order tracking.',
-      tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
+      title: 'PakChat',
+      category: 'Mobile',
+      image: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=2940&auto=format&fit=crop',
+      desc: 'Native Android social app optimized for low-bandwidth messaging and real-time connectivity.',
+      tech: ['Android', 'Java', 'Firebase', 'XML'],
     },
     {
       id: 5,
-      title: 'LMS Platform',
-      category: 'Web',
-      image:
-        'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=2832&auto=format&fit=crop',
-      desc: 'Interactive learning management system with video lessons, quizzes, and progress tracking.',
-      tech: ['React', 'Express.js', 'MongoDB'],
+      title: 'Atmos',
+      category: 'SaaS',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2815&auto=format&fit=crop',
+      desc: 'High-performance weather dashboard with live telemetry and predictive environmental models.',
+      tech: ['Next.js', 'TypeScript', 'Prisma', 'API'],
     },
-    // Mobile Applications
     {
       id: 6,
-      title: 'On-Demand Service App',
-      category: 'Mobile',
-      image:
-        'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2940&auto=format&fit=crop',
-      desc: 'Real-time booking application with location tracking and secure payment gateway.',
-      tech: ['Flutter', 'Firebase', 'Google Maps API'],
+      title: 'CureVirtual',
+      category: 'Web',
+      image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2944&auto=format&fit=crop',
+      desc: 'Virtual healthcare ecosystem for secure consultations and digital medical orchestration.',
+      tech: ['MongoDB', 'Express', 'React', 'Node.js'],
     },
     {
       id: 7,
-      title: 'Finance Tracker',
-      category: 'Mobile',
-      image:
-        'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2940&auto=format&fit=crop',
-      desc: 'Personal finance manager with income/expense analytics, charts, and secure storage.',
-      tech: ['Flutter', 'Firebase', 'Charts'],
+      title: 'StockPro',
+      category: 'Desktop',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2944&auto=format&fit=crop',
+      desc: 'Professional Java-based ERP for inventory management and automated fiscal reporting.',
+      tech: ['Java', 'Swing', 'MySQL', 'JDBC'],
     },
     {
       id: 8,
-      title: 'Cloud Kitchen App',
+      title: 'RideShare',
       category: 'Mobile',
-      image:
-        'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2944&auto=format&fit=crop',
-      desc: 'Mobile ordering system for cloud kitchens with menu browsing and delivery tracking.',
-      tech: ['Flutter', 'Firebase', 'Socket.io'],
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2944&auto=format&fit=crop',
+      desc: 'Real-time mobility app with GPS tracking and native Android performance.',
+      tech: ['Android', 'Java', 'Google Maps', 'Firebase'],
     },
-    // Desktop Applications
     {
       id: 9,
-      title: 'Organizer Desktop',
+      title: 'ClinicCore',
       category: 'Desktop',
-      image:
-        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2944&auto=format&fit=crop',
-      desc: 'Productivity tool for task management, scheduling, and seamless data export.',
-      tech: ['Electron', 'React', 'Node.js'],
-    },
-    {
-      id: 10,
-      title: 'HR Management System',
-      category: 'Desktop',
-      image:
-        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2940&auto=format&fit=crop',
-      desc: 'Enterprise-grade system for employee management, payroll processing, and reporting.',
-      tech: ['React', 'Spring Boot', 'PostgreSQL'],
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2940&auto=format&fit=crop',
+      desc: 'Enterprise hospital management system with secure medical records and JavaFX interface.',
+      tech: ['JavaFX', 'MySQL', 'JDBC', 'Relational DB'],
     },
   ];
 
-  const categories = ['ALL', 'WEB', 'MOBILE', 'DESKTOP', 'CUSTOM'];
+  const categories = ['ALL', 'WEB', 'MOBILE', 'DESKTOP', 'SAAS'];
 
   const filteredProjects =
     filter === 'ALL'
@@ -121,32 +99,6 @@ const Portfolio: React.FC = () => {
             <h1 className="section-title">
               Engineering <span className="accent-text">Showcase</span>
             </h1>
-
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '1.5rem',
-                marginTop: '1.5rem',
-              }}
-            >
-              <button
-                className="btn btn-outline"
-                style={{
-                  padding: '0.8rem 2rem',
-                  fontSize: '0.7rem',
-                  letterSpacing: '0.15em',
-                }}
-                onClick={() => {
-                  /* Placeholder for Client Portal action */
-                  alert(
-                    'Client Portal Access Restricted: Authorized Personnel Only'
-                  );
-                }}
-              >
-                ACCESS CLIENT PORTAL
-              </button>
-            </div>
             <p
               className="text-text-secondary"
               style={{
@@ -162,7 +114,6 @@ const Portfolio: React.FC = () => {
             </p>
           </header>
 
-          {/* Premium Filter System */}
           <div
             style={{
               display: 'flex',
@@ -178,6 +129,7 @@ const Portfolio: React.FC = () => {
                 key={c}
                 onClick={() => setFilter(c)}
                 className="btn"
+                aria-label={`Filter by ${c}`}
                 style={{
                   padding: '1rem 2.5rem',
                   fontSize: '0.7rem',
@@ -218,6 +170,7 @@ const Portfolio: React.FC = () => {
                     <img
                       src={p.image}
                       alt={p.title}
+                      loading="lazy"
                       style={{
                         width: '100%',
                         height: '100%',
@@ -277,8 +230,9 @@ const Portfolio: React.FC = () => {
                       <div
                         style={{
                           display: 'flex',
-                          gap: '1rem',
+                          gap: '0.5rem',
                           marginBottom: '2rem',
+                          flexWrap: 'wrap'
                         }}
                       >
                         {p.tech.map((t, k) => (
@@ -302,6 +256,7 @@ const Portfolio: React.FC = () => {
                       <Link
                         to={`/portfolio/${p.id}`}
                         className="btn btn-primary"
+                        aria-label={`View Case Study for ${p.title}`}
                         style={{
                           padding: '0.8rem 2rem',
                           fontSize: '0.65rem',
@@ -321,7 +276,6 @@ const Portfolio: React.FC = () => {
         </div>
       </section>
 
-      {/* Final Call to Action */}
       <section style={{ padding: 'var(--section-padding) 0' }}>
         <div className="container text-center">
           <div
@@ -348,6 +302,7 @@ const Portfolio: React.FC = () => {
             <a
               href="/contact"
               className="btn btn-primary"
+              aria-label="Initiate Protocol - Contact Us"
               style={{ fontSize: '0.8rem', padding: '1.5rem 4rem' }}
             >
               Initiate Protocol
@@ -367,4 +322,3 @@ const Portfolio: React.FC = () => {
 };
 
 export default Portfolio;
-// Project showcase

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useWaveDispatch } from '../context/WaveContext';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ShieldCheck, Cpu, Layers, Search, LineChart } from 'lucide-react';
@@ -8,7 +7,6 @@ import { ShieldCheck, Cpu, Layers, Search, LineChart } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const Methodology: React.FC = () => {
-  const { setWaveParams } = useWaveDispatch();
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const steps = [
@@ -17,53 +15,55 @@ const Methodology: React.FC = () => {
       id: '01',
       desc: 'Deep analysis of the business problem and existing infrastructure to define a clear technical roadmap.',
       icon: <Search size={32} />,
-      wave: { color: '#00d2ff', speed: 1.2, frequency: 0.25 },
     },
     {
       title: 'Architectural Design',
       id: '02',
       desc: 'Defining the tech stack, data models, and cloud-scaling strategy using industry-leading patterns.',
       icon: <Layers size={32} />,
-      wave: { color: '#0070f3', speed: 1.8, frequency: 0.35 },
     },
     {
       title: 'Agile Implementation',
       id: '03',
       desc: 'Weekly sprints with continuous integration, unit testing, and stakeholder feedback loops.',
       icon: <Cpu size={32} />,
-      wave: { color: '#00ffcc', speed: 2.2, frequency: 0.45 },
     },
     {
       title: 'Rigorous Validation',
       id: '04',
       desc: 'End-to-end testing, security penetration audits, and load testing to ensure production stability.',
       icon: <ShieldCheck size={32} />,
-      wave: { color: '#ff3333', speed: 1, frequency: 0.15 },
     },
     {
       title: 'Maintenance & Scale',
       id: '05',
       desc: 'Post-launch monitoring, routine security updates, and performance optimization for growing traffic.',
       icon: <LineChart size={32} />,
-      wave: { color: '#00d2ff', speed: 1.2, frequency: 0.25 },
     },
   ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      steps.forEach((step, i) => {
-        ScrollTrigger.create({
-          trigger: `.step-${i}`,
-          start: 'top center',
-          end: 'bottom center',
-          onEnter: () => setWaveParams(step.wave),
-          onEnterBack: () => setWaveParams(step.wave),
-        });
+      gsap.utils.toArray<HTMLElement>('.protocol-step').forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
       });
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [setWaveParams]);
+  }, []);
 
   return (
     <div className="methodology-page" ref={sectionRef}>
@@ -99,7 +99,7 @@ const Methodology: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
-                className={`glass-card protocol-step-grid step-${i}`}
+                className={`glass-card protocol-step-grid protocol-step step-${i}`}
                 style={{
                   padding: '4rem',
                   display: 'grid',

@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const CodeSnippet: React.FC = () => {
-  const code = `// RapidWave High-Performance Scraper
-const scrapeEngine = async (blueprint) => {
+  const code = `// Code Vertex High-Performance Core
+const executionEngine = async (blueprint) => {
   const pool = new ConnectionPool({
     max: 50,
     strategy: 'round-robin'
@@ -11,7 +11,7 @@ const scrapeEngine = async (blueprint) => {
 
   return await pool.execute(async (ctx) => {
     const result = await ctx.fetch(blueprint.target);
-    return analyzeWaves(result.stream);
+    return analyzeLogic(result.stream);
   });
 };`;
 
@@ -104,11 +104,11 @@ const scrapeEngine = async (blueprint) => {
             fontWeight: 900,
           }}
         >
-          RW
+          CV
         </div>
         <div>
           <h5 style={{ fontSize: '0.8rem', margin: 0 }}>
-            RapidWave Engineering
+            Code Vertex Engineering
           </h5>
           <p
             style={{

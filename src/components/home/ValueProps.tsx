@@ -5,21 +5,21 @@ const ValueProps: React.FC = () => {
   const props = [
     {
       title: 'Precision Engineering',
-      desc: 'We don’t believe in "good enough." Our code follows the strictest architectural standards for safety and scale.',
-      metric: '99.9%',
-      label: 'UPTIME FOCUS',
+      desc: 'We minimize technical debt by following rigorous architectural standards, ensuring long-term maintainability and system integrity.',
+      metric: 'ELITE',
+      label: 'ARCHITECTURE',
     },
     {
-      title: 'Rapid Deployment',
-      desc: 'Our modular development workflow ensures your MVP or enterprise update ships faster than industry averages.',
-      metric: '40%',
-      label: 'FASTER LOADS',
+      title: 'Distributed Scaling',
+      desc: 'Our modular development workflow ensures your backend can handle thousands of concurrent requests with zero latency spikes.',
+      metric: 'HIGH',
+      label: 'AVAILABILITY',
     },
     {
-      title: 'Strategic Partnership',
-      desc: 'Direct access to senior engineering bandwidth and architectural consultation. No account managers, just technical experts.',
-      metric: '0',
-      label: 'BUREAUCRACY',
+      title: 'Technical Consultation',
+      desc: 'Direct access to senior engineering bandwidth. We eliminate layers of management to focus on pure technical solutioning.',
+      metric: 'DIRECT',
+      label: 'SYNC',
     },
   ];
 
@@ -39,10 +39,10 @@ const ValueProps: React.FC = () => {
           style={{ gap: '8rem', alignItems: 'center' }}
         >
           <div>
-            <span className="text-label">Why RapidWave</span>
+            <span className="text-label">Why Code Vertex</span>
             <h2 className="section-title">
               Engineered for <br />
-              <span className="accent-text">Performance</span>
+              <span className="accent-text">Maximum Impact</span>
             </h2>
             <p
               className="text-text-secondary"
@@ -53,9 +53,10 @@ const ValueProps: React.FC = () => {
                 marginBottom: '4rem',
               }}
             >
-              We've trimmed the fat of traditional agencies. You get direct
-              access to modern stacks and elite engineering talent focused on
-              one goal: your product's success.
+              We’ve positioned ourselves at the intersection of precision code 
+              and visionary strategy. Code Vertex provides direct access to 
+              senior engineering minds, delivering scalable solutions 
+              that drive high-value business results.
             </p>
             <div
               style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}

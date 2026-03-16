@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Experience from '../experience/Experience';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
-import LoadingScreen from '../components/premium/LoadingScreen';
-import { WaveProvider, useWave } from '../context/WaveContext';
+import ThreeBackground from '../components/ThreeBackground';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,12 +11,9 @@ interface LayoutProps {
 
 const LayoutContent: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
-  const { resetWaveParams } = useWave();
-
   // Scroll to top on navigation or handle hash
   useEffect(() => {
     window.scrollTo(0, 0);
-    resetWaveParams(); // Reset waves on navigation
 
     if (location.hash) {
       const id = location.hash.replace('#', '');
@@ -29,15 +24,14 @@ const LayoutContent: React.FC<LayoutProps> = ({ children }) => {
         }, 100);
       }
     }
-  }, [location, resetWaveParams]);
+  }, [location]);
 
   return (
     <div
       className="layout-root"
       style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
     >
-      <LoadingScreen />
-      <Experience />
+      <ThreeBackground />
       <Navbar />
 
       <main
@@ -75,9 +69,7 @@ const LayoutContent: React.FC<LayoutProps> = ({ children }) => {
 };
 
 const Layout: React.FC<LayoutProps> = (props) => (
-  <WaveProvider>
-    <LayoutContent {...props} />
-  </WaveProvider>
+  <LayoutContent {...props} />
 );
 
 const WhatsAppButton = () => {

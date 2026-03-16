@@ -97,15 +97,25 @@ const Contact: React.FC = () => {
               color: 'var(--text-muted)',
             }}
           >
-            <span>© 2026 RAPIDWAVE IO</span>
+            <span>© 2026 CODE VERTEX</span>
             <div
               className="flex gap-4"
               style={{ display: 'flex', gap: '2rem' }}
             >
-              <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <a 
+                href="https://www.linkedin.com/in/rehancodeofficial/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
                 LinkedIn
               </a>
-              <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <a 
+                href="https://github.com/rehancodeofficial" 
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
                 Github
               </a>
             </div>

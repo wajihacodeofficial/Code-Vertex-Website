@@ -17,7 +17,7 @@ const FAQ: React.FC = () => {
     },
     {
       q: 'How is project communication handled?',
-      a: 'Directly. RapidWave operates with a flat technical structure. Clients maintain a direct conduit to our lead engineering bandwidth throughout the entire lifecycle—from technical audit to global deployment.',
+      a: 'Directly. Code Vertex operates with a flat technical structure. Clients maintain a direct conduit to our lead engineering bandwidth throughout the entire lifecycle—from technical audit to global deployment.',
     },
     {
       q: 'Can you migrate legacy systems to modern stacks?',

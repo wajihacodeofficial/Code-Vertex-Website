@@ -36,7 +36,7 @@ const TermsConditions: React.FC = () => {
                 <p
                   style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}
                 >
-                  By accessing or using the RapidWave Software website and
+                  By accessing or using the Code Vertex Software website and
                   services, you agree to be bound by these Terms and Conditions.
                   Our services are provided to help you build and scale digital
                   solutions, and your usage constitutes acceptance of these
@@ -57,9 +57,9 @@ const TermsConditions: React.FC = () => {
                 <p
                   style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}
                 >
-                  All code, designs, and content provided by RapidWave Software,
+                  All code, designs, and content provided by Code Vertex Software,
                   unless otherwise specified in a signed service agreement,
-                  remain the intellectual property of RapidWave Software.
+                  remain the intellectual property of Code Vertex Software.
                   Unauthorized reproduction or redistribution is strictly
                   prohibited.
                 </p>
@@ -99,7 +99,7 @@ const TermsConditions: React.FC = () => {
                 <p
                   style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}
                 >
-                  RapidWave Software shall not be liable for any indirect,
+                  Code Vertex Software shall not be liable for any indirect,
                   incidental, or consequential damages resulting from the use or
                   inability to use our services or website.
                 </p>

@@ -32,7 +32,7 @@ const StatCounter = ({
   );
 };
 
-const WhyRapidWave: React.FC = () => {
+const WhyCodeVertex: React.FC = () => {
   return (
     <section className="section-padding bg-secondary relative">
       <div className="container">
@@ -45,19 +45,19 @@ const WhyRapidWave: React.FC = () => {
           >
             <h2 className="text-4xl md:text-5xl font-heading mb-6">
               Built for{' '}
-              <span className="text-accent-primary">Your Success</span>
+              <span className="text-accent-primary">Scale & Stability</span>
             </h2>
             <p className="text-lg text-text-secondary mb-10 leading-relaxed">
-              We focus on delivering software that solves real business
-              problems. RapidWave is your dedicated partner for building
-              reliable, maintainable, and beautiful applications.
+              We deliver software that solves complex business problems. 
+              Code Vertex is your dedicated engineering partner for building 
+              resilient, maintainable, and high-performance digital infrastructure.
             </p>
             <div className="space-y-6">
               {[
-                'Tailor-made Software Solutions',
-                'User-Centric Design Focus',
-                'Maintenance & 24/7 Support',
-                'Clean & Maintainable Code',
+                'Hardened Enterprise Foundations',
+                'User-Centric Architecture Focus',
+                'End-to-End Technical Support',
+                'Clean & Scalable Codebases',
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <div className="w-6 h-6 rounded-full bg-accent-primary/20 flex items-center justify-center text-accent-primary">
@@ -81,10 +81,10 @@ const WhyRapidWave: React.FC = () => {
           </motion.div>
 
           <div className="grid grid-cols-2 gap-8 glass p-12 rounded-3xl border border-border-color">
-            <StatCounter value={50} label="Projects Completed" suffix="+" />
-            <StatCounter value={100} label="Client Satisfaction" suffix="%" />
-            <StatCounter value={2} label="Expert Developers" />
-            <StatCounter value={100} label="Commitment" suffix="%" />
+            <StatCounter value={12} label="Expert Sprints" suffix="+" />
+            <StatCounter value={4} label="Modern Tech Stacks" />
+            <StatCounter value={2} label="Expert Architects" />
+            <StatCounter value={24} label="Uptime Monitoring" suffix="/7" />
           </div>
         </div>
       </div>
@@ -92,4 +92,4 @@ const WhyRapidWave: React.FC = () => {
   );
 };
 
-export default WhyRapidWave;
+export default WhyCodeVertex;

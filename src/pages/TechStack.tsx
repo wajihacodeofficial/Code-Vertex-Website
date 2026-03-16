@@ -24,29 +24,30 @@ const TechStack: React.FC = () => {
       icon: '🕸️',
     },
     {
-      title: 'Mobile Ecosystems',
-      desc: 'Seamless cross-platform deployments that feel truly native. We handle the complexity of iOS and Android with unified technical standards.',
+      title: 'Native Android Development',
+      desc: 'High-performance native mobile applications engineered for the Android ecosystem. Optimized for security, hardware integration, and fluid performance.',
       techs: [
-        'Flutter',
+        'Java',
+        'Android SDK',
         'Firebase',
-        'Native Modules',
-        'Fastlane',
-        'App Store Ops',
+        'SQLite',
+        'REST APIs',
+        'Material Design',
       ],
       icon: '📱',
     },
     {
-      title: 'Design-to-Code',
-      desc: 'Bridge the gap between vision and reality. We transform high-fidelity Figma designs into pixel-perfect, performant React components.',
+      title: 'Bug Fixing & Maintenance',
+      desc: 'Dedicated technical support for legacy codebases and existing systems. We specialize in identifying bottlenecks and resolving mission-critical bugs.',
       techs: [
-        'Figma',
-        'Framer Motion',
-        'Tailwind CSS',
-        'Storybook',
-        'Lottie',
-        'Three.js',
+        'Vulnerability Patching',
+        'Refactoring',
+        'Performance Audits',
+        'System Hardening',
+        'Legacy Migration',
+        '24/7 Support',
       ],
-      icon: '🎨',
+      icon: '🛠️',
     },
   ];
 
@@ -142,7 +143,7 @@ const TechStack: React.FC = () => {
             style={{ padding: '6rem', textAlign: 'center' }}
           >
             <h2 className="section-title">
-              The <span className="accent-text">RapidWave</span> Engineering
+              The <span className="accent-text">Code Vertex</span> Engineering
               Philosophy
             </h2>
             <div

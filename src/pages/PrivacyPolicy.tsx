@@ -97,8 +97,8 @@ const PrivacyPolicy: React.FC = () => {
                   style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}
                 >
                   You have the right to request access to, correction of, or
-                  deletion of your personal data held by RapidWave Software.
-                  Contact hello@rapidwave.io for any data residency inquiries.
+                  deletion of your personal data held by Code Vertex Software.
+                  Contact rehancodeofficial@gmail.com for any data residency inquiries.
                 </p>
               </section>
             </div>

@@ -5,47 +5,45 @@ const FeaturedWork: React.FC = () => {
   return (
     <section
       id="work"
-      style={{ borderTop: '1px solid var(--card-border)', paddingTop: '150px' }}
+      style={{ borderTop: '1px solid var(--card-border)', paddingTop: '100px' }}
     >
       <div className="container">
         {[
           {
+            title: 'PAKCHAT',
+            subtitle: 'NATIVE ANDROID',
+            desc: 'High-efficiency social messaging console optimized for real-time synchronization in low-bandwidth environments.',
+            tags: ['ANDROID', 'JAVA', 'FIREBASE'],
+            img: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=2940&auto=format&fit=crop',
+            result: 'Engineered sub-50ms message delivery and local offline persistence.',
+            link: '/portfolio/4',
+          },
+          {
             title: 'BITEDASH',
-            subtitle: 'PLATFORM',
-            desc: 'A sophisticated restaurant management and food delivery ecosystem that streamlines orders, payments, and kitchen operations with sub-second synchronization.',
+            subtitle: 'MERN PLATFORM',
+            desc: 'A full-stack food delivery ecosystem handling complex order lifecycles with high-concurrency reliability.',
             tags: ['MONGODB', 'EXPRESS', 'REACT', 'NODE'],
             img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2832&auto=format&fit=crop',
-            result:
-              'Processing 4k+ daily orders across 12 strategic locations.',
+            result: '99.9% Core uptime across multi-tenant restaurant networks.',
             link: '/portfolio/1',
           },
           {
-            title: 'MEDIFY',
-            subtitle: 'SYSTEM',
-            desc: 'Intelligent pharmacy management core designed to optimize inventory turnover and automate regulation compliance with predictive analytics.',
-            tags: ['REACT', 'EXPRESS', 'MONGODB', 'TAILWIND'],
-            img: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=2944&auto=format&fit=crop',
-            result:
-              'Reduced medication waste by 40% through automated procurement.',
+            title: 'TRANSPOPILOT',
+            subtitle: 'AI LOGISTICS',
+            desc: 'Enterprise AI telemetry system for mission-critical fleet management and route optimization.',
+            tags: ['NEXT.JS', 'SUPABASE', 'AI', 'SQL'],
+            img: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=2940&auto=format&fit=crop',
+            result: 'AI-driven predictive efficiency gains of +25% in operations.',
             link: '/portfolio/2',
           },
           {
-            title: 'ON-DEMAND',
-            subtitle: 'APP',
-            desc: 'A location-based service marketplace connecting providers and users with military-grade precision and speed.',
-            tags: ['FLUTTER', 'FIREBASE', 'GOOGLE MAPS'],
-            img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2940&auto=format&fit=crop',
-            result: 'Sub-second geospatial matching for 50k+ active users.',
-            link: '/portfolio/6',
-          },
-          {
-            title: 'HRMS',
-            subtitle: 'ENTERPRISE',
-            desc: 'Comprehensive human capital management fortress ensuring data sovereignty and payroll precision for large-scale organizations.',
-            tags: ['REACT', 'SPRING BOOT', 'POSTGRESQL'],
-            img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2940&auto=format&fit=crop',
-            result: 'Zero payroll errors and 70% reduction in admin time.',
-            link: '/portfolio/10',
+            title: 'STOCKPRO',
+            subtitle: 'JAVA DESKTOP',
+            desc: 'Professional ERP management panel with real-time inventory analytics and JDBC persistence.',
+            tags: ['JAVA', 'SWING', 'MYSQL', 'JDBC'],
+            img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2944&auto=format&fit=crop',
+            result: 'Zero-latency local orchestration with automated fiscal reporting.',
+            link: '/portfolio/7',
           },
         ].map((project, i) => (
           <div
@@ -53,8 +51,8 @@ const FeaturedWork: React.FC = () => {
             className="grid grid-2"
             style={{
               alignItems: 'center',
-              gap: '8rem',
-              marginBottom: '10rem',
+              gap: '6rem',
+              marginBottom: '8rem',
               direction: i % 2 === 1 ? 'rtl' : 'ltr',
             }}
           >
@@ -69,19 +67,19 @@ const FeaturedWork: React.FC = () => {
               <h2
                 className="section-title"
                 style={{
-                  fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                  marginBottom: '2.5rem',
+                  fontSize: 'clamp(2.5rem, 6vw, 4.2rem)',
+                  marginBottom: '2rem',
                 }}
               >
                 {project.title} <br />
-                <span className="accent-text">{project.subtitle}</span>
+                <span className="accent-text" style={{ fontSize: '0.8em' }}>{project.subtitle}</span>
               </h2>
               <p
                 className="text-text-secondary"
                 style={{
                   fontSize: '1.2rem',
                   lineHeight: '1.8',
-                  marginBottom: '3rem',
+                  marginBottom: '2.5rem',
                   maxWidth: '500px',
                 }}
               >
@@ -89,15 +87,15 @@ const FeaturedWork: React.FC = () => {
               </p>
 
               <div
-                style={{ display: 'flex', gap: '1rem', marginBottom: '4rem' }}
+                style={{ display: 'flex', gap: '0.8rem', marginBottom: '3.5rem', flexWrap: 'wrap' }}
               >
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
                     style={{
-                      fontSize: '0.7rem',
+                      fontSize: '0.65rem',
                       fontWeight: 800,
-                      padding: '0.6rem 1.5rem',
+                      padding: '0.5rem 1.4rem',
                       borderRadius: '100px',
                       border: '1px solid var(--card-border)',
                       color: 'var(--text-muted)',
@@ -117,11 +115,12 @@ const FeaturedWork: React.FC = () => {
                 }}
               >
                 <motion.a
-                  whileHover={{ scale: 1.05, translateY: -5 }}
-                  href={`https://wa.me/923177760506?text=${encodeURIComponent(`Hello RapidWave Technical Team, I am interested in learning more about the ${project.title} project. Could you please share more details?`)}`}
+                  whileHover={{ scale: 1.02, translateY: -3 }}
+                  href={`https://wa.me/923177760506?text=${encodeURIComponent(`Hello Code Vertex Technical Team, I am interested in learning more about the ${project.title} project. Could you please share more details?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline"
+                  aria-label={`Inquire about ${project.title}`}
                   style={{
                     padding: '1.2rem 3rem',
                     fontSize: '0.75rem',
@@ -134,29 +133,16 @@ const FeaturedWork: React.FC = () => {
                   GET PROJECT DETAILS
                   <span style={{ fontSize: '1rem' }}>↗</span>
                 </motion.a>
-                <p
-                  style={{
-                    fontSize: '0.65rem',
-                    color: 'var(--text-muted)',
-                    opacity: 0.7,
-                    fontStyle: 'italic',
-                    maxWidth: '300px',
-                  }}
-                >
-                  * This will securely redirect you to WhatsApp. No message will
-                  be sent without your explicit consent.
-                </p>
               </div>
             </motion.div>
 
-            {/* Premium Card Display */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               whileHover={{
-                rotateY: i % 2 === 0 ? 3 : -3,
-                rotateX: -2,
+                rotateY: i % 2 === 0 ? 2 : -2,
+                rotateX: -1,
                 translateY: -5,
                 boxShadow: '0 30px 60px var(--accent-glow)',
               }}
@@ -169,8 +155,8 @@ const FeaturedWork: React.FC = () => {
               className="glass-card"
               style={{
                 padding: 0,
-                aspectRatio: '4/5',
-                borderRadius: '3rem',
+                aspectRatio: '16/10',
+                borderRadius: '2.5rem',
                 direction: 'ltr',
                 perspective: '1000px',
                 transformStyle: 'preserve-3d',
@@ -187,6 +173,7 @@ const FeaturedWork: React.FC = () => {
                 <img
                   src={project.img}
                   alt={project.title}
+                  loading="lazy"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -201,8 +188,8 @@ const FeaturedWork: React.FC = () => {
                     position: 'absolute',
                     inset: 0,
                     background:
-                      'linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 70%)',
-                    padding: '4rem',
+                      'linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 60%)',
+                    padding: '3rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
@@ -210,19 +197,19 @@ const FeaturedWork: React.FC = () => {
                 >
                   <span
                     style={{
-                      fontSize: '0.7rem',
+                      fontSize: '0.65rem',
                       fontWeight: 900,
                       color: 'var(--accent-primary)',
                       letterSpacing: '0.5em',
                       textTransform: 'uppercase',
-                      marginBottom: '1rem',
+                      marginBottom: '0.8rem',
                     }}
                   >
                     PROJECT RESULTS
                   </span>
                   <p
                     style={{
-                      fontSize: '1.25rem',
+                      fontSize: '1.1rem',
                       fontWeight: 700,
                       color: '#ffffff',
                     }}
@@ -235,7 +222,7 @@ const FeaturedWork: React.FC = () => {
               <style>{`
                 .glass-card:hover .hover-img {
                   filter: grayscale(0%) brightness(1);
-                  transform: scale(1.05);
+                  transform: scale(1.03);
                 }
               `}</style>
             </motion.div>

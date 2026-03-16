@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
           name: formData.identity,
           email: formData.email,
           message: formData.scope,
-          subject: `RapidWave Software | Web Message - New Inquiry from ${formData.identity}`,
+          subject: `Code Vertex Software | Web Message - New Inquiry from ${formData.identity}`,
         }),
       });
 
@@ -121,7 +121,7 @@ const Contact: React.FC = () => {
                     EMAIL US
                   </h4>
                   <p style={{ fontSize: '1.1rem', fontWeight: 800 }}>
-                    rapidwavesoftware@gmail.com
+                    rehancodeofficial@gmail.com
                   </p>
                 </div>
                 <div>
@@ -162,15 +162,15 @@ const Contact: React.FC = () => {
                     {[
                       {
                         name: 'LinkedIn',
-                        url: 'https://www.linkedin.com/company/rapidwavesoftware/',
+                        url: 'https://www.linkedin.com/in/rehancodeofficial/',
+                      },
+                      {
+                        name: 'GitHub',
+                        url: 'https://github.com/rehancodeofficial',
                       },
                       {
                         name: 'Instagram',
-                        url: 'https://www.instagram.com/rapidwavesoftware/',
-                      },
-                      {
-                        name: 'Facebook',
-                        url: 'https://www.facebook.com/people/RapidWave-Software/61587627214444/',
+                        url: 'https://www.instagram.com/codevertexofficial/',
                       },
                     ].map((item) => (
                       <a

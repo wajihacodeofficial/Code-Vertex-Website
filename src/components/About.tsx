@@ -13,16 +13,16 @@ const About: React.FC = () => {
             transition={{ duration: 1.2, ease: 'easeOut' }}
           >
             <span className="text-accent-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-6 block">
-              Our Engineering DNA
+              Neural Engineering DNA
             </span>
             <h2 className="section-title">
               BUILT FOR <br />
-              <span className="accent-text">EXTREME</span> SCALE
+              <span className="accent-text">COGNITIVE</span> SCALE
             </h2>
             <p className="text-lg text-secondary leading-relaxed mt-8 max-w-lg">
-              We don't just build software. We engineer competitive advantages.
-              RapidWave specializes in high-stakes digital infrastructure for
-              global leaders.
+              We don't just build software. We engineer intelligent systems that think and scale.
+              Code Vertex specializes in high-stakes neural infrastructure for
+              the next generation of digital leaders.
             </p>
           </motion.div>
 

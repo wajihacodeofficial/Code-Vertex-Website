@@ -17,8 +17,8 @@ const TechStrip: React.FC = () => {
     },
     {
       category: 'Mobile Apps',
-      stack: 'CROSS-PLATFORM',
-      details: 'Flutter • Firebase • App Store Ops',
+      stack: 'NATIVE ANDROID',
+      details: 'Android SDK • Java • Firebase • SQLite',
       icon: '📱',
     },
   ];

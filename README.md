@@ -1,4 +1,4 @@
-# RapidWave Software | Engineering Digital Waves of Innovation
+# Code Vertex | Engineering Code, Elevating Ideas
 
 High-end digital engineering and software development for startups and global enterprises. Specializing in scalable systems, AI, and performance-driven solutions.
 
@@ -52,6 +52,5 @@ npm run preview
 
 ## 📧 Contact
 
-- **Email**: rapidwavesoftware@gmail.com
-- **Website**: [rapidwavesoftware.com](https://rapidwavesoftware.com)
--
+- **Email**: rehancodeofficial@gmail.com
+- **Website**: [codevertex.io](https://codevertex.io)
