@@ -1,31 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Hero from '../components/Hero';
 import TechStrip from '../components/home/TechStrip';
 import ProcessSection from '../components/home/ProcessSection';
 import ValueProps from '../components/home/ValueProps';
 import FeaturedWork from '../components/FeaturedWork';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { motion } from 'framer-motion';
 
 const Home: React.FC = () => {
-  useEffect(() => {
-    // Premium reveal for section headers
-    gsap.utils.toArray('.section-reveal').forEach((el: any) => {
-      gsap.from(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power3.out',
-      });
-    });
-  }, []);
-
   return (
     <>
       <Hero />
@@ -37,6 +18,7 @@ const Home: React.FC = () => {
 
       {/* Engineering Excellence Section */}
       <section
+        id="philosophy"
         style={{
           padding: 'var(--section-padding) 0',
           background: 'var(--bg-secondary)',
@@ -46,7 +28,12 @@ const Home: React.FC = () => {
         className="bg-secondary"
       >
         <div className="container">
-          <header className="section-reveal" style={{ textAlign: 'center', marginBottom: '6rem' }}>
+          <motion.header 
+            initial={{ opacity: 1, y: 0 }} /* Guaranteed visibility */
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: '6rem' }}
+          >
             <span className="text-label">Our Philosophy</span>
             <h2 className="section-title">
               Engineering <span className="accent-text">Excellence</span>
@@ -58,7 +45,7 @@ const Home: React.FC = () => {
               We focus on building scalable, maintainable, and high-performance technical foundations
               that empower modern businesses to lead.
             </p>
-          </header>
+          </motion.header>
 
           <div className="grid grid-3" style={{ gap: '30px' }}>
             {[
@@ -75,14 +62,18 @@ const Home: React.FC = () => {
                 desc: 'Production-grade security protocols integrated into every development sprint to safeguard your digital assets.'
               }
             ].map((value, i) => (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="glass-card"
                 style={{ padding: '3rem', textAlign: 'center' }}
               >
                 <h4 style={{ fontSize: '1.3rem', marginBottom: '1rem', color: 'var(--accent-primary)' }}>{value.title}</h4>
                 <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', fontSize: '0.95rem' }}>{value.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -90,18 +81,24 @@ const Home: React.FC = () => {
 
       {/* Featured Deployments */}
       <section
+        id="case-studies"
         style={{
           padding: 'var(--section-padding) 0',
           background: 'var(--bg-primary)',
         }}
       >
         <div className="container">
-          <header className="section-reveal" style={{ marginBottom: '8rem', textAlign: 'center' }}>
+          <motion.header 
+            initial={{ opacity: 1, y: 0 }} /* Guaranteed visibility */
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ marginBottom: '8rem', textAlign: 'center' }}
+          >
             <span className="text-label">Case Studies</span>
             <h2 className="section-title">
               Strategic <span className="accent-text">Technical Wins</span>
             </h2>
-          </header>
+          </motion.header>
 
           <FeaturedWork />
         </div>
@@ -111,12 +108,16 @@ const Home: React.FC = () => {
       <ProcessSection />
 
       {/* CTA Section */}
-      <section style={{ padding: 'var(--section-padding) 0' }}>
+      <section id="cta" style={{ padding: 'var(--section-padding) 0' }}>
         <div className="container">
-          <div
-            className="glass-card section-reveal"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="glass-card"
             style={{
-              padding: '6rem',
+              padding: '6rem 2rem',
               textAlign: 'center',
               background:
                 'linear-gradient(135deg, rgba(255, 195, 0, 0.05) 0%, rgba(0, 207, 255, 0.05) 100%)',
@@ -141,7 +142,7 @@ const Home: React.FC = () => {
             </p>
             <div
               className="cta-buttons"
-              style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}
+              style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}
             >
               <button
                 onClick={() => {
@@ -154,7 +155,7 @@ const Home: React.FC = () => {
               </button>
               <button
                 onClick={() => {
-                  window.location.href = '/methodology';
+                  window.location.href = '/protocol';
                   window.scrollTo(0, 0);
                 }}
                 className="btn btn-outline"
@@ -162,7 +163,7 @@ const Home: React.FC = () => {
                 OUR METHODOLOGY
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

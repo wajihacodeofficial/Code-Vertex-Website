@@ -1,38 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
 
 const Hero: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current && titleRef.current) {
-      const ctx = gsap.context(() => {
-        gsap.from('.hero-reveal', {
-          y: 60,
-          opacity: 0,
-          duration: 1.5,
-          stagger: 0.2,
-          ease: 'power4.out',
-        });
-
-        gsap.to('.hero-float', {
-          y: -20,
-          duration: 2,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        });
-      }, containerRef);
-
-      return () => ctx.revert();
-    }
-  }, []);
-
   return (
     <section
-      ref={containerRef}
       style={{
         height: '100vh',
         width: '100%',
@@ -46,15 +17,14 @@ const Hero: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           style={{ position: 'relative' }}
         >
-          <div className="hero-reveal" style={{ marginBottom: '2.5rem' }}>
+          <div style={{ marginBottom: '2.5rem' }}>
             <span 
               className="text-label" 
               style={{ 
@@ -72,8 +42,7 @@ const Hero: React.FC = () => {
           </div>
 
           <h1
-            ref={titleRef}
-            className="hero-title hero-reveal"
+            className="hero-title"
             style={{
               lineHeight: '1',
               marginBottom: '3rem',
@@ -95,7 +64,7 @@ const Hero: React.FC = () => {
           </h1>
 
           <p
-            className="text-text-secondary hero-reveal"
+            className="text-text-secondary"
             style={{
               maxWidth: '750px',
               margin: '0 auto 4.5rem',
@@ -109,7 +78,6 @@ const Hero: React.FC = () => {
           </p>
 
           <div
-            className="hero-reveal"
             style={{
               display: 'flex',
               gap: '2rem',
@@ -153,30 +121,38 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Decorative Blur Orbs */}
-      <div className="hero-float" style={{
-        position: 'absolute',
-        top: '20%',
-        right: '10%',
-        width: '300px',
-        height: '300px',
-        background: 'var(--accent-glow)',
-        filter: 'blur(100px)',
-        borderRadius: '50%',
-        opacity: 0.1,
-        zIndex: 1
-      }} />
-      <div className="hero-float" style={{
-        position: 'absolute',
-        bottom: '10%',
-        left: '5%',
-        width: '400px',
-        height: '400px',
-        background: 'rgba(0, 207, 255, 0.05)',
-        filter: 'blur(120px)',
-        borderRadius: '50%',
-        opacity: 0.1,
-        zIndex: 1
-      }} />
+      <motion.div 
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        style={{
+          position: 'absolute',
+          top: '20%',
+          right: '10%',
+          width: '300px',
+          height: '300px',
+          background: 'var(--accent-glow)',
+          filter: 'blur(100px)',
+          borderRadius: '50%',
+          opacity: 0.1,
+          zIndex: 1
+        }} 
+      />
+      <motion.div 
+        animate={{ y: [0, 20, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+        style={{
+          position: 'absolute',
+          bottom: '10%',
+          left: '5%',
+          width: '400px',
+          height: '400px',
+          background: 'rgba(0, 207, 255, 0.05)',
+          filter: 'blur(120px)',
+          borderRadius: '50%',
+          opacity: 0.1,
+          zIndex: 1
+        }} 
+      />
     </section>
   );
 };

@@ -22,7 +22,7 @@ export const emailService = {
           to_email: email,
           verification_code: code,
           from_name: 'Code Vertex Software',
-          reply_to: 'rehancodeofficial@gmail.com',
+          reply_to: 'support.codevertex@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );
@@ -55,7 +55,7 @@ export const emailService = {
           subject,
           message,
           from_name: 'Code Vertex Software',
-          reply_to: 'rehancodeofficial@gmail.com',
+          reply_to: 'support.codevertex@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );
@@ -83,7 +83,7 @@ export const emailService = {
           to_email: email,
           full_name: fullName,
           from_name: 'Code Vertex Software',
-          reply_to: 'rehancodeofficial@gmail.com',
+          reply_to: 'support.codevertex@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );
