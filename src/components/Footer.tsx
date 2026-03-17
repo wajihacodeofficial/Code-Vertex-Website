@@ -169,6 +169,21 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <a
+                  href="https://codevertex.solutions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: '0.75rem',
+                    color: 'var(--text-secondary)',
+                    textDecoration: 'none',
+                  }}
+                  className="footer-link"
+                >
+                  Official Site
+                </a>
+              </li>
+              <li>
                 <Link
                   to="/about"
                   onClick={() => window.scrollTo(0, 0)}
@@ -221,7 +236,7 @@ const Footer: React.FC = () => {
             >
               <li>
                 <a
-                  href="https://www.linkedin.com/in/rehancodeofficial/"
+                  href="https://www.linkedin.com/company/codevertex-solutions"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -237,7 +252,7 @@ const Footer: React.FC = () => {
 
               <li>
                 <a
-                  href="https://github.com/rehancodeofficial"
+                  href="https://github.com/wajihacodeofficial"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -252,7 +267,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/codevertexofficial/"
+                  href="https://www.instagram.com/codevertex_solutions/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -263,6 +278,21 @@ const Footer: React.FC = () => {
                   className="footer-link"
                 >
                   Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/codevertexsolution"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: '0.75rem',
+                    color: 'var(--text-secondary)',
+                    textDecoration: 'none',
+                  }}
+                  className="footer-link"
+                >
+                  Facebook
                 </a>
               </li>
               <li>

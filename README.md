@@ -100,10 +100,10 @@ npm run preview
 
 Ready to re-engineer your technical future? Let's discuss your next breakthrough deployment.
 
-- **Lead Engineer**: Wajiha Zehra / Rehan Code
+- **Lead Engineer**: [Wajiha Zehra](https://github.com/wajihacodeofficial)
 - **WhatsApp**: [+92 317 7760506](https://wa.me/923177760506)
 - **Email**: support.codevertex@gmail.com
-- **Website**: [codevertex.io](https://codevertex.solutions)
+- **Website**: [codevertex.solutions](https://codevertex.solutions)
 
 ---
 

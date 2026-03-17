@@ -162,15 +162,19 @@ const Contact: React.FC = () => {
                     {[
                       {
                         name: 'LinkedIn',
-                        url: 'https://www.linkedin.com/in/rehancodeofficial/',
+                        url: 'https://www.linkedin.com/company/codevertex-solutions',
                       },
                       {
                         name: 'GitHub',
-                        url: 'https://github.com/rehancodeofficial',
+                        url: 'https://github.com/wajihacodeofficial',
                       },
                       {
                         name: 'Instagram',
-                        url: 'https://www.instagram.com/codevertexofficial/',
+                        url: 'https://www.instagram.com/codevertex_solutions/',
+                      },
+                      {
+                        name: 'Facebook',
+                        url: 'https://www.facebook.com/codevertexsolution',
                       },
                     ].map((item) => (
                       <a

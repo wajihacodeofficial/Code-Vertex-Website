@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
               style={{ display: 'flex', gap: '2rem' }}
             >
               <a 
-                href="https://www.linkedin.com/in/rehancodeofficial/" 
+                href="https://www.linkedin.com/company/codevertex-solutions" 
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: 'inherit', textDecoration: 'none' }}
@@ -111,7 +111,7 @@ const Contact: React.FC = () => {
                 LinkedIn
               </a>
               <a 
-                href="https://github.com/rehancodeofficial" 
+                href="https://github.com/wajihacodeofficial" 
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: 'inherit', textDecoration: 'none' }}

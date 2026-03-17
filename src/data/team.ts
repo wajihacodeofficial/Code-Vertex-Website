@@ -10,15 +10,6 @@ export interface TeamMember {
 
 export const team: TeamMember[] = [
   {
-    name: 'MUHAMMAD REHAN HUSSAIN',
-    role: 'Co-Founder & Lead Backend Architect',
-    email: 'support.codevertex@gmail.com',
-    bio: 'Muhammad Rehan Hussain is a high-performance Backend Engineer specializing in scalable web and mobile systems. With deep expertise in API design, microservices architecture, and performance optimization, he builds the robust foundations that power modern enterprise applications.',
-    img: '/team/rehan.png',
-    github: 'https://github.com/rehancodeofficial',
-    linkedin: 'https://www.linkedin.com/in/rehancodeofficial/',
-  },
-  {
     name: 'WAJIHA ZEHRA',
     role: 'Co-Founder & Full-Stack Engineer',
     email: 'support.codevertex@gmail.com',
@@ -26,5 +17,14 @@ export const team: TeamMember[] = [
     img: '/team/wajiha.png',
     github: 'https://github.com/wajihacodeofficial',
     linkedin: 'https://www.linkedin.com/in/wajihacodeofficial/',
+  },
+  {
+    name: 'MUHAMMAD REHAN HUSSAIN',
+    role: 'Co-Founder & Lead Backend Architect',
+    email: 'support.codevertex@gmail.com',
+    bio: 'Muhammad Rehan Hussain is a high-performance Backend Engineer specializing in scalable web and mobile systems. With deep expertise in API design, microservices architecture, and performance optimization, he builds the robust foundations that power modern enterprise applications.',
+    img: '/team/rehan.png',
+    github: 'https://github.com/rehancodeofficial',
+    linkedin: 'https://www.linkedin.com/in/rehancodeofficial/',
   },
 ];
