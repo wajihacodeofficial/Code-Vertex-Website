@@ -39,7 +39,8 @@ const Footer: React.FC = () => {
                   letterSpacing: '-0.02em',
                 }}
               >
-                CODE <span style={{ color: 'var(--accent-primary)' }}>VERTEX</span>
+                CODE{' '}
+                <span style={{ color: 'var(--accent-primary)' }}>VERTEX</span>
               </span>
             </Link>
             <p
@@ -49,9 +50,9 @@ const Footer: React.FC = () => {
                 lineHeight: '1.7',
               }}
             >
-              Specialized Engineering & Digital Strategy.
-              Building high-performance Web, Mobile, and Desktop 
-              solutions with uncompromised quality and reliability.
+              Specialized Engineering & Digital Strategy. Building
+              high-performance Web, Mobile, and Desktop solutions with
+              uncompromised quality and reliability.
             </p>
           </div>
 
@@ -252,7 +253,7 @@ const Footer: React.FC = () => {
 
               <li>
                 <a
-                  href="https://github.com/wajihacodeofficial"
+                  href="https://github.com/Code-Vertex"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

@@ -102,16 +102,16 @@ const Contact: React.FC = () => {
               className="flex gap-4"
               style={{ display: 'flex', gap: '2rem' }}
             >
-              <a 
-                href="https://www.linkedin.com/company/codevertex-solutions" 
+              <a
+                href="https://www.linkedin.com/company/codevertex-solutions"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: 'inherit', textDecoration: 'none' }}
               >
                 LinkedIn
               </a>
-              <a 
-                href="https://github.com/wajihacodeofficial" 
+              <a
+                href="https://github.com/Code-Vertex"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: 'inherit', textDecoration: 'none' }}
