@@ -135,7 +135,7 @@ const About: React.FC = () => {
             <div>
               <span className="text-label">Our Vision</span>
               <h2 className="section-title">
-                The Code Vertex <span className="accent-text">Manifesto</span>
+                The CODE VERTEX <span className="accent-text">Manifesto</span>
               </h2>
               <div
                 style={{

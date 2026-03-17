@@ -59,7 +59,7 @@ Strategic technical wins that define our standard of excellence:
 ### Installation & Development
 ```bash
 # Clone the repository
-git clone https://github.com/wajihacodeofficial/Code-Vertex-Website.git
+git clone https://github.com/Code-Vertex/Code-Vertex-Website.git
 
 # Enter the project directory
 cd Code-Vertex-Website

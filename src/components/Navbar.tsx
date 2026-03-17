@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
                     letterSpacing: '-0.03em',
                   }}
                 >
-                  Code <span style={{ color: 'var(--accent-primary)' }}>Vertex</span>
+                  CODE <span style={{ color: 'var(--accent-primary)' }}>VERTEX</span>
                 </span>
                 <span
                   style={{

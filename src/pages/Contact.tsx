@@ -166,7 +166,7 @@ const Contact: React.FC = () => {
                       },
                       {
                         name: 'GitHub',
-                        url: 'https://github.com/wajihacodeofficial',
+                        url: 'https://github.com/Code-Vertex',
                       },
                       {
                         name: 'Instagram',
