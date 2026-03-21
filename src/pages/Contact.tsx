@@ -162,7 +162,7 @@ const Contact: React.FC = () => {
                     {[
                       {
                         name: 'LinkedIn',
-                        url: 'https://www.linkedin.com/company/codevertex-solutions',
+                        url: 'https://www.linkedin.com/company/codevertex-solutions/',
                       },
                       {
                         name: 'GitHub',
@@ -174,7 +174,11 @@ const Contact: React.FC = () => {
                       },
                       {
                         name: 'Facebook',
-                        url: 'https://www.facebook.com/codevertexsolution',
+                        url: 'https://www.facebook.com/codevertexsolution/',
+                      },
+                      {
+                        name: 'YouTube',
+                        url: 'https://www.youtube.com/channel/UCxYATW_sz3dH2nBxot4Hamg',
                       },
                     ].map((item) => (
                       <a

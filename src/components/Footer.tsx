@@ -237,7 +237,7 @@ const Footer: React.FC = () => {
             >
               <li>
                 <a
-                  href="https://www.linkedin.com/company/codevertex-solutions"
+                  href="https://www.linkedin.com/company/codevertex-solutions/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -283,7 +283,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/codevertexsolution"
+                  href="https://www.facebook.com/codevertexsolution/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -294,6 +294,21 @@ const Footer: React.FC = () => {
                   className="footer-link"
                 >
                   Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/channel/UCxYATW_sz3dH2nBxot4Hamg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: '0.75rem',
+                    color: 'var(--text-secondary)',
+                    textDecoration: 'none',
+                  }}
+                  className="footer-link"
+                >
+                  YouTube
                 </a>
               </li>
               <li>

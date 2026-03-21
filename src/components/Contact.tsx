@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
               style={{ display: 'flex', gap: '2rem' }}
             >
               <a
-                href="https://www.linkedin.com/company/codevertex-solutions"
+                href="https://www.linkedin.com/company/codevertex-solutions/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: 'inherit', textDecoration: 'none' }}
