@@ -15,6 +15,7 @@
 **Code Vertex Solutions** is a specialized engineering powerhouse dedicated to building mission-critical architectures and high-performance digital ecosystems. We bridge the gap between complex technical requirements and fluid, intuitive user experiences through precision code and visionary strategy.
 
 ### 🎯 Core Specializations
+
 - **Native Android Development**: High-performance mobile solutions built on Java and Android SDK.
 - **Enterprise Web Ecosystems**: Scalable MERN (MongoDB, Express, React, Node.js) and Next.js applications.
 - **Java Desktop Engineering**: Robust local orchestration using Java SE/EE, Swing, and JavaFX.
@@ -27,14 +28,15 @@
 Our development methodology centers on **The Protocol**, a four-phase blueprint ensuring every deployment is resilient, scalable, and secure.
 
 ### **The Architecture**
-| Layer | Technologies |
-| :--- | :--- |
-| **Frontend** | React 19, TypeScript, Vite, Next.js |
-| **Animation** | Framer Motion, GSAP (ScrollTrigger), Three.js |
-| **Backend Capabilities** | Node.js, Express, Java EE, Supabase |
-| **Database Systems** | MongoDB, MySQL, PostgreSQL (Prisma/JDBC) |
-| **Mobile Core** | Android SDK (Java), Firebase Realtime DB, SQLite |
-| **UI/UX Paradigms** | Vanilla CSS (Premium Design System), Lucide-React |
+
+| Layer                    | Technologies                                      |
+| :----------------------- | :------------------------------------------------ |
+| **Frontend**             | React 19, TypeScript, Vite, Next.js               |
+| **Animation**            | Framer Motion, GSAP (ScrollTrigger), Three.js     |
+| **Backend Capabilities** | Node.js, Express, Java EE, Supabase               |
+| **Database Systems**     | MongoDB, MySQL, PostgreSQL (Prisma/JDBC)          |
+| **Mobile Core**          | Android SDK (Java), Firebase Realtime DB, SQLite  |
+| **UI/UX Paradigms**      | Vanilla CSS (Premium Design System), Lucide-React |
 
 ---
 
@@ -53,10 +55,12 @@ Strategic technical wins that define our standard of excellence:
 ## 📦 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18.0.0 or higher)
 - npm (v9.0.0 or higher)
 
 ### Installation & Development
+
 ```bash
 # Clone the repository
 git clone https://github.com/Code-Vertex/Code-Vertex-Website.git
@@ -72,6 +76,7 @@ npm run dev
 ```
 
 ### Production Orchestration
+
 ```bash
 # Create optimization production bundle
 npm run build
@@ -85,6 +90,7 @@ npm run preview
 ## 🌐 Strategic Deployment
 
 ### Vercel / Netlify Linkage
+
 1. Connect the GitHub repository to your preferred CI/CD provider.
 2. The system automatically detects the **Vite** framework.
 3. **Build Command**: `npm run build`
