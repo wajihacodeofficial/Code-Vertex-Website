@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
                 color: '#FFC300'
               }}
             >
-              CODE VERTEX DIGITAL
+              CODE VERTEX SOLUTIONS
             </span>
           </div>
 

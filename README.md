@@ -1,4 +1,4 @@
-# <p align="center">Code Vertex | Engineering Excellence</p>
+# <p align="center">Code Vertex Solutions | Engineering Excellence</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
@@ -12,7 +12,7 @@
 
 ## 💎 Elevating Ideas into Digital Reality
 
-**Code Vertex** is a specialized engineering powerhouse dedicated to building mission-critical architectures and high-performance digital ecosystems. We bridge the gap between complex technical requirements and fluid, intuitive user experiences through precision code and visionary strategy.
+**Code Vertex Solutions** is a specialized engineering powerhouse dedicated to building mission-critical architectures and high-performance digital ecosystems. We bridge the gap between complex technical requirements and fluid, intuitive user experiences through precision code and visionary strategy.
 
 ### 🎯 Core Specializations
 - **Native Android Development**: High-performance mobile solutions built on Java and Android SDK.
@@ -89,10 +89,8 @@ npm run preview
 2. The system automatically detects the **Vite** framework.
 3. **Build Command**: `npm run build`
 4. **Output Directory**: `dist`
-5. **Environment Integration**: Ensure the following variables are configured for **EmailJS** functionality:
-   - `VITE_EMAILJS_SERVICE_ID`
-   - `VITE_EMAILJS_TEMPLATE_ID`
-   - `VITE_EMAILJS_PUBLIC_KEY`
+5. **Environment Integration**: Ensure the following variables are configured for **Web3Forms** functionality:
+   - `VITE_WEB3FORMS_ACCESS_KEY`
 
 ---
 
@@ -108,5 +106,5 @@ Ready to re-engineer your technical future? Let's discuss your next breakthrough
 ---
 
 <p align="center">
-  <i>Developed with Precision by the Code Vertex Technical Team.</i>
+  <i>Developed with Precision by the Code Vertex Solutions Technical Team.</i>
 </p>

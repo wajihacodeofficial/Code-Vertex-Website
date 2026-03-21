@@ -472,7 +472,7 @@ const Footer: React.FC = () => {
               letterSpacing: '0.1em',
             }}
           >
-            © 2026 CODE VERTEX DIGITAL. ALL RIGHTS RESERVED.
+            © 2026 CODE VERTEX SOLUTIONS. ALL RIGHTS RESERVED.
           </p>
           <p
             style={{

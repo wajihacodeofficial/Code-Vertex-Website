@@ -4,24 +4,22 @@ import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import { useTheme } from '../context/ThemeContext';
 
+const particleCount = 5000;
+const defaultPositions = new Float32Array(particleCount * 3);
+for (let i = 0; i < particleCount; i++) {
+    const r = 20 + Math.random() * 30;
+    const theta = Math.random() * 2 * Math.PI;
+    const phi = Math.acos((Math.random() * 2) - 1);
+    
+    defaultPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+    defaultPositions[i * 3 + 1] = (Math.random() - 0.5) * 60;
+    defaultPositions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+}
+
 const ParticleField = ({ color = '#FFFFFF' }: { color?: string }) => {
   const points = useRef<THREE.Points>(null!);
   
-  const particleCount = 5000;
-  
-  const positions = useMemo(() => {
-    const pos = new Float32Array(particleCount * 3);
-    for (let i = 0; i < particleCount; i++) {
-        const r = 20 + Math.random() * 30;
-        const theta = Math.random() * 2 * Math.PI;
-        const phi = Math.acos((Math.random() * 2) - 1);
-        
-        pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-        pos[i * 3 + 1] = (Math.random() - 0.5) * 60;
-        pos[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
-    }
-    return pos;
-  }, []);
+  const positions = useMemo(() => defaultPositions, []);
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();

@@ -53,7 +53,7 @@ const techData = [
 ];
 
 const TechRadar: React.FC = () => {
-  const [hovered, setHovered] = useState<any>(null);
+  const [hovered, setHovered] = useState<{name: string, category: string, level: number, info: string, x: number, y: number} | null>(null);
 
   return (
     <div

@@ -1,0 +1,88 @@
+
+> code-vertex-software@0.0.0 lint
+> eslint .
+
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/components/ThreeBackground.tsx
+  15:24  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/components/ThreeBackground.tsx:15:24
+  13 |     const pos = new Float32Array(particleCount * 3);
+  14 |     for (let i = 0; i < particleCount; i++) {
+> 15 |         const r = 20 + Math.random() * 30;
+     |                        ^^^^^^^^^^^^^ Cannot call impure function
+  16 |         const theta = Math.random() * 2 * Math.PI;
+  17 |         const phi = Math.acos((Math.random() * 2) - 1);
+  18 |                               react-hooks/purity
+  16:23  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/components/ThreeBackground.tsx:16:23
+  14 |     for (let i = 0; i < particleCount; i++) {
+  15 |         const r = 20 + Math.random() * 30;
+> 16 |         const theta = Math.random() * 2 * Math.PI;
+     |                       ^^^^^^^^^^^^^ Cannot call impure function
+  17 |         const phi = Math.acos((Math.random() * 2) - 1);
+  18 |         
+  19 |         pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);                  react-hooks/purity
+  17:32  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/components/ThreeBackground.tsx:17:32
+  15 |         const r = 20 + Math.random() * 30;
+  16 |         const theta = Math.random() * 2 * Math.PI;
+> 17 |         const phi = Math.acos((Math.random() * 2) - 1);
+     |                                ^^^^^^^^^^^^^ Cannot call impure function
+  18 |         
+  19 |         pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+  20 |         pos[i * 3 + 1] = (Math.random() - 0.5) * 60;  react-hooks/purity
+  20:27  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/components/ThreeBackground.tsx:20:27
+  18 |         
+  19 |         pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+> 20 |         pos[i * 3 + 1] = (Math.random() - 0.5) * 60;
+     |                           ^^^^^^^^^^^^^ Cannot call impure function
+  21 |         pos[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+  22 |     }
+  23 |     return pos;                                                                         react-hooks/purity
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/components/premium/TechRadar.tsx
+  56:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/context/ThemeContext.tsx
+  35:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/layouts/Layout.tsx
+  115:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/layouts/Layout.tsx:115:7
+  113 |     const consent = localStorage.getItem('cookie-consent');
+  114 |     if (!consent) {
+> 115 |       setShow(true);
+      |       ^^^^^^^ Avoid calling setState() directly within an effect
+  116 |     }
+  117 |   }, []);
+  118 |  react-hooks/set-state-in-effect
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/pages/About.tsx
+  259:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/wajihazehra/Documents/GitHub - Wajiha/Code-Vertex-Website/src/pages/CaseStudy.tsx
+   15:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  398:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 10 problems (10 errors, 0 warnings)
+

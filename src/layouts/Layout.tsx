@@ -112,7 +112,7 @@ const CookieConsent = () => {
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
-      setShow(true);
+      setTimeout(() => setShow(true), 0);
     }
   }, []);
 

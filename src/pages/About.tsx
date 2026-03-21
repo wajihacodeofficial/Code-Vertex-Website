@@ -256,7 +256,7 @@ const About: React.FC = () => {
                       flexShrink: 0,
                       userSelect: 'none',
                       pointerEvents: 'none',
-                      ...({ WebkitUserDrag: 'none' } as any),
+                      ...({ WebkitUserDrag: 'none' } as React.CSSProperties),
                     }}
                   >
                     <img
