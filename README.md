@@ -103,7 +103,7 @@ Ready to re-engineer your technical future? Let's discuss your next breakthrough
 - **Lead Engineer**: Wajiha Zehra / Rehan Code
 - **WhatsApp**: [+92 317 7760506](https://wa.me/923177760506)
 - **Email**: support.codevertex@gmail.com
-- **Website**: [codevertex.io](https://codevertex.io)
+- **Website**: [codevertex.io](https://codevertex.solutions)
 
 ---
 
