@@ -31,7 +31,8 @@ const documents: Document[] = [
   { id: '10', name: 'Payment Receipt', category: 'Financial', isPrivate: false, description: 'Immutable receipt with running account summary.', previewHash: 'payment-receipt' },
   // SCOPE
   { id: '11', name: 'Statement of Work (SOW)', category: 'Scope', isPrivate: false, description: 'Full project scope, milestones, acceptance criteria, and payment triggers.', previewHash: 'statement-of-work-sow' },
-  { id: '12', name: 'Revision Policy', category: 'Scope', isPrivate: false, description: 'Included revision rounds, expiry window, and overage billing rules.', previewHash: 'revision-policy' },
+  { id: '12', name: 'Project Proposal', category: 'Scope', isPrivate: false, description: 'High-level business proposal outlining solution, roadmap, and investment.', previewHash: 'project-proposal' },
+  { id: '13', name: 'Revision Policy', category: 'Scope', isPrivate: false, description: 'Included revision rounds, expiry window, and overage billing rules.', previewHash: 'revision-policy' },
   { id: '14', name: 'Risk Assessment', category: 'Scope', isPrivate: false, description: 'Pre-populated project risks with probability, impact and mitigation strategies.', previewHash: 'risk-assessment-tracking' },
   { id: '15', name: 'QA / Testing Checklist', category: 'Scope', isPrivate: false, description: 'Internal QA gate and client UAT sign-off checklist with acceptance window.', previewHash: 'qa-testing-checklist' },
 ];
