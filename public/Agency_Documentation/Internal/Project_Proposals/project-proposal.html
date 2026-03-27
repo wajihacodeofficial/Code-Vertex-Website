@@ -1,480 +1,675 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Proposal | Code Vertex Solutions</title>
     <style>
-        :root {
-            --yellow: #FFC300;
-            --cyan: #00CFFF;
-            --black: #262626;
-            --white: #ffffff;
-            --gray-bg: #f8f8f8;
-            --border-light: #eeeeee;
-        }
+      :root {
+        --yellow: #ffc300;
+        --cyan: #00cfff;
+        --black: #262626;
+        --white: #ffffff;
+        --gray-bg: #f8f8f8;
+        --border-light: #eeeeee;
+      }
 
-        @page {
-            size: A4;
-            margin: 0;
-        }
+      @page {
+        size: A4;
+        margin: 0;
+      }
 
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--black);
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+        background: #eee;
+      }
+
+      /* Diagonal watermark on every page */
+      .page::before {
+        content: 'CODE VERTEX SOLUTIONS';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-35deg);
+        font-size: 52px;
+        font-weight: 900;
+        letter-spacing: 4px;
+        color: rgba(0, 0, 0, 0.04);
+        pointer-events: none;
+        white-space: nowrap;
+        z-index: 0;
+      }
+
+      .page {
+        background: var(--white);
+        width: 210mm;
+        min-height: 297mm;
+        margin: 10mm auto;
+        padding: 1in;
+        padding-bottom: 2in;
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      @media print {
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            color: var(--black);
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
-            background: #eee;
+          background: none;
         }
-
-        /* Diagonal watermark on every page */
-        .page::before {
-            content: 'CODE VERTEX SOLUTIONS';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-35deg);
-            font-size: 52px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            color: rgba(0,0,0,0.04);
-            pointer-events: none;
-            white-space: nowrap;
-            z-index: 0;
+        @page {
+          size: A4;
+          margin: 1in;
         }
-
         .page {
-            background: var(--white);
-            width: 210mm;
-            min-height: 297mm;
-            margin: 10mm auto;
-            padding: 1in;
-            padding-bottom: 2in;
-            position: relative;
-            box-sizing: border-box;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          margin: 0;
+          padding: 0;
+          min-height: auto;
+          width: auto;
+          height: auto;
+          box-shadow: none;
+          page-break-after: always;
         }
+      }
 
-        @media print {
-            body { background: none; }
-            @page { size: A4; margin: 1in; }
-            .page { 
-                margin: 0; 
-                padding: 0;
-                min-height: auto;
-                width: auto;
-                height: auto;
-                box-shadow: none;
-                page-break-after: always;
-            }
-        }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 2px solid var(--black);
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+      }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 2px solid var(--black);
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-        }
+      .logo-placeholder {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
 
-        .logo-placeholder {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+      .logo-placeholder img {
+        height: 44px;
+        width: auto;
+        object-fit: contain;
+      }
 
-        .logo-placeholder img {
-            height: 44px;
-            width: auto;
-            object-fit: contain;
-        }
+      .header-info {
+        text-align: right;
+        font-size: 10px;
+      }
 
-        .header-info {
-            text-align: right;
-            font-size: 10px;
-        }
+      .badge {
+        display: block;
+        font-weight: 800;
+        font-size: 12px;
+        margin-bottom: 5px;
+        letter-spacing: 1px;
+      }
 
-        .badge {
-            display: block;
-            font-weight: 800;
-            font-size: 12px;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
+      h1 {
+        font-size: 28px;
+        font-weight: 900;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+      }
 
-        h1 {
-            font-size: 28px;
-            font-weight: 900;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
+      h2 {
+        font-size: 14px;
+        font-weight: 800;
+        border-left: 5px solid var(--yellow);
+        padding-left: 10px;
+        margin: 25px 0 15px 0;
+        text-transform: uppercase;
+      }
 
-        h2 {
-            font-size: 14px;
-            font-weight: 800;
-            border-left: 5px solid var(--yellow);
-            padding-left: 10px;
-            margin: 25px 0 15px 0;
-            text-transform: uppercase;
-        }
+      h3 {
+        font-size: 12px;
+        font-weight: 700;
+        margin: 15px 0 10px 0;
+        color: var(--cyan);
+      }
 
-        h3 {
-            font-size: 12px;
-            font-weight: 700;
-            margin: 15px 0 10px 0;
-            color: var(--cyan);
-        }
+      p,
+      li {
+        font-size: 11px;
+        margin-bottom: 8px;
+        text-align: justify;
+      }
 
-        p, li {
-            font-size: 11px;
-            margin-bottom: 8px;
-            text-align: justify;
-        }
+      .field {
+        color: var(--cyan);
+        font-style: italic;
+        font-weight: 600;
+        border-bottom: 1px solid var(--border-light);
+        padding: 0 5px;
+      }
 
-        .field {
-            color: var(--cyan);
-            font-style: italic;
-            font-weight: 600;
-            border-bottom: 1px solid var(--border-light);
-            padding: 0 5px;
-        }
+      .highlight-box {
+        background: var(--gray-bg);
+        border-left: 4px solid var(--black);
+        padding: 15px;
+        margin: 20px 0;
+        font-size: 10px;
+      }
 
-        .highlight-box {
-            background: var(--gray-bg);
-            border-left: 4px solid var(--black);
-            padding: 15px;
-            margin: 20px 0;
-            font-size: 10px;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
+      table th {
+        background: var(--black);
+        color: var(--white);
+        text-align: left;
+        padding: 8px 12px;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
 
-        table th {
-            background: var(--black);
-            color: var(--white);
-            text-align: left;
-            padding: 8px 12px;
-            font-size: 10px;
-            text-transform: uppercase;
-        }
+      table td {
+        padding: 8px 12px;
+        border-bottom: 1px solid var(--border-light);
+        font-size: 10px;
+      }
 
-        table td {
-            padding: 8px 12px;
-            border-bottom: 1px solid var(--border-light);
-            font-size: 10px;
-        }
+      tr:nth-child(even) {
+        background-color: #fafafa;
+      }
 
-        tr:nth-child(even) {
-            background-color: #fafafa;
-        }
+      .signature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 50px;
+      }
 
-        .signature-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 50px;
-        }
+      .sig-block {
+        border-top: 1px solid var(--black);
+        padding-top: 10px;
+        margin-top: 60px;
+        min-height: 80px;
+      }
 
-        .sig-block {
-            border-top: 1px solid var(--black);
-            padding-top: 10px;
-            margin-top: 60px;
-            min-height: 80px;
-        }
+      .sig-label {
+        font-weight: 800;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
 
-        .sig-label {
-            font-weight: 800;
-            font-size: 10px;
-            text-transform: uppercase;
-        }
+      footer {
+        position: absolute;
+        bottom: 0.5in;
+        left: 1in;
+        right: 1in;
+        height: 0.5in;
+        text-align: right;
+        font-size: 8px;
+        color: #999;
+        text-transform: uppercase;
+        border-top: 1px solid var(--border-light);
+        padding-top: 5px;
+      }
 
+      @media print {
         footer {
-            position: absolute;
-            bottom: 0.5in;
-            left: 1in;
-            right: 1in;
-            height: 0.5in;
-            text-align: right;
-            font-size: 8px;
-            color: #999;
-            text-transform: uppercase;
-            border-top: 1px solid var(--border-light);
-            padding-top: 5px;
+          position: static;
+          text-align: center;
+          margin-top: 50px;
+          border-top: none;
         }
+      }
 
-        @media print {
-            footer {
-                position: static;
-                text-align: center;
-                margin-top: 50px;
-                border-top: none;
-            }
-        }
+      .parties-block {
+        background: var(--gray-bg);
+        padding: 15px;
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
 
-        .parties-block {
-            background: var(--gray-bg);
-            padding: 15px;
-            margin-bottom: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .parties-block div strong { font-size: 10px; }
-        .parties-block div span { display: block; margin-top: 5px; }
+      .parties-block div strong {
+        font-size: 10px;
+      }
+      .parties-block div span {
+        display: block;
+        margin-top: 5px;
+      }
 
-        .disclaimer { font-weight: 700; color: var(--black); font-size: 10px; border: 1px solid var(--border-light); padding: 10px; border-radius: 4px; }
+      .disclaimer {
+        font-weight: 700;
+        color: var(--black);
+        font-size: 10px;
+        border: 1px solid var(--border-light);
+        padding: 10px;
+        border-radius: 4px;
+      }
 
-        /* Multi-page layout */
-        .page-break { page-break-before: always; }
+      /* Multi-page layout */
+      .page-break {
+        page-break-before: always;
+      }
 
-        .no-print { display: none !important; }
-        @media screen {
-            .no-print { display: flex !important; }
+      .no-print {
+        display: none !important;
+      }
+      @media screen {
+        .no-print {
+          display: flex !important;
         }
+      }
 
-        .export-bar {
-            position: fixed; top: 20px; right: 20px; z-index: 9999;
-            display: flex; gap: 10px;
-        }
-        .export-btn {
-            background: #FFC300; color: #000; border: none; padding: 10px 16px;
-            border-radius: 100px; font-weight: 800; font-size: 12px; cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-family: system-ui, sans-serif;
-            text-decoration: none; display: flex; align-items: center; gap: 6px;
-        }
-        .export-btn.secondary { background: #262626; color: #fff; border: 1px solid #FFC300; }
-        .export-btn:hover { background: #e6af00; transform: translateY(-1px); }
-        
-        .editable-placeholder {
-            background: rgba(255, 195, 0, 0.15); border-bottom: 2px dashed #FFC300;
-            padding: 0 4px; cursor: text; color: #262626; border-radius: 2px;
-            transition: all 0.2s; display: inline-block; min-width: 40px;
-        }
-        .editable-placeholder:focus {
-            outline: none; background: rgba(0, 207, 255, 0.15); border-bottom: 2px solid #00CFFF;
-        }
-        .placeholder-hint {
-            position: fixed; top: 20px; left: 20px; z-index: 9999;
-            background: #262626; color: #fff; padding: 10px 16px;
-            border-radius: 100px; font-weight: 600; font-size: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-family: system-ui, sans-serif;
-        }
+      .export-bar {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        display: flex;
+        gap: 10px;
+      }
+      .export-btn {
+        background: #ffc300;
+        color: #000;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 100px;
+        font-weight: 800;
+        font-size: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: system-ui, sans-serif;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .export-btn.secondary {
+        background: #262626;
+        color: #fff;
+        border: 1px solid #ffc300;
+      }
+      .export-btn:hover {
+        background: #e6af00;
+        transform: translateY(-1px);
+      }
+
+      .editable-placeholder {
+        background: rgba(255, 195, 0, 0.15);
+        border-bottom: 2px dashed #ffc300;
+        padding: 0 4px;
+        cursor: text;
+        color: #262626;
+        border-radius: 2px;
+        transition: all 0.2s;
+        display: inline-block;
+        min-width: 40px;
+      }
+      .editable-placeholder:focus {
+        outline: none;
+        background: rgba(0, 207, 255, 0.15);
+        border-bottom: 2px solid #00cfff;
+      }
+      .placeholder-hint {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+        background: #262626;
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 100px;
+        font-weight: 600;
+        font-size: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: system-ui, sans-serif;
+      }
     </style>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-          document.body.innerHTML = document.body.innerHTML.replace(/\[([^\]<>]+)\]/g, function(fullMatch, contents) {
-              return '<span contenteditable="true" class="editable-placeholder" title="'+fullMatch+'">'+fullMatch+'</span>';
+        document.body.innerHTML = document.body.innerHTML.replace(
+          /\[([^\]<>]+)\]/g,
+          function (fullMatch, contents) {
+            return (
+              '<span contenteditable="true" class="editable-placeholder" title="' +
+              fullMatch +
+              '">' +
+              fullMatch +
+              '</span>'
+            );
+          }
+        );
+        document.querySelectorAll('.editable-placeholder').forEach((el) => {
+          el.addEventListener('focus', function () {
+            if (this.innerText.trim() === this.title) this.innerText = '';
           });
-          document.querySelectorAll('.editable-placeholder').forEach(el => {
-              el.addEventListener('focus', function() { if(this.innerText.trim() === this.title) this.innerText = ''; });
-              el.addEventListener('blur', function() { if(this.innerText.trim() === '') this.innerText = this.title; });
+          el.addEventListener('blur', function () {
+            if (this.innerText.trim() === '') this.innerText = this.title;
           });
+        });
       });
     </script>
-</head>
-<body>
-
-    <div class="placeholder-hint no-print">💡 Click highlighted text to edit</div>
+  </head>
+  <body>
+    <div class="placeholder-hint no-print">
+      💡 Click highlighted text to edit
+    </div>
     <div class="export-bar no-print">
-        <a href="mailto:contact@codevertex.solutions?subject=Project%20Proposal%20Feedback" class="export-btn secondary">Email Proposal</a>
-        <button class="export-btn" onclick="window.print()">Download PDF</button>
+      <a
+        href="mailto:contact@codevertex.solutions?subject=Project%20Proposal%20Feedback"
+        class="export-btn secondary"
+        >Email Proposal</a
+      >
+      <button class="export-btn" onclick="window.print()">Download PDF</button>
     </div>
 
-    <div style="display:flex; flex-direction:column; align-items:center; padding: 40px 0;">
-        <!-- PAGE 1: COVER & SUMMARY -->
-        <div class="page">
-            <header>
-                <div class="logo-placeholder">
-                    <img src="/logo.jpeg" alt="Code Vertex Solutions">
-                    <div style="display:flex; flex-direction:column;">
-                        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
-                        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
-                    </div>
-                </div>
-                <div class="header-info">
-                    <span class="badge">AGENCY // PROJECT PROPOSAL</span>
-                    REF: #CV-PROP-2024
-                </div>
-            </header>
-
-            <div style="margin-top: 50px; margin-bottom: 40px;">
-                <span style="font-size: 10px; font-weight: 800; color: var(--cyan); letter-spacing: 2px;">PREPARED FOR:</span>
-                <h1 style="font-size: 36px; margin-top: 10px;">[Client Name / Company]</h1>
-                <p style="font-size: 14px; font-weight: 600;">Project: <span class="field">[Project Name / Title]</span></p>
-                <p style="font-size: 11px; color: #666;">Date: [Current Date]</p>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+      "
+    >
+      <!-- PAGE 1: COVER & SUMMARY -->
+      <div class="page">
+        <header>
+          <div class="logo-placeholder">
+            <img src="/logo.jpeg" alt="Code Vertex Solutions" />
+            <div style="display: flex; flex-direction: column">
+              <span
+                style="
+                  font-weight: 900;
+                  font-size: 14px;
+                  letter-spacing: -0.5px;
+                  margin-top: -2px;
+                "
+                >CODE VERTEX SOLUTIONS</span
+              >
+              <span
+                style="
+                  font-size: 10px;
+                  font-weight: 400;
+                  color: #666;
+                  margin-top: 2px;
+                "
+                >From Concept to Code — Rapidly</span
+              >
             </div>
+          </div>
+          <div class="header-info">
+            <span class="badge">AGENCY // PROJECT PROPOSAL</span>
+            REF: #CV-PROP-2026
+          </div>
+        </header>
 
-            <h2>1. Executive Summary</h2>
-            <p>Code Vertex Solutions is pleased to present this proposal for [Project Name]. We understand that you are looking for [briefly describe core goal, e.g., a high-performance web application to streamline user onboarding]. Our approach focuses on [mention 2 key strengths, e.g., rapid development and premium UX].</p>
-            <p>This proposal outlines our recommended strategy, technical architecture, and preliminary investment roadmap to bring your vision to life.</p>
-
-            <h2>2. The Challenge</h2>
-            <div class="highlight-box">
-                <strong>Problem Statement:</strong>
-                <p style="margin-top: 5px;">Currently, [Client Name] faces [describe the pain point, e.g., high churn rates due to a legacy interface and slow load times]. This impacts [mention business impact, e.g., revenue growth and user satisfaction].</p>
-            </div>
-
-            <h2>3. Proposed Solution</h2>
-            <p>We propose building a [mention solution type, e.g., custom React-based SaaS platform] that leverages [mention key tech, e.g., real-time data sync and AI-driven automation].</p>
-            <h3>Core Objectives:</h3>
-            <ul>
-                <li>[Objective 1: e.g., Increase conversion by 40% through better UI]</li>
-                <li>[Objective 2: e.g., Reduce operational overhead via automated reporting]</li>
-                <li>[Objective 3: e.g., Future-proof the infrastructure for scale]</li>
-            </ul>
-
-            <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 1</footer>
+        <div style="margin-top: 50px; margin-bottom: 40px">
+          <span
+            style="
+              font-size: 10px;
+              font-weight: 800;
+              color: var(--cyan);
+              letter-spacing: 2px;
+            "
+            >PREPARED FOR:</span
+          >
+          <h1 style="font-size: 36px; margin-top: 10px">
+            [Client Name / Company]
+          </h1>
+          <p style="font-size: 14px; font-weight: 600">
+            Project: <span class="field">[Project Name / Title]</span>
+          </p>
+          <p style="font-size: 11px; color: #666">Date: [Current Date]</p>
         </div>
 
-        <!-- PAGE 2: TECH & TIMELINE -->
-        <div class="page">
-            <header>
-                <div class="logo-placeholder">
-                    <img src="/logo.jpeg" alt="Code Vertex Solutions">
-                    <div style="display:flex; flex-direction:column;">
-                        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
-                        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
-                    </div>
-                </div>
-                <div class="header-info">
-                    <span class="badge">AGENCY // PROJECT PROPOSAL</span>
-                    REF: #CV-PROP-2024
-                </div>
-            </header>
+        <h2>1. Executive Summary</h2>
+        <p>
+          Code Vertex Solutions is pleased to present this proposal for [Project
+          Name]. We understand that you are looking for [briefly describe core
+          goal, e.g., a high-performance web application to streamline user
+          onboarding]. Our approach focuses on [mention 2 key strengths, e.g.,
+          rapid development and premium UX].
+        </p>
+        <p>
+          This proposal outlines our recommended strategy, technical
+          architecture, and preliminary investment roadmap to bring your vision
+          to life.
+        </p>
 
-            <h2>4. Technical Infrastructure</h2>
-            <p>Our "Hardened Agency" stack ensures security, performance, and scalability from day one.</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Recommended Technology</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Frontend</strong></td>
-                        <td>[e.g., Next.js / React with Tailwind CSS]</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Backend</strong></td>
-                        <td>[e.g., Node.js / PostgreSQL / Prisma]</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hosting</strong></td>
-                        <td>[e.g., Vercel / AWS / Google Cloud]</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Integrations</strong></td>
-                        <td>[e.g., Stripe, SendGrid, OpenAI API]</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>5. Project Roadmap</h2>
-            <p>We operate on a milestone-based delivery system to ensure transparency and rapid feedback loops.</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Phase</th>
-                        <th>Key Deliverables</th>
-                        <th>Duration</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>1. Discovery</strong></td>
-                        <td>UX Audit, Finalized Tech Spec, Architecture Map</td>
-                        <td>[X Weeks]</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2. MVP Dev</strong></td>
-                        <td>Core Logic, Authentication, Primary UI Screens</td>
-                        <td>[X Weeks]</td>
-                    </tr>
-                    <tr>
-                        <td><strong>3. Integration</strong></td>
-                        <td>API Connections, Payment Gateways, Data Sync</td>
-                        <td>[X Weeks]</td>
-                    </tr>
-                    <tr>
-                        <td><strong>4. QA & Launch</strong></td>
-                        <td>Stress Testing, UAT, Production Deployment</td>
-                        <td>[X Weeks]</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>6. Preliminary Investment</h2>
-            <div class="highlight-box">
-                <p>Based on the scope described above, the estimated investment is:</p>
-                <h3 style="font-size: 20px; color: var(--black); margin: 10px 0;">$[XX,000] - $[XX,000] USD</h3>
-                <p style="font-size: 9px; opacity: 0.7;">*This is a non-binding estimate. A fixed-price Statement of Work (SOW) will be issued upon proposal acceptance.</p>
-            </div>
-
-            <h2>7. Why Code Vertex?</h2>
-            <p>We don't just build apps; we build business tools. Our "Hardened" methodology means:</p>
-            <ul>
-                <li><strong>Rapid Deployment:</strong> We get you to market 2x faster than traditional agencies.</li>
-                <li><strong>Fixed-Price Guarantees:</strong> No hidden hourly billing surprises.</li>
-                <li><strong>IP Transfer:</strong> You own 100% of the code upon final payment.</li>
-            </ul>
-
-            <div class="disclaimer">
-                <strong>Next Steps:</strong> To proceed, simply review this proposal and book a follow-up call. Once agreed, we will issue a formal Master Service Agreement (MSA) and Statement of Work (SOW) to kick off the project.
-            </div>
-
-            <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 2</footer>
+        <h2>2. The Challenge</h2>
+        <div class="highlight-box">
+          <strong>Problem Statement:</strong>
+          <p style="margin-top: 5px">
+            Currently, [Client Name] faces [describe the pain point, e.g., high
+            churn rates due to a legacy interface and slow load times]. This
+            impacts [mention business impact, e.g., revenue growth and user
+            satisfaction].
+          </p>
         </div>
+
+        <h2>3. Proposed Solution</h2>
+        <p>
+          We propose building a [mention solution type, e.g., custom React-based
+          SaaS platform] that leverages [mention key tech, e.g., real-time data
+          sync and AI-driven automation].
+        </p>
+        <h3>Core Objectives:</h3>
+        <ul>
+          <li>
+            [Objective 1: e.g., Increase conversion by 40% through better UI]
+          </li>
+          <li>
+            [Objective 2: e.g., Reduce operational overhead via automated
+            reporting]
+          </li>
+          <li>
+            [Objective 3: e.g., Future-proof the infrastructure for scale]
+          </li>
+        </ul>
+
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 1</footer>
+      </div>
+
+      <!-- PAGE 2: TECH & TIMELINE -->
+      <div class="page">
+        <header>
+          <div class="logo-placeholder">
+            <img src="/logo.jpeg" alt="Code Vertex Solutions" />
+            <div style="display: flex; flex-direction: column">
+              <span
+                style="
+                  font-weight: 900;
+                  font-size: 14px;
+                  letter-spacing: -0.5px;
+                  margin-top: -2px;
+                "
+                >CODE VERTEX SOLUTIONS</span
+              >
+              <span
+                style="
+                  font-size: 10px;
+                  font-weight: 400;
+                  color: #666;
+                  margin-top: 2px;
+                "
+                >From Concept to Code — Rapidly</span
+              >
+            </div>
+          </div>
+          <div class="header-info">
+            <span class="badge">AGENCY // PROJECT PROPOSAL</span>
+            REF: #CV-PROP-2026
+          </div>
+        </header>
+
+        <h2>4. Technical Infrastructure</h2>
+        <p>
+          Our "Hardened Agency" stack ensures security, performance, and
+          scalability from day one.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Recommended Technology</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Frontend</strong></td>
+              <td>[e.g., Next.js / React with Tailwind CSS]</td>
+            </tr>
+            <tr>
+              <td><strong>Backend</strong></td>
+              <td>[e.g., Node.js / PostgreSQL / Prisma]</td>
+            </tr>
+            <tr>
+              <td><strong>Hosting</strong></td>
+              <td>[e.g., Vercel / AWS / Google Cloud]</td>
+            </tr>
+            <tr>
+              <td><strong>Integrations</strong></td>
+              <td>[e.g., Stripe, SendGrid, OpenAI API]</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>5. Project Roadmap</h2>
+        <p>
+          We operate on a milestone-based delivery system to ensure transparency
+          and rapid feedback loops.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>Key Deliverables</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Discovery</strong></td>
+              <td>UX Audit, Finalized Tech Spec, Architecture Map</td>
+              <td>[X Weeks]</td>
+            </tr>
+            <tr>
+              <td><strong>2. MVP Dev</strong></td>
+              <td>Core Logic, Authentication, Primary UI Screens</td>
+              <td>[X Weeks]</td>
+            </tr>
+            <tr>
+              <td><strong>3. Integration</strong></td>
+              <td>API Connections, Payment Gateways, Data Sync</td>
+              <td>[X Weeks]</td>
+            </tr>
+            <tr>
+              <td><strong>4. QA & Launch</strong></td>
+              <td>Stress Testing, UAT, Production Deployment</td>
+              <td>[X Weeks]</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>6. Preliminary Investment</h2>
+        <div class="highlight-box">
+          <p>
+            Based on the scope described above, the estimated investment is:
+          </p>
+          <h3 style="font-size: 20px; color: var(--black); margin: 10px 0">
+            $[XX,000] - $[XX,000] USD
+          </h3>
+          <p style="font-size: 9px; opacity: 0.7">
+            *This is a non-binding estimate. A fixed-price Statement of Work
+            (SOW) will be issued upon proposal acceptance.
+          </p>
+        </div>
+
+        <h2>7. Why Code Vertex?</h2>
+        <p>
+          We don't just build apps; we build business tools. Our "Hardened"
+          methodology means:
+        </p>
+        <ul>
+          <li>
+            <strong>Rapid Deployment:</strong> We get you to market 2x faster
+            than traditional agencies.
+          </li>
+          <li>
+            <strong>Fixed-Price Guarantees:</strong> No hidden hourly billing
+            surprises.
+          </li>
+          <li>
+            <strong>IP Transfer:</strong> You own 100% of the code upon final
+            payment.
+          </li>
+        </ul>
+
+        <div class="disclaimer">
+          <strong>Next Steps:</strong> To proceed, simply review this proposal
+          and book a follow-up call. Once agreed, we will issue a formal Master
+          Service Agreement (MSA) and Statement of Work (SOW) to kick off the
+          project.
+        </div>
+
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 2</footer>
+      </div>
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('DOMContentLoaded', () => {
         const generateUID = () => {
-            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-            let res = '';
-            for (let i = 0; i < 6; i++) res += chars.charAt(Math.floor(Math.random() * chars.length));
-            return res;
+          const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+          let res = '';
+          for (let i = 0; i < 6; i++)
+            res += chars.charAt(Math.floor(Math.random() * chars.length));
+          return res;
         };
         const uid = `${new Date().getFullYear().toString().slice(-2)}${String(new Date().getMonth() + 1).padStart(2, '0')}-${generateUID()}`;
-        
+
         // Target common reference areas
-        const refElements = document.querySelectorAll('.form-ref, .document-ref, .header-info');
-        refElements.forEach(el => {
-            if (el.innerHTML.includes('REF:')) {
-                el.innerHTML = el.innerHTML.replace(/(REF:\s*#?[\w-]+)/, `$1-${uid}`);
-            } else if (el.innerText.includes('INV NO:')) {
-                 el.innerHTML = el.innerHTML.replace(/(INV NO:\s*#?[\w-]+)/, `$1-${uid}`);
-            } else {
-                // If no REF found, append it
-                const span = document.createElement('span');
-                span.style.display = 'block';
-                span.style.fontSize = '8px';
-                span.style.opacity = '0.5';
-                span.innerText = `ID: ${uid}`;
-                el.appendChild(span);
-            }
+        const refElements = document.querySelectorAll(
+          '.form-ref, .document-ref, .header-info'
+        );
+        refElements.forEach((el) => {
+          if (el.innerHTML.includes('REF:')) {
+            el.innerHTML = el.innerHTML.replace(
+              /(REF:\s*#?[\w-]+)/,
+              `$1-${uid}`
+            );
+          } else if (el.innerText.includes('INV NO:')) {
+            el.innerHTML = el.innerHTML.replace(
+              /(INV NO:\s*#?[\w-]+)/,
+              `$1-${uid}`
+            );
+          } else {
+            // If no REF found, append it
+            const span = document.createElement('span');
+            span.style.display = 'block';
+            span.style.fontSize = '8px';
+            span.style.opacity = '0.5';
+            span.innerText = `ID: ${uid}`;
+            el.appendChild(span);
+          }
         });
 
         // Also add to footer if exists
         const footer = document.querySelector('footer');
         if (footer) {
-            const idTag = document.createElement('span');
-            idTag.style.fontSize = '7px';
-            idTag.style.marginLeft = '10px';
-            idTag.innerText = ` | AUTH-ID: ${uid}`;
-            footer.appendChild(idTag);
+          const idTag = document.createElement('span');
+          idTag.style.fontSize = '7px';
+          idTag.style.marginLeft = '10px';
+          idTag.innerText = ` | AUTH-ID: ${uid}`;
+          footer.appendChild(idTag);
         }
-    });
+      });
     </script>
-
-</body>
+  </body>
 </html>
