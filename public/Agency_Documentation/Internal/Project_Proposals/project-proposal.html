@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website Development Proposal | Code Vertex Solutions</title>
+    <title>Project Proposal | Code Vertex Solutions</title>
     <style>
       :root {
         --yellow: #ffc300;
@@ -20,7 +20,10 @@
       }
 
       body {
-        font-family: system-ui, -apple-system, sans-serif;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
         color: var(--black);
         margin: 0;
         padding: 0;
@@ -58,9 +61,20 @@
       }
 
       @media print {
-        body { background: none; margin: 0; padding: 0; }
-        .print-wrapper { padding: 0 !important; margin: 0 !important; display: block !important; }
-        @page { size: A4 portrait; margin: 0; }
+        body {
+          background: none;
+          margin: 0;
+          padding: 0;
+        }
+        .print-wrapper {
+          padding: 0 !important;
+          margin: 0 !important;
+          display: block !important;
+        }
+        @page {
+          size: A4 portrait;
+          margin: 0;
+        }
         .page {
           margin: 0;
           padding: 12.7mm;
@@ -74,7 +88,10 @@
           page-break-inside: avoid;
           overflow: hidden;
         }
-        .page:last-child, .page:last-of-type { page-break-after: avoid !important; }
+        .page:last-child,
+        .page:last-of-type {
+          page-break-after: avoid !important;
+        }
       }
 
       header {
@@ -86,16 +103,65 @@
         margin-bottom: 30px;
       }
 
-      .logo-placeholder { display: flex; align-items: center; gap: 10px; }
-      .logo-placeholder img { height: 44px; width: auto; object-fit: contain; }
-      .header-info { text-align: right; font-size: 10px; }
-      .badge { display: block; font-weight: 800; font-size: 12px; margin-bottom: 5px; letter-spacing: 1px; }
+      .logo-placeholder {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
 
-      h1 { font-size: 28px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; letter-spacing: -1px; }
-      h2 { font-size: 16px; font-weight: 800; border-left: 5px solid var(--yellow); padding-left: 10px; margin: 30px 0 15px 0; text-transform: uppercase; }
-      h3 { font-size: 13px; font-weight: 700; margin: 20px 0 10px 0; color: var(--cyan); }
-      p, li { font-size: 12px; margin-bottom: 8px; text-align: justify; }
-      ul { padding-left: 20px; }
+      .logo-placeholder img {
+        height: 44px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .header-info {
+        text-align: right;
+        font-size: 10px;
+      }
+
+      .badge {
+        display: block;
+        font-weight: 800;
+        font-size: 12px;
+        margin-bottom: 5px;
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        font-size: 28px;
+        font-weight: 900;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+      }
+
+      h2 {
+        font-size: 16px;
+        font-weight: 800;
+        border-left: 5px solid var(--yellow);
+        padding-left: 10px;
+        margin: 30px 0 15px 0;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        font-size: 13px;
+        font-weight: 700;
+        margin: 20px 0 10px 0;
+        color: var(--cyan);
+      }
+
+      p,
+      li {
+        font-size: 12px;
+        margin-bottom: 8px;
+        text-align: justify;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
 
       .highlight-box {
         background: var(--gray-bg);
@@ -105,10 +171,50 @@
         font-size: 11px;
       }
 
-      table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-      table th { background: var(--black); color: var(--white); text-align: left; padding: 10px 12px; font-size: 11px; text-transform: uppercase; }
-      table td { padding: 10px 12px; border-bottom: 1px solid var(--border-light); font-size: 11px; }
-      tr:nth-child(even) { background-color: #fafafa; }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      table th {
+        background: var(--black);
+        color: var(--white);
+        text-align: left;
+        padding: 10px 12px;
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+
+      table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border-light);
+        font-size: 11px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #fafafa;
+      }
+
+      .signature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 50px;
+      }
+
+      .sig-block {
+        border-top: 1px solid var(--black);
+        padding-top: 10px;
+        margin-top: 60px;
+        min-height: 80px;
+      }
+
+      .sig-label {
+        font-weight: 800;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
 
       footer {
         position: absolute;
@@ -124,47 +230,102 @@
         padding-top: 5px;
       }
 
-      .no-print { display: none !important; }
-      @media screen { .no-print { display: flex !important; } }
-
-      .export-bar { position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; gap: 10px; }
-      .export-btn {
-        background: #ffc300; color: #000; border: none; padding: 10px 16px;
-        border-radius: 100px; font-weight: 800; font-size: 12px; cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-family: system-ui, sans-serif;
-        text-decoration: none; display: flex; align-items: center; gap: 6px;
+      .no-print {
+        display: none !important;
       }
-      .export-btn.secondary { background: #262626; color: #fff; border: 1px solid #ffc300; }
-      .export-btn:hover { background: #e6af00; transform: translateY(-1px); }
+      @media screen {
+        .no-print {
+          display: flex !important;
+        }
+      }
+
+      .export-bar {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        display: flex;
+        gap: 10px;
+      }
+      .export-btn {
+        background: #ffc300;
+        color: #000;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 100px;
+        font-weight: 800;
+        font-size: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: system-ui, sans-serif;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .export-btn.secondary {
+        background: #262626;
+        color: #fff;
+        border: 1px solid #ffc300;
+      }
+      .export-btn:hover {
+        background: #e6af00;
+        transform: translateY(-1px);
+      }
 
       .cover-page {
-        display: flex; flex-direction: column; justify-content: center;
-        align-items: center; height: 100%; text-align: center; padding: 40px 40px 0 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        padding: 40px 40px 0 40px;
       }
 
       .editable-placeholder {
-        background: rgba(255, 195, 0, 0.15); border-bottom: 2px dashed #ffc300;
-        padding: 0 4px; cursor: text; color: #262626; border-radius: 2px;
-        transition: all 0.2s; display: inline-block; min-width: 40px;
+        background: rgba(255, 195, 0, 0.15);
+        border-bottom: 2px dashed #ffc300;
+        padding: 0 4px;
+        cursor: text;
+        color: #262626;
+        border-radius: 2px;
+        transition: all 0.2s;
+        display: inline-block;
+        min-width: 40px;
       }
       .editable-placeholder:focus {
-        outline: none; background: rgba(0, 207, 255, 0.15); border-bottom: 2px solid #00cfff;
+        outline: none;
+        background: rgba(0, 207, 255, 0.15);
+        border-bottom: 2px solid #00cfff;
       }
       .placeholder-hint {
-        position: fixed; top: 20px; left: 20px; z-index: 9999;
-        background: #262626; color: #fff; padding: 10px 16px; border-radius: 100px;
-        font-weight: 600; font-size: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+        background: #262626;
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 100px;
+        font-weight: 600;
+        font-size: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         font-family: system-ui, sans-serif;
       }
     </style>
   </head>
   <body>
-    <div class="placeholder-hint no-print">💡 Click highlighted text to edit</div>
+    <div class="placeholder-hint no-print">
+      💡 Click highlighted text to edit
+    </div>
     <div class="export-bar no-print">
-      <button class="export-btn secondary" onclick="window.print()">Download PDF</button>
+      <button class="export-btn secondary" onclick="window.print()">
+        Download PDF
+      </button>
     </div>
 
-    <div class="print-wrapper" style="display: flex; flex-direction: column; align-items: center; padding: 40px 0;">
+    <div style="display: flex; flex-direction: column; align-items: center; padding: 40px 0;">
 
       <!-- PAGE 1: COVER PAGE -->
       <div class="page">
@@ -183,21 +344,25 @@
         </header>
 
         <div class="cover-page">
-          <img src="../../../logo.jpeg" alt="Logo" style="height: 100px; margin-bottom: 40px;" />
-          <span style="font-size: 12px; font-weight: 800; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase;">Website Development Proposal</span>
-          <h1 style="font-size: 48px; margin-top: 20px; margin-bottom: 10px; line-height: 1.1;">[Project Name]</h1>
-          <p style="font-size: 16px; font-weight: 600; color: #666;">
-            Prepared exclusively for: <strong style="color: var(--black);">[Client Full Name]</strong>
+          <img src="../../../logo.jpeg" alt="Logo" style="height: 100px; margin-bottom: 40px" />
+          <span style="font-size: 12px; font-weight: 800; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase;">[Proposal Type] Proposal</span>
+          <h1 style="font-size: 48px; margin-top: 20px; margin-bottom: 10px; line-height: 1.1;">
+            [Project Title]
+          </h1>
+          <p style="font-size: 16px; font-weight: 600; color: #666">
+            Prepared exclusively for:
+            <strong style="color: var(--black)">[Client Full Name]</strong>
           </p>
-          <div style="margin-top: 60px; text-align: center;">
-            <p style="margin: 4px 0;"><strong>Prepared by:</strong> Wajiha Zehra</p>
-            <p style="margin: 4px 0; color: #666;">Project Director &amp; Lead Developer</p>
-            <p style="margin: 4px 0; color: #666;">Code Vertex Solutions</p>
-            <p style="margin: 20px 0; font-weight: 600;">Date: [DD-MM-YYYY]</p>
+
+          <div style="margin-top: 60px; text-align: center">
+            <p style="margin: 4px 0"><strong>Prepared by:</strong> Wajiha Zehra</p>
+            <p style="margin: 4px 0; color: #666">Project Director & Lead Developer</p>
+            <p style="margin: 4px 0; color: #666">Code Vertex Solutions</p>
+            <p style="margin: 20px 0; font-weight: 600">Date: [DD-MM-YYYY]</p>
           </div>
         </div>
 
-        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | COVER</footer>
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS &bull; codevertex.solutions &bull; contact@codevertex.solutions | COVER</footer>
       </div>
 
       <!-- PAGE 2: EXEC SUMMARY & SCOPE -->
@@ -214,37 +379,55 @@
 
         <h2>1. Executive Summary</h2>
         <p>
-          Code Vertex is pleased to submit this proposal for the custom development of <strong>[Client Name]</strong>'s digital platform. Our goal is to replace generic templates with a high-performance, tailored system that elevates your brand, drives business outcomes, and streamlines your operational workflows.
+          This proposal covers a fully custom-built digital platform for [Client Business Description] — not a template, not a plugin stack. Specifically: a <strong>[X]-page mobile-optimized website</strong>, a <strong>[primary feature, e.g. database-backed reservation system]</strong> that [key function, e.g. emails your team instantly and logs every request], and a <strong>private admin dashboard</strong> your staff can operate after a single 30-minute walkthrough.
         </p>
         <p>
-          We propose engineering your platform on the <strong>[Technology Stack]</strong> to provide you with absolute ownership of a scalable, secure, and lightning-fast system built precisely for your business requirements.
+          You own the code outright. No monthly platform fees. No third-party service taking a cut of your [revenue type, e.g. reservations]. The $[TOTAL_AMOUNT] covers design, development, testing, and live deployment — one fixed price, nothing hidden.
         </p>
-        <p>This proposal outlines the precise scope, technical architecture, timeline, and investment required to launch.</p>
 
-        <h2>2. Strategic Business Objectives</h2>
+        <h2>2. Why This Investment Pays for Itself</h2>
         <div class="highlight-box">
-          <ul style="margin: 0; padding-left: 15px;">
-            <li><strong>Elevate Brand Authority:</strong> Engineer a premium digital presence that immediately separates you from local competitors.</li>
-            <li><strong>[Objective 2]:</strong> [Description of business goal #2].</li>
-            <li><strong>[Objective 3]:</strong> [Description of business goal #3].</li>
-            <li><strong>Operational Simplicity:</strong> Deliver a secure administrative dashboard customized strictly for your team's workflow.</li>
-            <li><strong>Infinite Scalability:</strong> Architect the platform for modular expansion as your business grows.</li>
+          <ul style="margin: 0; padding-left: 15px">
+            <li>
+              <strong>Eliminates Third-Party Fees:</strong> [Competitor platforms] charge $[XXX]–$[XXX]/month. This custom platform does the same job — owned by you, no recurring fees. The $[TOTAL_AMOUNT] investment pays for itself in under [X] months. After that, you run on ~$150–$250/year in hosting.
+            </li>
+            <li>
+              <strong>[Key Value Prop 2]:</strong> [Explain direct business value, e.g. every booking goes straight to your inbox. No commissions. You own the customer relationship entirely.]
+            </li>
+            <li>
+              <strong>Mobile Performance = Revenue:</strong> [Industry stat, e.g. Over 70% of searches happen on mobile.] A slow or generic site loses the customer before they see your [product/menu/services]. This platform is engineered for sub-second mobile load times.
+            </li>
+            <li>
+              <strong>Your Team Stays Independent:</strong> No developer needed to update [content type 1], swap [content type 2], or change [content type 3]. Your staff can do it in under 2 minutes from any device.
+            </li>
+            <li>
+              <strong>Expandable Without Rebuilding:</strong> [Phase 2 features, e.g. online payments, loyalty programs, multi-location support] — all addable cleanly without touching the core system.
+            </li>
           </ul>
         </div>
 
         <h2>3. Scope of Work</h2>
         <h3>Pages to be Developed:</h3>
-        <p>[Page 1] | [Page 2] | [Page 3] | [Page 4] | [Page 5] | [Page 6]</p>
-
+        <p>
+          [Page 1] | [Page 2] | [Page 3] | [Page 4] | [Page 5] | [Page 6] | [Page 7] | [Page 8] | [Page 9] | [Page 10]
+        </p>
         <h3>Key Features &amp; Deliverables:</h3>
         <ul>
-          <li><strong>[Feature 1]:</strong> [Description of the primary feature or module to be delivered].</li>
-          <li><strong>Full-Control Admin Panel:</strong> A secure, idiot-proof CMS dashboard where your staff can instantly update content — no developer required.</li>
-          <li><strong>Asset &amp; SEO Architecture:</strong> Engineered with Server-Side Rendering (SSR) for instantaneous Google indexing. Includes full 301 redirects to protect your existing rankings.</li>
-          <li><strong>Content &amp; Strategy:</strong> We include a 1-hour strategic onboarding call to extract your brand voice. If assets are delayed, we launch with premium placeholders to ensure the timeline never slips.</li>
+          <li>
+            <strong>[Primary Feature Name]:</strong> [Detailed description of primary feature, what it does, how it works for the client] <em>(Note: [Phase 2 features] are scoped for Phase 2)</em>.
+          </li>
+          <li>
+            <strong>Easy-to-Use Admin Dashboard:</strong> A private, password-protected control panel built specifically for your content. Your staff can [action 1], [action 2], [action 3], or edit any page text — all in under 2 minutes, from any device. No developer calls, no tickets, no waiting. We walk your team through it once on launch day and they are fully independent.
+          </li>
+          <li>
+            <strong>SEO &amp; Migration Setup:</strong> Unique page titles and meta descriptions for all [X] pages, XML sitemap submitted to Google Search Console, and 301 redirects configured for every existing URL so your current search rankings transfer cleanly to the new platform.
+          </li>
+          <li>
+            <strong>Built-In Integrations:</strong> WhatsApp quick-contact button linked to your business number, Google Maps embed with your verified location, and a fully responsive layout tested across iPhone, Android, tablet, and desktop.
+          </li>
         </ul>
 
-        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 1</footer>
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS &bull; codevertex.solutions &bull; contact@codevertex.solutions | PAGE 1</footer>
       </div>
 
       <!-- PAGE 3: TECH & TIMELINE -->
@@ -259,49 +442,50 @@
           <div class="header-info">REF: #CV-PROP-[CLIENT_CODE]</div>
         </header>
 
-        <h2>4. Technical Approach</h2>
-        <p>We engineer a custom <strong>[Technology Stack]</strong> application to specifically solve your business requirements, providing permanent ownership over your platform without relying on recurring SaaS subscriptions.</p>
+        <h2>4. Technical Approach &amp; Why a Custom Build</h2>
+        <p>Your platform will be built as a fully custom web application — not assembled from generic templates or third-party plugins. This gives you a faster, more secure, and easier-to-manage product that is tailored exactly to your workflow.</p>
         <table>
           <thead>
             <tr>
               <th>Factor</th>
-              <th>[Our Stack] (Our Approach)</th>
-              <th>Standard Alternatives</th>
+              <th>Custom-Built Platform (Our Approach)</th>
+              <th>Generic Template Solutions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>True Ownership</strong></td>
-              <td>Zero recurring SaaS fees. You own 100% of the custom codebase.</td>
-              <td>Trapped paying monthly fees to generic plugins and platforms.</td>
+              <td><strong>Ownership</strong></td>
+              <td>You own 100% of the code. No recurring subscription fees.</td>
+              <td>Dependent on third-party platforms and monthly billing cycles.</td>
             </tr>
             <tr>
-              <td><strong>Blistering Speed</strong></td>
-              <td>Sub-second load times on mobile to maximize conversion.</td>
-              <td>Plugin bloat drastically reduces performance and user retention.</td>
+              <td><strong>Speed</strong></td>
+              <td>Optimized for fast loading on mobile — directly improves [conversions/bookings/sales].</td>
+              <td>Template bloat slows page load, increasing bounce rates.</td>
             </tr>
             <tr>
-              <td><strong>Admin Simplicity</strong></td>
-              <td>A simplified dashboard built <em>only</em> for your workflow.</td>
-              <td>Confusing generic backends requiring constant developer support.</td>
+              <td><strong>Admin Ease</strong></td>
+              <td>A simple dashboard built only for your content — no clutter.</td>
+              <td>Generic admin panels with unnecessary options and steep learning curves.</td>
             </tr>
             <tr>
-              <td><strong>Bulletproof Security</strong></td>
-              <td>Immune to standard automated CMS bot attacks.</td>
-              <td>A primary target for hackers via outdated third-party plugins.</td>
+              <td><strong>Security</strong></td>
+              <td>Custom architecture with no publicly-known attack surface.</td>
+              <td>Standard platforms are frequent targets for automated attacks.</td>
             </tr>
           </tbody>
         </table>
 
         <h3>Hosting &amp; Deployment</h3>
         <ul>
-          <li>Client is responsible for providing their own 3rd-party cloud hosting account (e.g., Vercel, DigitalOcean, Render).</li>
-          <li>We will handle the full server configuration, SSL setup, and deployment at no additional service cost.</li>
+          <li>Your website will be deployed on a reliable cloud hosting platform (e.g., Vercel, DigitalOcean, or Render).</li>
+          <li><strong>Estimated hosting cost: $150–$250/year</strong>, billed directly to your own hosting account.</li>
+          <li>Full server configuration, SSL certificate, and deployment are handled by us — no technical setup required on your end.</li>
         </ul>
 
         <h2>5. Timeline &amp; Milestones</h2>
-        <p><strong>Total Guaranteed Duration:</strong> [X] Weeks</p>
-        <p style="font-size: 11px;"><em>We operate on a stringent, phased timeline to ensure flawless engineering and design testing.</em></p>
+        <p><strong>Total Guaranteed Duration:</strong> [X]–[X] Weeks</p>
+        <p style="font-size: 11px"><em>Each phase has a defined outcome, keeping the project on track and fully transparent throughout.</em></p>
         <table>
           <thead>
             <tr>
@@ -327,19 +511,19 @@
             <tr>
               <td><strong>2. [Phase Name]</strong></td>
               <td>[X] Weeks</td>
-              <td>[Core features, deliverables for this phase]</td>
+              <td>[Core deliverables for this phase]</td>
               <td>30% at Staging ($[AMOUNT])</td>
             </tr>
             <tr>
               <td><strong>3. Testing &amp; Launch</strong></td>
               <td>[X] Week</td>
-              <td>QA, Client UAT, Final Adjustments, Deployment</td>
+              <td>QA, Client Review, Final Adjustments, Live Deployment</td>
               <td>30% on Final Delivery ($[AMOUNT])</td>
             </tr>
           </tbody>
         </table>
 
-        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 2</footer>
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS &bull; codevertex.solutions &bull; contact@codevertex.solutions | PAGE 2</footer>
       </div>
 
       <!-- PAGE 4: INVESTMENT & PROJECT MANAGEMENT -->
@@ -354,31 +538,53 @@
           <div class="header-info">REF: #CV-PROP-[CLIENT_CODE]</div>
         </header>
 
-        <h2>6. Investment &amp; Guarantee</h2>
+        <h2>6. Investment &amp; Payment Protection</h2>
         <div class="highlight-box">
-          <h3 style="font-size: 24px; color: var(--black); margin: 0 0 10px 0;">Total Project Investment: $[TOTAL_AMOUNT]</h3>
-          <p style="margin-bottom: 5px;"><strong>Payment Milestones:</strong></p>
-          <ul style="margin-top: 5px;">
-            <li><strong>10% Approval ($[AMOUNT]):</strong> Due immediately upon proposal acceptance to formally initiate the project and reserve your development slot.</li>
-            <li><strong>30% Design ($[AMOUNT]):</strong> Due following the approval of the initial wireframes and mockups, prior to full development.</li>
-            <li><strong>30% Development ($[AMOUNT]):</strong> Due at the midpoint of the development phase upon delivery of the staging environment.</li>
-            <li><strong>30% Final ($[AMOUNT]):</strong> Due upon project completion, prior to final deployment and live launch.</li>
+          <h3 style="font-size: 24px; color: var(--black); margin: 0 0 10px 0">Total Project Investment: $[TOTAL_AMOUNT]</h3>
+          <p style="margin-bottom: 5px"><strong>Every payment is tied to a deliverable you can see and approve first:</strong></p>
+          <ul style="margin-top: 5px">
+            <li>
+              <strong>10% Approval ($[AMOUNT]):</strong> Locks your start date and reserves your dedicated development slot. A signed Statement of Work (SOW) is issued immediately — legally documenting every deliverable, revision round, and milestone before any work begins.
+            </li>
+            <li>
+              <strong>30% Design ($[AMOUNT]):</strong> Due only after you have reviewed the wireframes and visual mockups and given written approval. Up to 2 revision rounds included. You see the product before paying.
+            </li>
+            <li>
+              <strong>30% Staging ($[AMOUNT]):</strong> Due after the working website is deployed to a private staging link for your full review and testing. You use the real product before this payment is triggered.
+            </li>
+            <li>
+              <strong>30% Final ($[AMOUNT]):</strong> Due on live delivery only — after you confirm the site meets every item in the signed scope. Not before.
+            </li>
           </ul>
-          <p style="margin-top: 15px; font-size: 10px; color: #666;"><em>Note: Final deployment requires a standard cloud hosting account. We will set this server up on your behalf at no additional service cost during Phase 3.</em></p>
+          <p style="margin-top: 12px; font-size: 11px; color: #555">
+            <strong>You never pay for work you haven't seen and approved.</strong> This structure is standard across all Code Vertex projects and is enforced in the signed SOW.
+          </p>
         </div>
-        <p>This fixed-price structure protects you from hourly overages and ensures dedicated resources throughout the [X]-week lifecycle.</p>
+        <p>Fixed price. No hourly billing. No scope-creep invoices. What you see here is what you pay — nothing more.</p>
 
-        <h2>7. Project Management &amp; Communication</h2>
-        <p><strong>Senior Project Director &amp; Lead Engineer:</strong> Wajiha Zehra</p>
-        <p>You are not hiring a freelancer; you are securing a dedicated technical partner. Our structured delivery protocol guarantees:</p>
+        <h2>7. Project Management &amp; Accountability</h2>
+        <p>
+          <strong>Project Director &amp; Lead Developer:</strong> Wajiha Zehra &nbsp;|&nbsp; <strong>codevertex.solutions</strong>
+        </p>
+        <p>
+          One dedicated contact from kickoff to delivery. No account managers, no handoffs, no meetings where someone says "I'll check with the dev team." Every technical decision and client update goes through a single person who knows the project in full.
+        </p>
         <ul>
-          <li><strong>Direct Access:</strong> 1-on-1 collaboration with your dedicated technical director.</li>
-          <li><strong>Bi-weekly Alignment:</strong> Scheduled milestone syncs every 2 weeks to review progress without disrupting your schedule.</li>
-          <li><strong>Scope Protection:</strong> Strict, mathematical adherence to the agreed delivery schedule with zero unexpected delays.</li>
-          <li><strong>White-Glove Delivery:</strong> End-to-end QA stress-testing and seamless production deployment.</li>
+          <li>
+            <strong>Bi-weekly Progress Reviews:</strong> Scheduled sync every 2 weeks with a written summary of completed work, next phase deliverables, and any client input required — sent 24 hours before each call.
+          </li>
+          <li>
+            <strong>Milestone Sign-Off Protocol:</strong> Nothing advances to the next phase without your written approval. Design is locked before development begins. Staging is approved before the final payment is triggered.
+          </li>
+          <li>
+            <strong>Defined Scope Only:</strong> Scope is fixed in the signed SOW. Any additions are quoted separately in writing before any work begins. No surprise invoices, ever.
+          </li>
+          <li>
+            <strong>Late Delivery Accountability:</strong> If a phase exceeds its defined timeline due to reasons within our control, the corresponding payment milestone is automatically delayed to match actual delivery. You never pay on time for work delivered late.
+          </li>
         </ul>
 
-        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 3</footer>
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS &bull; codevertex.solutions &bull; contact@codevertex.solutions | PAGE 3</footer>
       </div>
 
       <!-- PAGE 5: ADVANTAGE & ACCEPTANCE -->
@@ -394,31 +600,45 @@
         </header>
 
         <h2>8. The Code Vertex Advantage</h2>
-        <p>We do not just build websites; we engineer robust business assets designed to scale. Our commitment to you extends beyond launch day:</p>
+        <p>
+          We do not just build websites; we deliver working business tools that your team can own and operate independently. Here is what comes included:
+        </p>
         <ul>
-          <li><strong>Full IP Handover:</strong> Upon final payment, you own 100% of the custom codebase. No hostage situations.</li>
-          <li><strong>Staff Handoff:</strong> Includes 1-on-1 virtual training so your team can manage the dashboard confidently from Day 1.</li>
-          <li><strong>Post-Launch Protection:</strong> A comprehensive 30-day bug-fixing warranty guarantees zero friction once live. Future feature expansions or custom maintenance are available at a transparent $75/hr partner rate.</li>
+          <li>
+            <strong>Full Code Ownership:</strong> Upon final payment, you own 100% of the codebase. No ongoing dependency on us.
+          </li>
+          <li>
+            <strong>Admin Dashboard Training:</strong> A dedicated walkthrough session so your staff can confidently manage content from Day 1 — without needing a developer.
+          </li>
+          <li>
+            <strong>30-Day Post-Launch Warranty:</strong> Any bugs or issues found after launch are fixed at no additional cost within the first 30 days.
+          </li>
+          <li>
+            <strong>Future-Ready:</strong> The platform is built to scale. Additional features — such as [Phase 2 feature examples] — can be added cleanly in future phases at a transparent $75/hr rate.
+          </li>
         </ul>
-        <p>This ensures you are investing in a platform that not only looks professional but performs flawlessly in the real world.</p>
+        <p>
+          This ensures you are investing in a platform that not only looks professional but performs flawlessly in the real world.
+        </p>
 
         <h2>9. Acceptance &amp; Next Steps</h2>
-        <div class="highlight-box" style="margin-top: 30px; text-align: center; padding: 30px;">
-          <p style="font-size: 14px; margin-bottom: 10px;"><strong>Ready to Initiate Development?</strong></p>
-          <p style="font-size: 12px; color: #444;">
-            To approve the project scope, timeline, and investment outlined in this proposal, simply reply to the email containing this document confirming your acceptance.
+        <div class="highlight-box" style="margin-top: 30px; text-align: center; padding: 30px">
+          <p style="font-size: 14px; margin-bottom: 10px"><strong>Ready to proceed?</strong></p>
+          <p style="font-size: 12px; color: #444">
+            Reply to this email with a simple <em>"Confirmed"</em> to initiate. We will immediately issue the formal <strong>Statement of Work (SOW)</strong> — legally documenting every deliverable, revision round, and milestone — along with the invoice for the $[APPROVAL_AMOUNT] initiation payment.
           </p>
-          <p style="font-size: 12px; color: #444;">
-            Once accepted, we will issue the formal Statement of Work (SOW) and the invoice for the initial 40% deposit to kick off the design phase.
+          <p style="font-size: 12px; color: #444">
+            Your project slot is reserved upon SOW signature and receipt of the initiation payment. We recommend confirming within 3 days to secure your start date.
           </p>
+          <p style="font-size: 11px; color: #888; margin-top: 15px">Questions before signing? Reach out directly: <strong>contact@codevertex.solutions</strong> or <strong>wajihacodeofficial@gmail.com</strong></p>
         </div>
 
-        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 4</footer>
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS &bull; codevertex.solutions &bull; contact@codevertex.solutions | PAGE 4</footer>
       </div>
-
     </div>
 
     <script>
+      // Make text inside brackets editable for quick adjustments
       document.addEventListener('DOMContentLoaded', () => {
         document.body.innerHTML = document.body.innerHTML.replace(
           /\[([^\]<>]+)\]/g,
