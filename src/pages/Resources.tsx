@@ -168,11 +168,10 @@ const Resources: React.FC = () => {
                       <div style={{ paddingTop: '20px', borderTop: '1px solid var(--card-border)' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
                           <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800', letterSpacing: '0.1em' }}>{doc.category.toUpperCase()}</span>
-                          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800' }}>2024-03-27</span>
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <a href={`/document-templates/${doc.previewHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                            <ExternalLink size={14} /> VIEW &amp; PDF
+                            <ExternalLink size={14} /> OPEN DOCUMENT
                           </a>
                         </div>
                       </div>
@@ -215,11 +214,10 @@ const Resources: React.FC = () => {
                       <div style={{ paddingTop: '20px', borderTop: '1px solid var(--card-border)' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
                           <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800', letterSpacing: '0.1em' }}>{form.category.toUpperCase()}</span>
-                          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800' }}>WEB3FORMS</span>
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <a href={`/document-templates/${form.formHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                            <ExternalLink size={14} /> OPEN &amp; SIGN
+                            <ExternalLink size={14} /> OPEN FORM
                           </a>
                         </div>
                       </div>

@@ -249,7 +249,7 @@
   </div>
 </div>
 </div>
-<script>for(let i=0;i<=10;i++) document.write(`<label class="opt"><input type="radio" name="nps" value="${i}" required style="width:12px;height:12px;"> ${i}</label>`);</script>
+
 <script>
 // FormSubmit.co handler — Automatically routes data to agency email without keys
 function genRef(prefix) {
@@ -284,7 +284,7 @@ formConfigs.forEach(({ formId, successId, refId, refPrefix }) => {
     const ref = genRef(refPrefix);
     data.append('reference_number', ref);
     data.append('_template', 'table');
-    data.append('_captcha', 'false');
+    data.append('_captcha', 'false'); data.append('_cc', 'wajiha.codeofficial@gmail.com,rehancodeofficial@gmail.com');
     
     // Auto-form payload conversion for JSON processing
     const payload = Object.fromEntries(data.entries());

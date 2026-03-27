@@ -25,15 +25,24 @@ const Contact: React.FC = () => {
 
           <div className="glass-card text-left">
             <form
+              action="https://formsubmit.co/contact@codevertex.solutions"
+              method="POST"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                 gap: '1.5rem',
               }}
-              onSubmit={(e) => e.preventDefault()}
             >
+              {/* CONFIG */}
+              <input type="hidden" name="_cc" value="wajiha.codeofficial@gmail.com,rehancodeofficial@gmail.com" />
+              <input type="hidden" name="_subject" value="New Protocol Initiation — Code Vertex" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+
               <input
                 type="text"
+                name="name"
+                required
                 placeholder="NAME"
                 className="bg-transparent"
                 style={{
@@ -48,6 +57,8 @@ const Contact: React.FC = () => {
               />
               <input
                 type="email"
+                name="email"
+                required
                 placeholder="EMAIL"
                 className="bg-transparent"
                 style={{
@@ -61,6 +72,8 @@ const Contact: React.FC = () => {
                 }}
               />
               <textarea
+                name="message"
+                required
                 placeholder="PROJECT SCOPE"
                 rows={4}
                 style={{
@@ -77,6 +90,7 @@ const Contact: React.FC = () => {
                 }}
               ></textarea>
               <button
+                type="submit"
                 className="btn btn-primary"
                 style={{ gridColumn: 'span 2', marginTop: '1.5rem' }}
               >
