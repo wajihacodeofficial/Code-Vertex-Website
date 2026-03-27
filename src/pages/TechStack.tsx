@@ -56,7 +56,7 @@ const TechStack: React.FC = () => {
       <section style={{ padding: '180px 0 100px' }}>
         <div className="container">
           <header style={{ textAlign: 'center', marginBottom: '8rem' }}>
-            <span className="text-label">The Technical Standard</span>
+            <span className="text-label-pill">The Technical Standard</span>
             <h1 className="section-title">
               Our <span className="accent-text">Core Ecosystem</span>
             </h1>
@@ -106,13 +106,12 @@ const TechStack: React.FC = () => {
                     <span
                       key={tech}
                       style={{
-                        padding: '0.6rem 1.4rem',
-                        background: 'var(--bg-primary)',
-                        border: '1px solid var(--card-border)',
-                        borderRadius: '100px',
-                        fontSize: '0.75rem',
-                        fontWeight: 800,
+                        padding: '0.4rem 1rem',
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
                         color: 'var(--accent-primary)',
+                        opacity: 0.8,
+                        letterSpacing: '0.1em'
                       }}
                     >
                       {tech}

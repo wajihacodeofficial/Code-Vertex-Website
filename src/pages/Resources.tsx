@@ -103,7 +103,7 @@ const Resources: React.FC = () => {
         {/* HEADER */}
         <div style={{ marginBottom: '60px', textAlign: 'center' }}>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
-            <span className="text-label">
+            <span className="text-label-pill">
               AGENCY PROTOCOL
             </span>
           </motion.div>
@@ -166,7 +166,7 @@ const Resources: React.FC = () => {
                       </div>
                       <div style={{ paddingTop: '20px', borderTop: '1px solid var(--card-border)' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
-                          <span className="text-label" style={{ padding: '0.3rem 0.8rem', fontSize: '0.55rem', letterSpacing: '0.2em', marginBottom: 0 }}>{doc.category.toUpperCase()}</span>
+                          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800', letterSpacing: '0.1em' }}>{doc.category.toUpperCase()}</span>
                           <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800' }}>2024-03-27</span>
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
@@ -207,8 +207,8 @@ const Resources: React.FC = () => {
                             {formCategoryIcons[form.category]}
                           </div>
                           <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-                            <span className="text-label" style={{ padding: '0.3rem 0.8rem', fontSize: '0.55rem', letterSpacing: '0.2em', marginBottom: 0, border: '1px solid rgba(52,211,153,0.3)', color: '#34d399', background: 'rgba(52,211,153,0.05)' }}>CLIENT FORM</span>
-                            {form.hasPDF && <span className="text-label" style={{ padding: '0.3rem 0.8rem', fontSize: '0.55rem', letterSpacing: '0.2em', marginBottom: 0, border: '1px solid rgba(192,132,252,0.3)', color: '#c084fc', background: 'rgba(192,132,252,0.05)' }}>PDF</span>}
+                            <span style={{ fontSize: '9px', fontWeight: '900', letterSpacing: '0.1em', color: '#34d399', background: 'rgba(52,211,153,0.08)', padding: '4px 10px', borderRadius: '100px', border: '1px solid rgba(52,211,153,0.2)' }}>CLIENT FORM</span>
+                            {form.hasPDF && <span style={{ fontSize: '9px', fontWeight: '900', letterSpacing: '0.1em', color: '#c084fc', background: 'rgba(192,132,252,0.08)', padding: '4px 10px', borderRadius: '100px', border: '1px solid rgba(192,132,252,0.2)' }}>PDF</span>}
                           </div>
                         </div>
                         <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '10px', fontWeight: '700', lineHeight: '1.3' }}>{form.name}</h3>
@@ -216,7 +216,7 @@ const Resources: React.FC = () => {
                       </div>
                       <div style={{ paddingTop: '20px', borderTop: '1px solid var(--card-border)' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
-                          <span className="text-label" style={{ padding: '0.3rem 0.8rem', fontSize: '0.55rem', letterSpacing: '0.2em', marginBottom: 0 }}>{form.category.toUpperCase()}</span>
+                          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800', letterSpacing: '0.1em' }}>{form.category.toUpperCase()}</span>
                           <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800' }}>WEB3FORMS</span>
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>

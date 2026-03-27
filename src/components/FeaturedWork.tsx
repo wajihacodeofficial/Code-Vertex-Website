@@ -90,20 +90,20 @@ const FeaturedWork: React.FC = () => {
                 style={{ display: 'flex', gap: '0.8rem', marginBottom: '3.5rem', flexWrap: 'wrap' }}
               >
                 {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      fontSize: '0.65rem',
-                      fontWeight: 800,
-                      padding: '0.5rem 1.4rem',
-                      borderRadius: '100px',
-                      border: '1px solid var(--card-border)',
-                      color: 'var(--text-muted)',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    {tag}
-                  </span>
+                    <span
+                      key={tag}
+                      style={{
+                        fontSize: '0.65rem',
+                        fontWeight: 700,
+                        padding: '0.4rem 1rem',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        color: 'var(--text-muted)',
+                        letterSpacing: '0.1em',
+                        borderRadius: '4px'
+                      }}
+                    >
+                      {tag}
+                    </span>
                 ))}
               </div>
 

@@ -85,7 +85,7 @@ const Services: React.FC = () => {
       >
         <div className="container">
           <header style={{ marginBottom: '8rem', textAlign: 'center' }}>
-            <span className="text-label">Our Expertise</span>
+            <span className="text-label-pill">Our Expertise</span>
             <h1 className="section-title">
               Engineered <br />
               <span className="accent-text">Service Delivery</span>
@@ -238,9 +238,16 @@ const Services: React.FC = () => {
                 >
                   {step.icon}
                 </span>
-                <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem', position: 'relative', zIndex: 1 }}>
+                <h4
+                  style={{
+                    fontSize: '1.4rem',
+                    marginBottom: '1.2rem',
+                    position: 'relative',
+                    zIndex: 1,
+                  }}
+                >
                   {step.title}
-                </span>
+                </h4>
                 <p
                   style={{
                     fontSize: '0.9rem',
@@ -283,9 +290,16 @@ const Services: React.FC = () => {
                 },
               ].map((industry, i) => (
                 <div key={i}>
-                  <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>
+                  <h4
+                    style={{
+                      fontSize: '1.2rem',
+                      color: 'var(--accent-primary)',
+                      marginBottom: '1.2rem',
+                      fontWeight: 800,
+                    }}
+                  >
                     {industry.title}
-                  </span>
+                  </h4>
                   <p
                     style={{
                       color: 'var(--text-secondary)',

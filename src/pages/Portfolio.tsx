@@ -95,7 +95,7 @@ const Portfolio: React.FC = () => {
       >
         <div className="container">
           <header style={{ marginBottom: '8rem', textAlign: 'center' }}>
-            <span className="text-label">Selected Deployments</span>
+            <span className="text-label-pill">Selected Deployments</span>
             <h1 className="section-title">
               Engineering <span className="accent-text">Showcase</span>
             </h1>
@@ -194,15 +194,14 @@ const Portfolio: React.FC = () => {
                       }}
                     >
                       <span
-                        className="text-label"
                         style={{
-                          fontSize: '0.55rem',
-                          padding: '0.4rem 1.2rem',
-                          letterSpacing: '0.3em',
+                          fontSize: '0.7rem',
+                          fontWeight: 900,
+                          color: 'var(--accent-primary)',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.4em',
                           marginBottom: '1rem',
-                          border: '1px solid var(--accent-primary)',
-                          background: 'rgba(255, 195, 0, 0.1)',
-                          color: '#fff'
+                          display: 'block',
                         }}
                       >
                         {p.category}
@@ -241,12 +240,11 @@ const Portfolio: React.FC = () => {
                             key={k}
                             style={{
                               fontSize: '0.65rem',
-                              fontWeight: 800,
-                              color: 'rgba(255,255,255,0.7)',
-                              background: 'rgba(255,255,255,0.05)',
-                              padding: '0.4rem 1rem',
-                              borderRadius: '100px',
-                              border: '1px solid rgba(255,255,255,0.1)',
+                              fontWeight: 700,
+                              color: 'rgba(255,255,255,0.6)',
+                              padding: '0 0.5rem',
+                              borderRight: k < p.tech.length - 1 ? '1px solid rgba(255,255,255,0.2)' : 'none',
+                              letterSpacing: '0.1em'
                             }}
                           >
                             {t}

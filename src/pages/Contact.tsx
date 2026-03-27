@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-label">Get in Touch</span>
+              <span className="text-label-pill">Get in Touch</span>
               <h1
                 className="hero-title"
                 style={{
@@ -109,25 +109,49 @@ const Contact: React.FC = () => {
                 }}
               >
                 <div>
-                  <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>
+                  <h4
+                    style={{
+                      fontSize: '0.65rem',
+                      fontWeight: 800,
+                      color: 'var(--accent-primary)',
+                      marginBottom: '1rem',
+                      letterSpacing: '0.2em',
+                    }}
+                  >
                     EMAIL US
-                  </span>
+                  </h4>
                   <p style={{ fontSize: '1.1rem', fontWeight: 800 }}>
                     contact@codevertex.solutions
                   </p>
                 </div>
                 <div>
-                  <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>
+                  <h4
+                    style={{
+                      fontSize: '0.65rem',
+                      fontWeight: 800,
+                      color: 'var(--accent-primary)',
+                      marginBottom: '1rem',
+                      letterSpacing: '0.2em',
+                    }}
+                  >
                     WHATSAPP
-                  </span>
+                  </h4>
                   <p style={{ fontSize: '1.1rem', fontWeight: 800 }}>
                     +92 317 7760506
                   </p>
                 </div>
                 <div>
-                  <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>
+                  <h4
+                    style={{
+                      fontSize: '0.65rem',
+                      fontWeight: 800,
+                      color: 'var(--accent-primary)',
+                      marginBottom: '1rem',
+                      letterSpacing: '0.2em',
+                    }}
+                  >
                     SOCIALS
-                  </span>
+                  </h4>
                   <div
                     style={{
                       display: 'flex',
@@ -194,9 +218,17 @@ const Contact: React.FC = () => {
                       gap: '0.8rem',
                     }}
                   >
-                    <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.55rem', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        fontSize: '0.65rem',
+                        fontWeight: 800,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.2em',
+                        color: 'var(--accent-primary)',
+                      }}
+                    >
                       Your Identity
-                    </span>
+                    </label>
                     <input
                       type="text"
                       required
@@ -226,9 +258,17 @@ const Contact: React.FC = () => {
                       gap: '0.8rem',
                     }}
                   >
-                    <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.55rem', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        fontSize: '0.65rem',
+                        fontWeight: 800,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.2em',
+                        color: 'var(--accent-primary)',
+                      }}
+                    >
                       Signal Route (Email)
-                    </span>
+                    </label>
                     <input
                       type="email"
                       required
@@ -258,9 +298,17 @@ const Contact: React.FC = () => {
                       gap: '0.8rem',
                     }}
                   >
-                    <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.55rem', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        fontSize: '0.65rem',
+                        fontWeight: 800,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.2em',
+                        color: 'var(--accent-primary)',
+                      }}
+                    >
                       Architectural Scope
-                    </span>
+                    </label>
                     <textarea
                       rows={4}
                       required

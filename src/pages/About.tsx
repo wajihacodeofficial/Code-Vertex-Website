@@ -21,7 +21,7 @@ const About: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-label">System Architecture</span>
+              <span className="text-label-pill">System Architecture</span>
               <h1
                 className="hero-title"
                 style={{
@@ -67,9 +67,18 @@ const About: React.FC = () => {
                 >
                   GLOBAL STANDARDS
                 </h2>
-                <span className="text-label" style={{ marginBottom: '2rem' }}>
+                <p
+                  style={{
+                    fontSize: '0.7rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.4em',
+                    color: 'var(--text-muted)',
+                    textTransform: 'uppercase',
+                    marginBottom: '2rem',
+                  }}
+                >
                   ENTERPRISE SOLUTIONS
-                </span>
+                </p>
                 <div
                   style={{
                     height: '1px',
@@ -151,16 +160,15 @@ const About: React.FC = () => {
                   },
                 ].map((item, i) => (
                   <div key={i}>
-                    <span
-                    className="text-label"
-                    style={{
-                      marginBottom: '1rem',
-                      padding: '0.5rem 1.5rem',
-                      fontSize: '0.6rem'
-                    }}
-                  >
-                    {item.title}
-                  </span>
+                    <h4
+                      style={{
+                        fontSize: '1.2rem',
+                        marginBottom: '0.8rem',
+                        color: 'var(--text-primary)',
+                      }}
+                    >
+                      {item.title}
+                    </h4>
                     <p
                       style={{
                         color: 'var(--text-secondary)',
@@ -447,13 +455,12 @@ const About: React.FC = () => {
                     <span
                       key={tech}
                       style={{
-                        padding: '0.6rem 1.4rem',
-                        background: 'var(--bg-primary)',
-                        border: '1px solid var(--card-border)',
-                        borderRadius: '100px',
-                        fontSize: '0.75rem',
-                        fontWeight: 800,
+                        padding: '0.4rem 1rem',
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
                         color: 'var(--accent-primary)',
+                        opacity: 0.8,
+                        letterSpacing: '0.1em'
                       }}
                     >
                       {tech}
@@ -503,16 +510,17 @@ const About: React.FC = () => {
                 },
               ].map((stat, i) => (
                 <div key={i}>
-                  <span
-                    className="text-label"
+                  <h4
                     style={{
+                      fontSize: '0.7rem',
+                      fontWeight: 900,
+                      color: 'var(--accent-primary)',
+                      letterSpacing: '0.3em',
                       marginBottom: '1rem',
-                      padding: '0.5rem 1.5rem',
-                      fontSize: '0.6rem'
                     }}
                   >
                     {stat.label}
-                  </span>
+                  </h4>
                   <p
                     style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}
                   >

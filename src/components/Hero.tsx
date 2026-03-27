@@ -25,18 +25,7 @@ const Hero: React.FC = () => {
           style={{ position: 'relative' }}
         >
           <div style={{ marginBottom: '2.5rem' }}>
-            <span 
-              className="text-label" 
-              style={{ 
-                display: 'inline-block',
-                letterSpacing: '0.8em', 
-                background: 'rgba(255, 195, 0, 0.1)',
-                padding: '0.5rem 1.5rem',
-                borderRadius: '100px',
-                border: '1px solid rgba(255, 195, 0, 0.2)',
-                color: '#FFC300'
-              }}
-            >
+            <span className="text-label-pill">
               CODE VERTEX SOLUTIONS
             </span>
           </div>

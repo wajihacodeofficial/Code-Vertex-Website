@@ -71,7 +71,7 @@ const Home: React.FC = () => {
                 className="glass-card"
                 style={{ padding: '3rem', textAlign: 'center' }}
               >
-                <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>{value.title}</span>
+                <h4 style={{ fontSize: '1.3rem', marginBottom: '1rem', color: 'var(--accent-primary)' }}>{value.title}</h4>
                 <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', fontSize: '0.95rem' }}>{value.desc}</p>
               </motion.div>
             ))}

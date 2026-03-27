@@ -73,7 +73,7 @@ const Methodology: React.FC = () => {
       >
         <div className="container" style={{ maxWidth: '1000px' }}>
           <header style={{ marginBottom: '8rem', textAlign: 'center' }}>
-            <span className="text-label">Expert Execution</span>
+            <span className="text-label-pill">Expert Execution</span>
             <h1 className="section-title">
               Our <span className="accent-text">Deployment Protocol</span>
             </h1>
@@ -186,16 +186,15 @@ const Methodology: React.FC = () => {
               },
             ].map((val, i) => (
               <div key={i}>
-                <span
-                  className="text-label"
+                <h4
                   style={{
+                    fontSize: '1.3rem',
                     marginBottom: '1rem',
-                    padding: '0.4rem 1.2rem',
-                    fontSize: '0.62rem',
+                    color: 'var(--accent-primary)',
                   }}
                 >
                   {val.title}
-                </span>
+                </h4>
                 <p
                   style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}
                 >
