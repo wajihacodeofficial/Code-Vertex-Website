@@ -172,11 +172,9 @@ const Resources: React.FC = () => {
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <a href={`/document-templates/${doc.previewHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                            <FileDown size={14} /> DOWNLOAD
+                            <ExternalLink size={14} /> VIEW &amp; PDF
                           </a>
-                          <button onClick={() => window.open(`/document-templates/${doc.previewHash}.html`, '_blank')} className="btn btn-outline" style={{ width: '48px', padding: '0', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '12px' }}>
-                            <ExternalLink size={16} />
-                          </button>
+                        </div>
                         </div>
                       </div>
                     </motion.div>
@@ -222,11 +220,8 @@ const Resources: React.FC = () => {
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <a href={`/document-templates/${form.formHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                            <PenTool size={14} /> OPEN FORM
+                            <ExternalLink size={14} /> OPEN &amp; SIGN
                           </a>
-                          <button onClick={() => window.open(`/document-templates/${form.formHash}.html`, '_blank')} className="btn btn-outline" style={{ width: '48px', padding: '0', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '12px' }}>
-                            <ExternalLink size={16} />
-                          </button>
                         </div>
                       </div>
                     </motion.div>

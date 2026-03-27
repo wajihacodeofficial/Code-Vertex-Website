@@ -311,5 +311,46 @@ formConfigs.forEach(({ formId, successId, refId, refPrefix }) => {
   });
 });
 </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const generateUID = () => {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let res = '';
+            for (let i = 0; i < 6; i++) res += chars.charAt(Math.floor(Math.random() * chars.length));
+            return res;
+        };
+        const uid = `${new Date().getFullYear().toString().slice(-2)}${String(new Date().getMonth() + 1).padStart(2, '0')}-${generateUID()}`;
+        
+        // Target common reference areas
+        const refElements = document.querySelectorAll('.form-ref, .document-ref, .header-info');
+        refElements.forEach(el => {
+            if (el.innerHTML.includes('REF:')) {
+                el.innerHTML = el.innerHTML.replace(/(REF:\s*#?[\w-]+)/, `$1-${uid}`);
+            } else if (el.innerText.includes('INV NO:')) {
+                 el.innerHTML = el.innerHTML.replace(/(INV NO:\s*#?[\w-]+)/, `$1-${uid}`);
+            } else {
+                // If no REF found, append it
+                const span = document.createElement('span');
+                span.style.display = 'block';
+                span.style.fontSize = '8px';
+                span.style.opacity = '0.5';
+                span.innerText = `ID: ${uid}`;
+                el.appendChild(span);
+            }
+        });
+
+        // Also add to footer if exists
+        const footer = document.querySelector('footer');
+        if (footer) {
+            const idTag = document.createElement('span');
+            idTag.style.fontSize = '7px';
+            idTag.style.marginLeft = '10px';
+            idTag.innerText = ` | AUTH-ID: ${uid}`;
+            footer.appendChild(idTag);
+        }
+    });
+    </script>
+
 </body>
 </html>

@@ -33,9 +33,9 @@
 
 /* Fixed Light Theme - Updated for Code Vertex Premium */
 [data-theme='light'] {
-  --bg-primary: #F3F5F9; /* Softer, more premium blue-tinted light grey */
-  --bg-secondary: #FFFFFF;
-  --bg-tertiary: #E2E8F0;
+  --bg-primary: #F9F9F4; /* Warmer, pale-bone background */
+  --bg-secondary: #FDFDFB; /* Subtle off-white for cards */
+  --bg-tertiary: #EEEEE8;
 
   --text-primary: #0F172A; /* Slate 900 for modern deep contrast */
   --text-secondary: #334155; /* Slate 700 */
