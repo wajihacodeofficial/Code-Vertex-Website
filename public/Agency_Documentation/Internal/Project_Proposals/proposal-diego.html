@@ -73,11 +73,15 @@
         .page {
           margin: 0;
           padding: 12.7mm; /* 0.5 inch margins */
-          min-height: 297mm;
+          padding-bottom: 25.4mm;
+          height: 297mm;
           width: 210mm;
+          position: relative;
+          box-sizing: border-box;
           box-shadow: none;
           page-break-after: always;
           page-break-inside: avoid;
+          overflow: hidden;
         }
       }
 
@@ -204,8 +208,8 @@
       footer {
         position: absolute;
         bottom: 0.5in;
-        left: 1in;
-        right: 1in;
+        left: 0.5in;
+        right: 0.5in;
         height: 0.5in;
         text-align: right;
         font-size: 8px;
@@ -213,15 +217,6 @@
         text-transform: uppercase;
         border-top: 1px solid var(--border-light);
         padding-top: 5px;
-      }
-
-      @media print {
-        footer {
-          position: static;
-          text-align: center;
-          margin-top: 50px;
-          border-top: none;
-        }
       }
       
       .no-print {
