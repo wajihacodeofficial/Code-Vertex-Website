@@ -66,6 +66,11 @@
           margin: 0;
           padding: 0;
         }
+        .print-wrapper {
+          padding: 0 !important;
+          margin: 0 !important;
+          display: block !important;
+        }
         @page {
           size: A4 portrait;
           margin: 0; /* Removes browser header/footer URLs */
@@ -74,7 +79,7 @@
           margin: 0;
           padding: 12.7mm; /* 0.5 inch margins */
           padding-bottom: 25.4mm;
-          height: 100vh;
+          height: 296mm; /* 1mm safety buffer */
           width: 100%;
           position: relative;
           box-sizing: border-box;
@@ -83,8 +88,8 @@
           page-break-inside: avoid;
           overflow: hidden;
         }
-        .page:last-of-type {
-          page-break-after: auto;
+        .page:last-child, .page:last-of-type {
+          page-break-after: avoid !important;
         }
       }
 
@@ -674,16 +679,16 @@
           <p style="margin-bottom: 5px"><strong>Payment Milestones:</strong></p>
           <ul style="margin-top: 5px">
             <li>
-              <strong>40% Upfront ($640):</strong> Due upon project initiation
-              to begin the design phase.
+              <strong>10% Approval ($160):</strong> Due immediately upon proposal acceptance to formally initiate the project and reserve your development slot.
             </li>
             <li>
-              <strong>30% Progress ($480):</strong> Due following the approval
-              of the initial design mockups prior to full development.
+              <strong>30% Design ($480):</strong> Due following the approval of the initial wireframes and mockups, prior to full development.
             </li>
             <li>
-              <strong>30% Final ($480):</strong> Due upon project completion,
-              prior to final deployment and launch.
+              <strong>30% Development ($480):</strong> Due at the midpoint of the development phase upon delivery of the staging environment.
+            </li>
+            <li>
+              <strong>30% Final ($480):</strong> Due upon project completion, prior to final deployment and live launch.
             </li>
           </ul>
           <p style="margin-top: 15px; font-size: 10px; color: #666">
@@ -726,6 +731,29 @@
             and seamless production deployment.
           </li>
         </ul>
+
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 3</footer>
+      </div>
+
+      <!-- PAGE 5: ADVANTAGE & ACCEPTANCE -->
+      <div class="page">
+        <header>
+          <div class="logo-placeholder">
+            <img src="../../../logo.jpeg" alt="Code Vertex Solutions" />
+            <div style="display: flex; flex-direction: column">
+              <span
+                style="
+                  font-weight: 900;
+                  font-size: 14px;
+                  letter-spacing: -0.5px;
+                  margin-top: -2px;
+                "
+                >CODE VERTEX SOLUTIONS</span
+              >
+            </div>
+          </div>
+          <div class="header-info">REF: #CV-PROP-DIEGO</div>
+        </header>
 
         <h2>8. The Code Vertex Advantage</h2>
         <p>
@@ -773,7 +801,7 @@
           </p>
         </div>
 
-        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 3</footer>
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 4</footer>
       </div>
     </div>
 
