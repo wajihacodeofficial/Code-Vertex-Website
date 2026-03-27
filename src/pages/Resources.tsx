@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FileText, Shield, CreditCard, Package,
-  Search, FileDown, ExternalLink, ClipboardList,
-  CheckSquare, MessageSquare, Star, PenTool, AlertCircle
+  Search, ExternalLink, ClipboardList,
+  CheckSquare, MessageSquare, Star, AlertCircle
 } from 'lucide-react';
 
 // ─── DOCUMENTS ───────────────────────────────────────────────────────────────
@@ -174,7 +174,6 @@ const Resources: React.FC = () => {
                           <a href={`/document-templates/${doc.previewHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
                             <ExternalLink size={14} /> VIEW &amp; PDF
                           </a>
-                        </div>
                         </div>
                       </div>
                     </motion.div>
