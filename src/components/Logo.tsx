@@ -8,7 +8,7 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ size = 45, className = '' }) => {
   return (
     <img
-      src="/logo.svg"
+      src="/logo.jpeg"
       alt="Code Vertex Logo"
       width={size}
       height={size}
