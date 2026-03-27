@@ -186,15 +186,16 @@ const Methodology: React.FC = () => {
               },
             ].map((val, i) => (
               <div key={i}>
-                <h4
+                <span
+                  className="text-label"
                   style={{
-                    fontSize: '1.3rem',
                     marginBottom: '1rem',
-                    color: 'var(--accent-primary)',
+                    padding: '0.4rem 1.2rem',
+                    fontSize: '0.62rem',
                   }}
                 >
                   {val.title}
-                </h4>
+                </span>
                 <p
                   style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}
                 >

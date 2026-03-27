@@ -67,18 +67,9 @@ const About: React.FC = () => {
                 >
                   GLOBAL STANDARDS
                 </h2>
-                <p
-                  style={{
-                    fontSize: '0.7rem',
-                    fontWeight: 800,
-                    letterSpacing: '0.4em',
-                    color: 'var(--text-muted)',
-                    textTransform: 'uppercase',
-                    marginBottom: '2rem',
-                  }}
-                >
+                <span className="text-label" style={{ marginBottom: '2rem' }}>
                   ENTERPRISE SOLUTIONS
-                </p>
+                </span>
                 <div
                   style={{
                     height: '1px',
@@ -160,15 +151,16 @@ const About: React.FC = () => {
                   },
                 ].map((item, i) => (
                   <div key={i}>
-                    <h4
-                      style={{
-                        fontSize: '1.2rem',
-                        marginBottom: '0.8rem',
-                        color: 'var(--text-primary)',
-                      }}
-                    >
-                      {item.title}
-                    </h4>
+                    <span
+                    className="text-label"
+                    style={{
+                      marginBottom: '1rem',
+                      padding: '0.5rem 1.5rem',
+                      fontSize: '0.6rem'
+                    }}
+                  >
+                    {item.title}
+                  </span>
                     <p
                       style={{
                         color: 'var(--text-secondary)',
@@ -511,17 +503,16 @@ const About: React.FC = () => {
                 },
               ].map((stat, i) => (
                 <div key={i}>
-                  <h4
+                  <span
+                    className="text-label"
                     style={{
-                      fontSize: '0.7rem',
-                      fontWeight: 900,
-                      color: 'var(--accent-primary)',
-                      letterSpacing: '0.3em',
                       marginBottom: '1rem',
+                      padding: '0.5rem 1.5rem',
+                      fontSize: '0.6rem'
                     }}
                   >
                     {stat.label}
-                  </h4>
+                  </span>
                   <p
                     style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}
                   >

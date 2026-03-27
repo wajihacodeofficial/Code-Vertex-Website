@@ -238,16 +238,9 @@ const Services: React.FC = () => {
                 >
                   {step.icon}
                 </span>
-                <h4
-                  style={{
-                    fontSize: '1.4rem',
-                    marginBottom: '1.2rem',
-                    position: 'relative',
-                    zIndex: 1,
-                  }}
-                >
+                <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem', position: 'relative', zIndex: 1 }}>
                   {step.title}
-                </h4>
+                </span>
                 <p
                   style={{
                     fontSize: '0.9rem',
@@ -290,16 +283,9 @@ const Services: React.FC = () => {
                 },
               ].map((industry, i) => (
                 <div key={i}>
-                  <h4
-                    style={{
-                      fontSize: '1.2rem',
-                      color: 'var(--accent-primary)',
-                      marginBottom: '1.2rem',
-                      fontWeight: 800,
-                    }}
-                  >
+                  <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>
                     {industry.title}
-                  </h4>
+                  </span>
                   <p
                     style={{
                       color: 'var(--text-secondary)',

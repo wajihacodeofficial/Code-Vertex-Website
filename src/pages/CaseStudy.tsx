@@ -320,7 +320,7 @@ const CaseStudy: React.FC = () => {
       <section style={{ padding: '120px 0 60px' }}>
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="text-label">Case Study {id?.padStart(2, '0')}</span>
+            <span className="text-label" style={{ marginBottom: '1.5rem' }}>Case Study {id?.padStart(2, '0')}</span>
             <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 8vw, 5rem)' }}>{project.title}</h1>
             <p style={{ fontSize: '1.4rem', color: 'var(--accent-primary)', fontWeight: 600 }}>{project.tagline}</p>
           </motion.div>
@@ -332,17 +332,17 @@ const CaseStudy: React.FC = () => {
           <div className="grid grid-3" style={{ gap: '2rem' }}>
             <div className="glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
               <Clock size={32} style={{ color: 'var(--accent-primary)', margin: '0 auto 1rem' }} />
-              <h4 style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>TIMELINE</h4>
+                <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>TIMELINE</span>
               <p style={{ fontWeight: 700 }}>{project.timeline}</p>
             </div>
             <div className="glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
               <Zap size={32} style={{ color: 'var(--accent-primary)', margin: '0 auto 1rem' }} />
-              <h4 style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>PLATFORMS</h4>
+                <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>PLATFORMS</span>
               <p style={{ fontWeight: 700 }}>{project.platforms}</p>
             </div>
             <div className="glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
               <Shield size={32} style={{ color: 'var(--accent-primary)', margin: '0 auto 1rem' }} />
-              <h4 style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>STATUS</h4>
+                <span className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.62rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>STATUS</span>
               <p style={{ fontWeight: 700, color: 'var(--accent-primary)' }}>Live</p>
             </div>
           </div>
@@ -399,8 +399,8 @@ const CaseStudy: React.FC = () => {
             {project.results.map((r: any, i: number) => (
               <div key={i} className="glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
                 <TrendingUp size={24} style={{ color: 'var(--accent-primary)', marginBottom: '1rem' }} />
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-primary)' }}>{r.value}</div>
-                <div style={{ fontSize: '0.7rem', opacity: 0.7 }}>{r.label}</div>
+                <div className="text-label" style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-primary)', padding: '1rem', marginBottom: '1rem' }}>{r.value}</div>
+                <div className="text-label" style={{ padding: '0.35rem 1.2rem', fontSize: '0.55rem', letterSpacing: '0.1em', marginBottom: 0 }}>{r.label}</div>
               </div>
             ))}
           </div>

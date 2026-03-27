@@ -194,14 +194,15 @@ const Portfolio: React.FC = () => {
                       }}
                     >
                       <span
+                        className="text-label"
                         style={{
-                          fontSize: '0.7rem',
-                          fontWeight: 900,
-                          color: 'var(--accent-primary)',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.4em',
+                          fontSize: '0.55rem',
+                          padding: '0.4rem 1.2rem',
+                          letterSpacing: '0.3em',
                           marginBottom: '1rem',
-                          display: 'block',
+                          border: '1px solid var(--accent-primary)',
+                          background: 'rgba(255, 195, 0, 0.1)',
+                          color: '#fff'
                         }}
                       >
                         {p.category}
