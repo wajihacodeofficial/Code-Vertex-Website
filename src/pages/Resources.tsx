@@ -17,24 +17,20 @@ interface Document {
 }
 
 const documents: Document[] = [
-  // LEGAL
-  { id: '1', name: 'Master Service Agreement (MSA)', category: 'Legal', isPrivate: false, description: 'Core agreement covering services, payments, IP transfer, and liability.', previewHash: 'master-service-agreement-msa' },
-  { id: '2', name: 'Non-Disclosure Agreement (NDA)', category: 'Legal', isPrivate: false, description: 'Mutual confidentiality protection for code, data, and business logic.', previewHash: 'non-disclosure-agreement-nda' },
-  { id: '3', name: 'Dispute Resolution Addendum', category: 'Legal', isPrivate: false, description: 'KCIA arbitration and mediation protocols. Governed by Sindh, Pakistan.', previewHash: 'dispute-resolution-addendum' },
-  { id: '4', name: 'Retainer Agreement', category: 'Legal', isPrivate: false, description: 'Monthly support retainer with usage, overage, and rollover rules.', previewHash: 'retainer-agreement' },
-  { id: '5', name: 'IP Assignment Agreement', category: 'Legal', isPrivate: false, description: 'Formal IP transfer linked to final payment clearance.', previewHash: 'ip-assignment-agreement' },
+  // LEGAL & FINANCIAL
+  { id: '1', name: 'Master Service Agreement (MSA)', category: 'Legal', isPrivate: false, description: 'Core agreement covering services, payments, IP transfer, and liability.', previewHash: 'Internal/Project_Agreements/master-service-agreement-msa' },
+  { id: '2', name: 'Non-Disclosure Agreement (NDA)', category: 'Legal', isPrivate: false, description: 'Mutual confidentiality protection for code, data, and business logic.', previewHash: 'Legal_Financial/NDA/non-disclosure-agreement-nda' },
+  { id: '18', name: 'Privacy Policy', category: 'Legal', isPrivate: false, description: 'Global compliance and data protection protocol for client projects.', previewHash: 'Client_Facing/privacy-policy' },
+  
+  // INTERNAL & OPERATIONAL
+  { id: '11', name: 'Statement of Work (SOW)', category: 'Scope', isPrivate: false, description: 'Full project scope, milestones, acceptance criteria, and payment triggers.', previewHash: 'Internal/SOW/statement-of-work-sow' },
+  { id: '12', name: 'Project Proposal', category: 'Scope', isPrivate: false, description: 'High-level business proposal outlining solution, roadmap, and investment.', previewHash: 'Internal/Project_Proposals/project-proposal' },
+  { id: '15', name: 'QA / Testing Checklist', category: 'Scope', isPrivate: false, description: 'Internal QA gate and client UAT sign-off checklist.', previewHash: 'Internal/QA_Checklists/qa-testing-checklist' },
+  { id: '22', name: 'Project Handover Doc', category: 'Scope', isPrivate: false, description: 'Final delivery checklist including credentials and source access.', previewHash: 'Internal/Project_Handover/form-completion' },
+
   // FINANCIAL
-  { id: '6', name: 'Payment Terms Agreement', category: 'Financial', isPrivate: false, description: 'Milestone schedule, late fees, $350 re-activation fee policy.', previewHash: 'payment-terms-agreement' },
-  { id: '7', name: 'Invoice Template', category: 'Financial', isPrivate: false, description: 'Professional invoice with wire transfer instructions.', previewHash: 'invoice' },
-  { id: '8', name: 'Estimate / Quote', category: 'Financial', isPrivate: false, description: 'Non-binding indicative cost breakdown before SOW.', previewHash: 'estimate-quote' },
-  { id: '9', name: 'Payment Overdue Notice', category: 'Financial', isPrivate: false, description: '48-hour ultimatum notice with escalation chain.', previewHash: 'payment-overdue-notice' },
-  { id: '10', name: 'Payment Receipt', category: 'Financial', isPrivate: false, description: 'Immutable receipt with running account summary.', previewHash: 'payment-receipt' },
-  // SCOPE
-  { id: '11', name: 'Statement of Work (SOW)', category: 'Scope', isPrivate: false, description: 'Full project scope, milestones, acceptance criteria, and payment triggers.', previewHash: 'statement-of-work-sow' },
-  { id: '12', name: 'Project Proposal', category: 'Scope', isPrivate: false, description: 'High-level business proposal outlining solution, roadmap, and investment.', previewHash: 'project-proposal' },
-  { id: '13', name: 'Revision Policy', category: 'Scope', isPrivate: false, description: 'Included revision rounds, expiry window, and overage billing rules.', previewHash: 'revision-policy' },
-  { id: '14', name: 'Risk Assessment', category: 'Scope', isPrivate: false, description: 'Pre-populated project risks with probability, impact and mitigation strategies.', previewHash: 'risk-assessment-tracking' },
-  { id: '15', name: 'QA / Testing Checklist', category: 'Scope', isPrivate: false, description: 'Internal QA gate and client UAT sign-off checklist with acceptance window.', previewHash: 'qa-testing-checklist' },
+  { id: '7', name: 'Invoice Template', category: 'Financial', isPrivate: false, description: 'Professional invoice with wire transfer instructions.', previewHash: 'Legal_Financial/Invoices/invoice' },
+  { id: '10', name: 'Payment Receipt', category: 'Financial', isPrivate: false, description: 'Immutable receipt with running account summary.', previewHash: 'Legal_Financial/Payment_Receipts/payment-receipt' },
 ];
 
 // ─── FORMS ───────────────────────────────────────────────────────────────────
@@ -49,14 +45,11 @@ interface Form {
 }
 
 const forms: Form[] = [
-  { id: 'f01', name: 'Client Onboarding Form', category: 'Onboarding', filledBy: 'Client', description: 'Kick off your project with company details, goals, and access requirements.', formHash: 'form-onboarding', hasPDF: false },
-  { id: 'f02', name: 'Project Kickoff Confirmation', category: 'Onboarding', filledBy: 'Client', description: 'Formally confirm your MSA, SOW, and deposit commitment. Generates a signed PDF.', formHash: 'form-kickoff', hasPDF: true },
-  { id: 'f03', name: 'Requirement Submission', category: 'Project', filledBy: 'Client', description: 'Submit a new feature, enhancement, or bug report for team review.', formHash: 'form-requirements', hasPDF: false },
-  { id: 'f04', name: 'Milestone Sign-Off', category: 'Sign-Off', filledBy: 'Client', description: 'Review deliverables and trigger the next milestone payment. Generates signed PDF.', formHash: 'form-milestone', hasPDF: true },
-  { id: 'f05', name: 'Change Request Form', category: 'Project', filledBy: 'Client', description: 'Request scope changes outside the original SOW with cost estimate.', formHash: 'form-change', hasPDF: true },
-  { id: 'f06', name: 'Revision Request Form', category: 'Project', filledBy: 'Client', description: 'Request revisions on delivered work within your included rounds.', formHash: 'form-revision', hasPDF: false },
-  { id: 'f07', name: 'Client Feedback Survey (NPS)', category: 'Feedback', filledBy: 'Client', description: 'Post-project NPS + CSAT survey with optional portfolio testimonial.', formHash: 'form-feedback', hasPDF: false },
-  { id: 'f08', name: 'Project Completion Certificate', category: 'Sign-Off', filledBy: 'Client', description: 'Confirm all deliverables received and begin your 30-day warranty. Generates PDF.', formHash: 'form-completion', hasPDF: true },
+  { id: 'f01', name: 'Client Onboarding Form', category: 'Onboarding', filledBy: 'Client', description: 'Kick off your project with company details, goals, and access requirements.', formHash: 'Internal/Client_Intake_Forms/form-onboarding', hasPDF: false },
+  { id: 'f02', name: 'Project Kickoff Confirmation', category: 'Onboarding', filledBy: 'Client', description: 'Formally confirm your MSA, SOW, and deposit commitment.', formHash: 'Internal/Kickoff_Checklists/form-kickoff', hasPDF: true },
+  { id: 'f05', name: 'Change Request Form', category: 'Project', filledBy: 'Client', description: 'Request scope changes outside the original SOW with cost estimate.', formHash: 'Internal/Change_Requests/form-change', hasPDF: true },
+  { id: 'f08', name: 'Project Completion Certificate', category: 'Sign-Off', filledBy: 'Client', description: 'Confirm all deliverables received and begin warranty period.', formHash: 'Internal/Project_Handover/form-completion', hasPDF: true },
+  { id: 'f07', name: 'Client Feedback Survey (NPS)', category: 'Feedback', filledBy: 'Client', description: 'Post-project survey with optional portfolio testimonial.', formHash: 'Internal/Project_Handover/form-feedback', hasPDF: false },
 ];
 
 // ─── ICONS ───────────────────────────────────────────────────────────────────
@@ -170,7 +163,7 @@ const Resources: React.FC = () => {
                           <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800', letterSpacing: '0.1em' }}>{doc.category.toUpperCase()}</span>
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
-                          <a href={`/document-templates/${doc.previewHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                          <a href={`/Agency_Documentation/${doc.previewHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
                             <ExternalLink size={14} /> OPEN DOCUMENT
                           </a>
                         </div>
@@ -216,7 +209,7 @@ const Resources: React.FC = () => {
                           <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800', letterSpacing: '0.1em' }}>{form.category.toUpperCase()}</span>
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
-                          <a href={`/document-templates/${form.formHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                          <a href={`/Agency_Documentation/${form.formHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
                             <ExternalLink size={14} /> OPEN FORM
                           </a>
                         </div>
