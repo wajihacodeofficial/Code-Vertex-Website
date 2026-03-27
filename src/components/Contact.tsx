@@ -38,6 +38,7 @@ const Contact: React.FC = () => {
               <input type="hidden" name="_subject" value="New Protocol Initiation — Code Vertex" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
+              <input type="text" name="_honey" style={{ display: 'none' }} />
 
               <input
                 type="text"
