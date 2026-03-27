@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Development Proposal | Diego</title>
+    <style>
+      :root {
+        --yellow: #ffc300;
+        --cyan: #00cfff;
+        --black: #262626;
+        --white: #ffffff;
+        --gray-bg: #f8f8f8;
+        --border-light: #eeeeee;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--black);
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+        background: #eee;
+      }
+
+      .page::before {
+        content: 'CODE VERTEX SOLUTIONS';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-35deg);
+        font-size: 52px;
+        font-weight: 900;
+        letter-spacing: 4px;
+        color: rgba(0, 0, 0, 0.03);
+        pointer-events: none;
+        white-space: nowrap;
+        z-index: 0;
+      }
+
+      .page {
+        background: var(--white);
+        width: 210mm;
+        min-height: 297mm;
+        margin: 10mm auto;
+        padding: 1in;
+        padding-bottom: 2in;
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      @media print {
+        body {
+          background: none;
+        }
+        @page {
+          size: A4;
+          margin: 1in;
+        }
+        .page {
+          margin: 0;
+          padding: 0;
+          min-height: auto;
+          width: auto;
+          height: auto;
+          box-shadow: none;
+          page-break-after: always;
+        }
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 2px solid var(--black);
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+      }
+
+      .logo-placeholder {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-placeholder img {
+        height: 44px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .header-info {
+        text-align: right;
+        font-size: 10px;
+      }
+
+      .badge {
+        display: block;
+        font-weight: 800;
+        font-size: 12px;
+        margin-bottom: 5px;
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        font-size: 28px;
+        font-weight: 900;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+      }
+
+      h2 {
+        font-size: 16px;
+        font-weight: 800;
+        border-left: 5px solid var(--yellow);
+        padding-left: 10px;
+        margin: 30px 0 15px 0;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        font-size: 13px;
+        font-weight: 700;
+        margin: 20px 0 10px 0;
+        color: var(--cyan);
+      }
+
+      p,
+      li {
+        font-size: 12px;
+        margin-bottom: 8px;
+        text-align: left;
+      }
+      
+      ul { padding-left: 20px; }
+
+      .highlight-box {
+        background: var(--gray-bg);
+        border-left: 4px solid var(--black);
+        padding: 15px;
+        margin: 20px 0;
+        font-size: 11px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      table th {
+        background: var(--black);
+        color: var(--white);
+        text-align: left;
+        padding: 10px 12px;
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+
+      table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border-light);
+        font-size: 11px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #fafafa;
+      }
+
+      .signature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 50px;
+      }
+
+      .sig-block {
+        border-top: 1px solid var(--black);
+        padding-top: 10px;
+        margin-top: 60px;
+        min-height: 80px;
+      }
+
+      .sig-label {
+        font-weight: 800;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+
+      footer {
+        position: absolute;
+        bottom: 0.5in;
+        left: 1in;
+        right: 1in;
+        height: 0.5in;
+        text-align: right;
+        font-size: 8px;
+        color: #999;
+        text-transform: uppercase;
+        border-top: 1px solid var(--border-light);
+        padding-top: 5px;
+      }
+
+      @media print {
+        footer {
+          position: static;
+          text-align: center;
+          margin-top: 50px;
+          border-top: none;
+        }
+      }
+      
+      .no-print {
+        display: none !important;
+      }
+      @media screen {
+        .no-print { display: flex !important; }
+      }
+
+      .export-bar {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        display: flex;
+        gap: 10px;
+      }
+      .export-btn {
+        background: #ffc300;
+        color: #000;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 100px;
+        font-weight: 800;
+        font-size: 12px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: system-ui, sans-serif;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .export-btn.secondary {
+        background: #262626;
+        color: #fff;
+        border: 1px solid #ffc300;
+      }
+      .export-btn:hover {
+        background: #e6af00;
+        transform: translateY(-1px);
+      }
+      
+      .cover-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        padding: 2in 1in;
+      }
+
+      .editable-placeholder {
+        background: rgba(255, 195, 0, 0.15);
+        border-bottom: 2px dashed #ffc300;
+        padding: 0 4px;
+        cursor: text;
+        color: #262626;
+        border-radius: 2px;
+        transition: all 0.2s;
+        display: inline-block;
+        min-width: 40px;
+      }
+      .editable-placeholder:focus {
+        outline: none;
+        background: rgba(0, 207, 255, 0.15);
+        border-bottom: 2px solid #00cfff;
+      }
+      .placeholder-hint {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+        background: #262626;
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 100px;
+        font-weight: 600;
+        font-size: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: system-ui, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="placeholder-hint no-print">
+      💡 Click highlighted text to edit
+    </div>
+    <div class="export-bar no-print">
+      <button class="export-btn secondary" onclick="window.print()">Download PDF</button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; padding: 40px 0;">
+      
+      <!-- PAGE 1: COVER PAGE -->
+      <div class="page">
+        <header>
+          <div class="logo-placeholder">
+            <img src="/logo.jpeg" alt="Code Vertex Solutions" />
+            <div style="display: flex; flex-direction: column">
+              <span style="font-weight: 900; font-size: 14px; letter-spacing: -0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+              <span style="font-size: 10px; font-weight: 400; color: #666; margin-top: 2px;">From Concept to Code — Rapidly</span>
+            </div>
+          </div>
+          <div class="header-info">
+            <span class="badge">AGENCY // PROJECT PROPOSAL</span>
+            REF: #CV-PROP-DIEGO
+          </div>
+        </header>
+
+        <div class="cover-page">
+          <img src="/logo.jpeg" alt="Logo" style="height: 100px; margin-bottom: 40px;"/>
+          <span style="font-size: 12px; font-weight: 800; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase;">Website Development Proposal</span>
+          <h1 style="font-size: 48px; margin-top: 20px; margin-bottom: 10px; line-height: 1.1;">[Business Website Project]</h1>
+          <p style="font-size: 16px; font-weight: 600; color: #666;">Prepared exclusively for: <strong style="color: var(--black);">Diego</strong></p>
+          
+          <div style="margin-top: 60px; text-align: center;">
+            <p style="margin: 4px 0;"><strong>Prepared by:</strong> Wajiha Zehra</p>
+            <p style="margin: 4px 0; color: #666;">Project Director & Lead Developer</p>
+            <p style="margin: 4px 0; color: #666;">Code Vertex Solutions</p>
+            <p style="margin: 20px 0; font-weight: 600;">Date: [Insert Date]</p>
+          </div>
+        </div>
+
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | COVER</footer>
+      </div>
+
+      <!-- PAGE 2: EXEC SUMMARY & SCOPE -->
+      <div class="page">
+        <header>
+          <div class="logo-placeholder">
+            <img src="/logo.jpeg" alt="Code Vertex Solutions" />
+            <div style="display: flex; flex-direction: column">
+              <span style="font-weight: 900; font-size: 14px; letter-spacing: -0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+            </div>
+          </div>
+          <div class="header-info">
+            REF: #CV-PROP-DIEGO
+          </div>
+        </header>
+
+        <h2>1. Executive Summary</h2>
+        <p>
+          Code Vertex is pleased to submit this proposal for the design and development of your business website. Our goal is to create a modern, high-performance, and scalable website that enhances brand visibility, improves user engagement, and streamlines your online booking and menu management processes.
+        </p>
+        <p>
+          We propose building your website on the <strong>MERN stack (MongoDB, Express, React, Node.js)</strong> to ensure:
+        </p>
+        <ul>
+          <li>Full flexibility for custom features</li>
+          <li>High performance and fast load times</li>
+          <li>Scalability for future growth</li>
+          <li>Easy content management via a user-friendly admin panel</li>
+        </ul>
+        <p>This proposal outlines the project scope, technical approach, timeline, investment, payment milestones, and project management plan.</p>
+
+        <h2>2. Project Objectives</h2>
+        <div class="highlight-box">
+          <ul style="margin: 0; padding-left: 15px;">
+            <li>Deliver a visually appealing and user-friendly website that represents your brand.</li>
+            <li>Implement an online booking system and menu management functionality.</li>
+            <li>Ensure the website is mobile-friendly, fast-loading, and optimized for SEO.</li>
+            <li>Provide an easy-to-use admin panel for non-technical team members to update content.</li>
+            <li>Develop a scalable platform capable of supporting future growth and additional features.</li>
+          </ul>
+        </div>
+
+        <h2>3. Scope of Work</h2>
+        <h3>Pages to be Developed:</h3>
+        <p>Home | About Us | Menu | Banquet Facility | Gallery | Catering | Contact Us | Visiting Hours | Online Booking | Menu Kit</p>
+        
+        <h3>Key Features:</h3>
+        <ul>
+          <li><strong>Responsive Design:</strong> Fully responsive for desktop, tablet, and mobile.</li>
+          <li><strong>Booking System:</strong> Online booking system with optimized user experience.</li>
+          <li><strong>Admin Panel:</strong> Custom portal for internal content management.</li>
+          <li><strong>Security Setup:</strong> SSL, backups, and active malware protection.</li>
+          <li><strong>Optimization:</strong> Fast loading, image optimization, and basic SEO setup.</li>
+          <li><strong>Training:</strong> Post-launch training for your team to manage the site.</li>
+        </ul>
+
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 1</footer>
+      </div>
+
+      <!-- PAGE 3: TECH & TIMELINE -->
+      <div class="page">
+        <header>
+          <div class="logo-placeholder">
+            <img src="/logo.jpeg" alt="Code Vertex Solutions" />
+            <div style="display: flex; flex-direction: column">
+              <span style="font-weight: 900; font-size: 14px; letter-spacing: -0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+            </div>
+          </div>
+          <div class="header-info">
+            REF: #CV-PROP-DIEGO
+          </div>
+        </header>
+
+        <h2>4. Technical Approach</h2>
+        <p>We recommend using the MERN stack over WordPress for the following reasons:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>MERN Stack Advantage</th>
+              <th>WordPress Limitation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Customization</strong></td>
+              <td>Fully customizable features</td>
+              <td>Limited by plugins and templates</td>
+            </tr>
+            <tr>
+              <td><strong>Performance</strong></td>
+              <td>Fast load times and smooth UX</td>
+              <td>Can be slow with many plugins</td>
+            </tr>
+            <tr>
+              <td><strong>Scalability</strong></td>
+              <td>Supports future apps and integrations</td>
+              <td>Hard to scale without extra tools</td>
+            </tr>
+            <tr>
+              <td><strong>Admin Panel</strong></td>
+              <td>Clean and easy-to-use interface</td>
+              <td>May require extra training / plugins</td>
+            </tr>
+            <tr>
+              <td><strong>Security</strong></td>
+              <td>More secure, fewer vulnerabilities</td>
+              <td>Higher risk of attacks (outdated plugins)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Hosting & Deployment</h3>
+        <ul>
+          <li>Managed cloud hosting (AWS / DigitalOcean / Render) optimized for MERN.</li>
+          <li>SSL certificate, regular backups, and security monitoring included.</li>
+          <li><strong>Estimated hosting cost:</strong> $200/year</li>
+        </ul>
+
+        <h2>5. Timeline & Milestones</h2>
+        <p><strong>Total Estimated Duration:</strong> ~6 weeks</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>Duration</th>
+              <th>Deliverables</th>
+              <th>Payment Milestone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Design</strong></td>
+              <td>7–10 days</td>
+              <td>Wireframes, Mockups, UI Approval</td>
+              <td>40% upfront</td>
+            </tr>
+            <tr>
+              <td><strong>2. Development</strong></td>
+              <td>25–28 days</td>
+              <td>Full MERN website, Booking System, Admin Panel</td>
+              <td>30% after Design Approval</td>
+            </tr>
+            <tr>
+              <td><strong>3. Testing & Delivery</strong></td>
+              <td>5–7 days</td>
+              <td>QA, Bug Fixes, Final Adjustments & Deployment</td>
+              <td>30% on Final Delivery</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 2</footer>
+      </div>
+
+      <!-- PAGE 4: INVESTMENT & SIGNATURE -->
+      <div class="page">
+        <header>
+          <div class="logo-placeholder">
+            <img src="/logo.jpeg" alt="Code Vertex Solutions" />
+            <div style="display: flex; flex-direction: column">
+              <span style="font-weight: 900; font-size: 14px; letter-spacing: -0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+            </div>
+          </div>
+          <div class="header-info">
+            REF: #CV-PROP-DIEGO
+          </div>
+        </header>
+
+        <h2>6. Investment & Payment Structure</h2>
+        <div class="highlight-box">
+          <h3 style="font-size: 24px; color: var(--black); margin: 0 0 10px 0;">Total Project Cost: $1,650</h3>
+          <p style="margin-bottom: 5px;"><strong>Payment Milestones:</strong></p>
+          <ul style="margin-top: 5px;">
+            <li><strong>40% Upfront:</strong> Project initiation and design phase.</li>
+            <li><strong>30% Progress:</strong> Paid after design approval and before development begins.</li>
+            <li><strong>30% Final:</strong> Paid on final delivery, before launch/deployment.</li>
+          </ul>
+          <p style="margin-top: 15px; font-size: 10px; color: #666;"><em>Note: Managed Hosting & Deployment involves an additional $200/year.</em></p>
+        </div>
+        <p>This structure ensures dedicated resources, timely delivery, and transparency throughout the project lifecycle.</p>
+
+        <h2>7. Project Management & Communication</h2>
+        <p><strong>Project Director & Lead Developer:</strong> Wajiha Zehra</p>
+        <ul>
+          <li>Direct coordination with your assigned team member.</li>
+          <li>Regular progress updates via email and planned syncs.</li>
+          <li>Ensuring milestones and deadlines are mathematically met.</li>
+          <li>Managing end-to-end development, testing, and deployment.</li>
+        </ul>
+
+        <h2>8. Why MERN Stack is the Right Choice</h2>
+        <ul>
+          <li><strong>Performance:</strong> Fast and smooth website experience for your bookings.</li>
+          <li><strong>Scalability:</strong> Ready for future features and business growth.</li>
+          <li><strong>Customization:</strong> Full flexibility for unique business needs.</li>
+          <li><strong>Ease of Use:</strong> Admin panel allows non-technical team members to manage content.</li>
+        </ul>
+        <p>This ensures a website that not only looks professional but performs exceptionally and grows with your business.</p>
+
+        <h2>9. Acceptance & Next Steps</h2>
+        <p>By signing this proposal, you approve the project scope, timeline, and investment. Work will begin immediately upon receipt of the initial 40% payment.</p>
+
+        <div class="signature-grid">
+          <div class="sig-block">
+            <div class="sig-label">Client Approval: Diego</div>
+            <div class="field" style="margin-top:20px;">[Signature / e-Sign]</div>
+            <div style="font-size: 10px; margin-top: 10px;">Date: [Insert Date]</div>
+          </div>
+          <div class="sig-block">
+            <div class="sig-label">Code Vertex Authorized Signatory</div>
+            <div class="field" style="margin-top:20px;">Wajiha Zehra</div>
+            <div style="font-size: 10px; margin-top: 10px;">Date: [Insert Date]</div>
+          </div>
+        </div>
+
+        <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 3</footer>
+      </div>
+
+    </div>
+
+    <script>
+      // Make text inside brackets editable for quick adjustments
+      document.addEventListener('DOMContentLoaded', () => {
+        document.body.innerHTML = document.body.innerHTML.replace(
+          /\[([^\]<>]+)\]/g,
+          (fullMatch, contents) => `<span contenteditable="true" class="editable-placeholder" title="${fullMatch}">${fullMatch}</span>`
+        );
+        document.querySelectorAll('.editable-placeholder').forEach((el) => {
+          el.addEventListener('focus', function () {
+            if (this.innerText.trim() === this.title) this.innerText = '';
+          });
+          el.addEventListener('blur', function () {
+            if (this.innerText.trim() === '') this.innerText = this.title;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
