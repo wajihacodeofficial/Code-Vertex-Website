@@ -11,6 +11,7 @@ import TechStack from './pages/TechStack';
 import Methodology from './pages/Methodology';
 
 import Contact from './pages/Contact';
+import Resources from './pages/Resources';
 import FAQ from './pages/FAQ';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import CookiePolicy from './pages/CookiePolicy';
@@ -35,6 +36,7 @@ function App() {
           <Route path="/protocol" element={<Methodology />} />
 
           <Route path="/contact" element={<Contact />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/cookie" element={<CookiePolicy />} />

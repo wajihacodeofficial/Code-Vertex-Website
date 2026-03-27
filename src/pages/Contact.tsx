@@ -121,7 +121,7 @@ const Contact: React.FC = () => {
                     EMAIL US
                   </h4>
                   <p style={{ fontSize: '1.1rem', fontWeight: 800 }}>
-                    support.codevertex@gmail.com
+                    contact@codevertex.solutions
                   </p>
                 </div>
                 <div>

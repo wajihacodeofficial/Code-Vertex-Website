@@ -98,7 +98,8 @@ const PrivacyPolicy: React.FC = () => {
                 >
                   You have the right to request access to, correction of, or
                   deletion of your personal data held by Code Vertex Software.
-                  Contact support.codevertex@gmail.com for any data residency inquiries.
+                  Contact contact@codevertex.solutions for any data residency
+                  inquiries.
                 </p>
               </section>
             </div>

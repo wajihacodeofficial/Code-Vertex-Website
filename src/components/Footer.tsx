@@ -13,8 +13,8 @@ const Footer: React.FC = () => {
     >
       <div className="container">
         <div
-          className="grid grid-4 footer-grid"
-          style={{ marginBottom: '5rem' }}
+          className="grid grid-5 footer-grid flex-footer"
+          style={{ marginBottom: '5rem', display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr 1fr 1fr', gap: '2rem' }}
         >
           <div
             style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
@@ -78,60 +78,54 @@ const Footer: React.FC = () => {
             >
               <li>
                 <Link
-                  to="/services#mern"
+                  to="/services#web-design"
                   onClick={() => window.scrollTo(0, 0)}
-                  style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--text-secondary)',
-                    textDecoration: 'none',
-                  }}
+                  style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }}
                   className="footer-link"
                 >
-                  MERN Web Development
+                  Web Design & UI/UX
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services#java"
+                  to="/services#web-app"
                   onClick={() => window.scrollTo(0, 0)}
-                  style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--text-secondary)',
-                    textDecoration: 'none',
-                  }}
+                  style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }}
                   className="footer-link"
                 >
-                  Java Desktop Solutions
+                  Web App Development
                 </Link>
               </li>
               <li>
                 <Link
                   to="/services#mobile"
                   onClick={() => window.scrollTo(0, 0)}
-                  style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--text-secondary)',
-                    textDecoration: 'none',
-                  }}
+                  style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }}
                   className="footer-link"
                 >
-                  Native Android Development
+                  Android Applications
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/services#maintenance"
-                  onClick={() => window.scrollTo(0, 0)}
-                  style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--text-secondary)',
-                    textDecoration: 'none',
-                  }}
-                  className="footer-link"
-                >
-                  Bug Fixing & Maintenance
-                </Link>
-              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 style={{ fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.2em', color: 'var(--accent-primary)', marginBottom: '1.5rem' }}>LEGAL KIT</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <li><a href="/document-templates/master-service-agreement-msa.html" target="_blank" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }} className="footer-link">Master Services Agreement</a></li>
+              <li><a href="/document-templates/non-disclosure-agreement-nda.html" target="_blank" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }} className="footer-link">Non-Disclosure Agreement</a></li>
+              <li><a href="/document-templates/ip-assignment-agreement.html" target="_blank" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }} className="footer-link">IP Assignment Protocol</a></li>
+              <li><a href="/document-templates/payment-terms-agreement.html" target="_blank" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }} className="footer-link">Payment Terms Policy</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 style={{ fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.2em', color: 'var(--accent-primary)', marginBottom: '1.5rem' }}>OPS FORMS</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <li><a href="/document-templates/form-onboarding.html" target="_blank" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }} className="footer-link">Project Onboarding</a></li>
+              <li><a href="/document-templates/form-change.html" target="_blank" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }} className="footer-link">Change Request</a></li>
+              <li><a href="/document-templates/form-milestone.html" target="_blank" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }} className="footer-link">Milestone Sign-Off</a></li>
+              <li><a href="/document-templates/form-feedback.html" target="_blank" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textDecoration: 'none' }} className="footer-link">Client NPS Survey</a></li>
             </ul>
           </div>
 

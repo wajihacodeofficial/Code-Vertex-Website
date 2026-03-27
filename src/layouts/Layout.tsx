@@ -32,6 +32,11 @@ const LayoutContent: React.FC<LayoutProps> = ({ children }) => {
       style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
     >
       <ThreeBackground />
+      {/* GLOBAL AMBIENT ORBS */}
+      <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', overflow: 'hidden', zIndex: 0 }}>
+        <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '500px', height: '500px', background: 'var(--accent-glow)', borderRadius: '50%', filter: 'blur(120px)' }} />
+        <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', width: '500px', height: '500px', background: 'rgba(0,207,255,0.1)', borderRadius: '50%', filter: 'blur(120px)' }} />
+      </div>
       <Navbar />
 
       <main

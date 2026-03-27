@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Vertex Solutions | Hardened Agency Kit 2024</title>
+    <style>
+        :root {
+            --yellow: #FFC300;
+            --cyan: #00CFFF;
+            --black: #262626;
+            --white: #ffffff;
+            --gray-bg: #f8f8f8;
+            --border-light: #eeeeee;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            color: var(--black);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            background: #eee;
+        }
+
+        /* Diagonal watermark on every page */
+        .page::before {
+            content: 'CODE VERTEX SOLUTIONS';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-35deg);
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: rgba(0,0,0,0.04);
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 0;
+        }
+
+        .page {
+            background: var(--white);
+            width: 210mm;
+            min-height: 297mm;
+            margin: 10mm auto;
+            padding: 1in;
+            padding-bottom: 2in;
+            position: relative;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        @media print {
+            body { background: none; }
+            @page { size: A4; margin: 1in; } /* Physical hardware margin */
+            .page { 
+                margin: 0; 
+                padding: 0;
+                min-height: auto;
+                width: auto;
+                height: auto; /* DYNAMIC EXPANSION */
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-placeholder img {
+            height: 44px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .header-info {
+            text-align: right;
+            font-size: 10px;
+        }
+
+        .badge {
+            display: block;
+            font-weight: 800;
+            font-size: 12px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* Typography & Components */
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 14px;
+            font-weight: 800;
+            border-left: 5px solid var(--yellow);
+            padding-left: 10px;
+            margin: 25px 0 15px 0;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 12px;
+            font-weight: 700;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            font-size: 11px;
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        .field {
+            color: var(--cyan);
+            font-style: italic;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-light);
+            padding: 0 5px;
+        }
+
+        .highlight-box {
+            background: var(--gray-bg);
+            border-left: 4px solid var(--black);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 10px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th {
+            background: var(--black);
+            color: var(--white);
+            text-align: left;
+            padding: 8px 12px;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        /* Signature Styles */
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .sig-block {
+            border-top: 1px solid var(--black);
+            padding-top: 10px;
+            margin-top: 60px; /* More space before signature line */
+            min-height: 80px; /* Taller area for signing */
+        }
+
+        .sig-label {
+            font-weight: 800;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Footer Styles */
+        footer {
+            position: absolute;
+            bottom: 0.5in;
+            left: 1in;
+            right: 1in;
+            height: 0.5in;
+            text-align: right;
+            font-size: 8px;
+            color: #999;
+            text-transform: uppercase;
+            border-top: 1px solid var(--border-light);
+            padding-top: 5px;
+        }
+
+        @media print {
+            footer {
+                position: static;
+                text-align: center;
+                margin-top: 50px;
+                border-top: none;
+            }
+        }
+
+        .parties-block {
+            background: var(--gray-bg);
+            padding: 15px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .parties-block div strong { font-size: 10px; }
+        .parties-block div span { display: block; margin-top: 5px; }
+
+        .disclaimer { font-weight: 700; color: var(--black); }
+    </style>
+</head>
+<body>
+
+<!-- DOC-31 | MASTER INDEX -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">AGENCY KIT // MASTER INDEX</span>
+            REF: #CV-INDEX-24<br>
+            contact@codevertex.solutions<br>
+            +92 317 776 0506 | codevertex.solutions<br>
+            Karachi, PK
+        </div>
+    </header>
+
+    <h1>Document Master Index</h1>
+    <p>This index serves as the official directory for the Code Vertex Solutions agency kit. All documents are governed by the Master Service Agreement (MSA) unless otherwise specified.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Doc #</th>
+                <th>Reference Code</th>
+                <th>Document Title</th>
+                <th>Category</th>
+                <th>Filled By</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>01</td><td>#CV-MSA-24</td><td>Master Service Agreement (MSA)</td><td>Legal</td><td>Joint</td></tr>
+            <tr><td>02</td><td>#CV-NDA-24</td><td>Non-Disclosure Agreement (NDA)</td><td>Legal</td><td>Joint</td></tr>
+            <tr><td>03</td><td>#CV-DISP-24</td><td>Dispute Resolution Addendum</td><td>Legal</td><td>Joint</td></tr>
+            <tr><td>04</td><td>#CV-RET-24</td><td>Retainer Agreement</td><td>Legal</td><td>Joint</td></tr>
+            <tr><td>05</td><td>#CV-IP-24</td><td>IP Assignment Agreement</td><td>Legal</td><td>Agency</td></tr>
+            <tr><td>06</td><td>#CV-PAY-24</td><td>Payment Terms Agreement</td><td>Financial</td><td>Joint</td></tr>
+            <tr><td>07</td><td>#CV-INV-24</td><td>Client Invoice</td><td>Financial</td><td>Agency</td></tr>
+            <tr><td>08</td><td>#CV-EST-24</td><td>Estimate / Quote</td><td>Financial</td><td>Agency</td></tr>
+            <tr><td>09</td><td>#CV-OVD-24</td><td>Payment Overdue Notice</td><td>Financial</td><td>Agency</td></tr>
+            <tr><td>10</td><td>#CV-SOW-24</td><td>Statement of Work (SOW)</td><td>Project</td><td>Joint</td></tr>
+            <tr><td>11</td><td>#CV-REV-24</td><td>Revision Policy</td><td>Project</td><td>Agency</td></tr>
+            <tr><td>12</td><td>#CV-CR-24</td><td>Change Request Form</td><td>Project</td><td>Client</td></tr>
+            <tr><td>13</td><td>#CV-REC-24</td><td>Payment Receipt</td><td>Financial</td><td>Agency</td></tr>
+            <tr><td>14</td><td>#CV-RISK-24</td><td>Risk Assessment & Tracking</td><td>Project</td><td>Internal</td></tr>
+            <tr><td>15</td><td>#CV-QA-24</td><td>QA / Testing Checklist</td><td>Project</td><td>Agency</td></tr>
+            <tr><td>16</td><td>#CV-ONB-24</td><td>Client Onboarding Form</td><td>Client Ops</td><td>Joint</td></tr>
+            <tr><td>17</td><td>#CV-MSO-24</td><td>Milestone Sign-Off Form</td><td>Client Ops</td><td>Client</td></tr>
+            <tr><td>18</td><td>#CV-PCC-24</td><td>Project Completion Certificate</td><td>Client Ops</td><td>Agency</td></tr>
+            <tr><td>19</td><td>#CV-CES-24</td><td>Client Experience Survey</td><td>Client Ops</td><td>Client</td></tr>
+            <tr><td>20</td><td>#CV-SOP-DEV</td><td>Development SOP</td><td>Internal</td><td>Internal</td></tr>
+            <tr><td>21</td><td>#CV-SOP-QA</td><td>QA & Testing SOP</td><td>Internal</td><td>Internal</td></tr>
+            <tr><td>22</td><td>#CV-SOP-DES</td><td>Design SOP</td><td>Internal</td><td>Internal</td></tr>
+            <tr><td>23</td><td>#CV-SOP-DEP</td><td>Deployment SOP</td><td>Internal</td><td>Internal</td></tr>
+            <tr><td>24</td><td>#CV-TRK-24</td><td>Project Tracking Sheet</td><td>Internal</td><td>Internal</td></tr>
+            <tr><td>25</td><td>#CV-COM-24</td><td>Official Communication</td><td>Branding</td><td>Agency</td></tr>
+            <tr><td>26</td><td>#CV-SIG-24</td><td>Email Signature / Branding</td><td>Branding</td><td>Agency</td></tr>
+            <tr><td>27</td><td>#CV-PROP-24</td><td>Project Proposal</td><td>Branding</td><td>Agency</td></tr>
+            <tr><td>28</td><td>#CV-CASE-24</td><td>Project Case Study</td><td>Branding</td><td>Agency</td></tr>
+            <tr><td>29</td><td>#CV-WIKI-24</td><td>Internal Wiki / Knowledge Base</td><td>Internal</td><td>Internal</td></tr>
+            <tr><td>30</td><td>#CV-HR-24</td><td>Employee Handbook</td><td>Internal</td><td>Internal</td></tr>
+        </tbody>
+    </table>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 1</footer>
+</div>
+
+<!-- DOC-01 | MASTER SERVICE AGREEMENT -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">LEGAL // CONFIDENTIAL</span>
+            REF: #CV-MSA-24<br>
+            contact@codevertex.solutions
+        </div>
+    </header>
+
+    <h1>Master Service Agreement (MSA)</h1>
+    
+    <div class="parties-block">
+        <div>
+            <strong>AGENCY (THE "AGENCY")</strong><br>
+            Code Vertex Solutions<br>
+            Karachi, Sindh, Pakistan<br>
+            Representative: <span class="field">[Agency PM Name] (Agency)</span>
+        </div>
+        <div>
+            <strong>CLIENT (THE "CLIENT")</strong><br>
+            Entity: <span class="field">[Client Legal Name] (Client)</span><br>
+            Address: <span class="field">[Client Address] (Client)</span><br>
+            Representative: <span class="field">[Client Authorized Name] (Client)</span>
+        </div>
+    </div>
+
+    <h2>1. Services & Engagement</h2>
+    <p>The Agency agrees to provide specific software development and design services to the Client as defined in individual Statements of Work (SOW), which shall be governed by this Agreement. The Client agrees to provide all necessary credentials, feedback, and technical access within 3 business days of the Agency's request. Failure to do so may result in timeline suspension without liability to the Agency.</p>
+
+    <h2>2. Payment Terms & IP Linkage</h2>
+    <p>Fees for Services shall be outlined in the SOW. Intellectual Property (IP) rights to the final deliverables are transferred to the Client <strong>only upon full clearance of final payment</strong>. Until such time, the Agency retains full equitable and legal title to all work product. Unauthorized use of work product prior to final payment is a material breach of this Agreement.</p>
+
+    <h2>3. Limitation of Liability</h2>
+    <p>The Agency's total liability for any claim arising out of this Agreement is capped at the total value of the specific SOW from which the claim arose. Carve-outs: this cap does not apply to gross negligence, willful misconduct, third-party IP indemnification, or data breaches caused specifically by the Agency's proven negligence in adhering to defined security SOPs.</p>
+
+    <h2>4. Force Majeure</h2>
+    <p>Neither party shall be liable for delays caused by internet outages, third-party API failures (Stripe, AWS, OpenAI, etc.), natural disasters, or government restrictions. The Agency shall notify the Client within 48 hours of any Force Majeure event impacting project delivery.</p>
+
+    <h2>5. Non-Solicitation</h2>
+    <p>For 12 months following the completion of any Project, the Client shall not directly or indirectly hire, or refer for hire, any employee or contractor of the Agency without a referral fee equal to 100% of the individual's annual salary at the Agency.</p>
+
+    <h2>6. Warranty Disclaimer</h2>
+    <p>Except as stated in the PCC, Agency disclaims all implied warranties of merchantability and fitness for purpose. A 30-day bug-fix warranty is provided post-delivery for items explicitly listed in the SOW Acceptance Criteria.</p>
+
+    <h2>7. Term & Termination</h2>
+    <p>This Agreement may be terminated with 30 days written notice. Payment for work-in-progress is calculated at time-and-materials at the agreed hourly rate. Three late payments within any 6-month period constitute a material breach, granting the Agency immediate termination rights and suspension of all services.</p>
+
+    <h2>8. Governing Law</h2>
+    <p>This Agreement is governed by the laws of Sindh, Pakistan. The parties submit to the exclusive jurisdiction of the Courts of Karachi.</p>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Authorized Agency Signature</div>
+            <div class="field" style="margin-top:10px;">[Agency Signature] (Agency)</div>
+            <div class="field" style="margin-top:5px; font-size:9px;">Date: [Date] (Agency)</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Authorized Client Signature</div>
+            <div class="field" style="margin-top:10px;">[Client Signature] (Client)</div>
+            <div class="field" style="margin-top:5px; font-size:9px;">Date: [Date] (Client)</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 2</footer>
+</div>
+
+<!-- DOC-02 | NON-DISCLOSURE AGREEMENT -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">LEGAL // CONFIDENTIAL</span>
+            REF: #CV-NDA-24<br>
+            Karachi, PK
+        </div>
+    </header>
+
+    <h1>Non-Disclosure Agreement (NDA)</h1>
+    
+    <div class="parties-block">
+        <div>
+            <strong>DISCLOSER</strong><br>
+            Code Vertex Solutions<br>
+            contact@codevertex.solutions
+        </div>
+        <div>
+            <strong>RECIPIENT</strong><br>
+            <span class="field">[Client Legal Name] (Client)</span><br>
+            <span class="field">[Primary Contact] (Client)</span>
+        </div>
+    </div>
+
+    <h2>1. Confidential Information</h2>
+    <p>Includes but is not limited to: proprietary algorithms, database schemas, UI/UX prototypes, source code, business logic, financial projections, technical roadmaps, and client-provided materials, credentials, and internal business processes disclosed during the engagement.</p>
+
+    <h2>2. Residual Knowledge</h2>
+    <p>The Agency may use general know-how, skills, and experience gained during the project for other clients, provided it does not disclose or use specific Confidential Information belonging to the Recipient.</p>
+
+    <h2>3. Injunctive Relief</h2>
+    <p>Recipient acknowledges that breach of this Agreement may cause irreparable harm for which monetary damages are insufficient. Discloser may seek injunctive relief from the Courts of Karachi to prevent further breaches.</p>
+
+    <h2>4. Destruction of Data</h2>
+    <p>Recipient must certify destruction or return of all Confidential Information within 10 business days of a written request or the termination of the engagement.</p>
+
+    <h2>5. Term</h2>
+    <p>This Agreement remains in effect for 3 years from the date of disclosure or until the information enters the public domain through no fault of the Recipient.</p>
+
+    <h2>6. Governing Law</h2>
+    <p>Governed by the laws of Sindh, Pakistan. <em>Note: This is a one-directional NDA. A mutual NDA is available upon request.</em></p>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Discloser Signature (Agency)</div>
+            <div class="field" style="margin-top:10px;">[Signature] (Agency)</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Recipient Signature (Client)</div>
+            <div class="field" style="margin-top:10px;">[Signature] (Client)</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 3</footer>
+</div>
+
+<!-- DOC-03 | DISPUTE RESOLUTION ADDENDUM -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">LEGAL // CONFIDENTIAL</span>
+            REF: #CV-DISP-24
+        </div>
+    </header>
+
+    <h1>Dispute Resolution Addendum</h1>
+    
+    <div class="highlight-box">
+        <strong>Governing Law:</strong> Sindh, Pakistan | <strong>Jurisdiction:</strong> Courts of Karachi
+    </div>
+
+    <h2>1. Mandatory Mediation</h2>
+    <p>In the event of a dispute, parties agree to 30 days of good-faith mediation before escalating. Costs are split equally. Any party refusing to participate in mediation shall bear 100% of subsequent arbitration costs regardless of the outcome.</p>
+
+    <h2>2. Arbitration</h2>
+    <p>If mediation fails, disputes shall be settled by final and binding arbitration at the Karachi Centre for International Arbitration (KCIA) under its rules. Proceedings will be in English before a single arbitrator. The seat of arbitration is Karachi.</p>
+
+    <h2>3. Emergency Relief</h2>
+    <p>Nothing in this Section prevents either party from seeking urgent injunctive relief or specific performance from the Courts of Karachi to prevent immediate harm to IP or data security.</p>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Agency Approval</div>
+            <div class="field" style="margin-top:10px;">[PM Signature] (Agency)</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Client Approval</div>
+            <div class="field" style="margin-top:10px;">[Auth Signature] (Client)</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 4</footer>
+</div>
+
+<!-- DOC-04 | RETAINER AGREEMENT -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">LEGAL // CONFIDENTIAL</span>
+            REF: #CV-RET-24
+        </div>
+    </header>
+
+    <h1>Retainer Agreement</h1>
+    
+    <div class="parties-block">
+        <div>
+            <strong>PROJECT</strong><br>
+            Name: <span class="field">[Project Name] (Agency)</span><br>
+            Hourly Rate: <span class="field">$[Rate] (Agency)</span>
+        </div>
+        <div>
+            <strong>RETAINER DETAILS</strong><br>
+            Monthly Commitment: <span class="field">$[X,000] (Agency)</span><br>
+            Allocated Hours: <span class="field">[X] Hours/Month (Agency)</span>
+        </div>
+    </div>
+
+    <h2>1. Scope of Support</h2>
+    <p>Covers bug fixes, server maintenance, minor adjustments, and consulting. New feature development or major architectural changes are excluded and require a separate Statement of Work (SOW).</p>
+
+    <h2>2. Unused Hours Policy</h2>
+    <p>Code Vertex operates on a capacity-reservation model. Unused hours do not roll over to the next billing cycle and expire at the end of each calendar month.</p>
+
+    <h2>3. Escalation & Overages</h2>
+    <p>Hours exceeding the monthly allocation are billed at the standard rate of <span class="field">$[X]</span>/hour. The Agency will notify the Client once 90% of the allocated hours are consumed.</p>
+
+    <h2>4. Termination</h2>
+    <p>Either party may terminate the retainer with 30 days written notice. Final month billing is pro-rated to the termination date.</p>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Agency Signature</div>
+            <div class="field" style="margin-top:10px;">[Signature] (Agency)</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Client Signature</div>
+            <div class="field" style="margin-top:10px;">[Signature] (Client)</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 5</footer>
+</div>
+
+<!-- DOC-05 | IP ASSIGNMENT AGREEMENT -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">LEGAL // CONFIDENTIAL</span>
+            REF: #CV-IP-24
+        </div>
+    </header>
+
+    <h1>IP Assignment Agreement</h1>
+    
+    <div class="highlight-box">
+        Associated Project: <span class="field">[Project Name] (Agency)</span> | Final Date: <span class="field">[Date] (Agency)</span>
+    </div>
+
+    <h2>1. Formal Transfer</h2>
+    <p>The Agency hereby assigns and transfers all rights, title, and interest in the specific source code, designs, and assets created for the Final Deliverable to the Client. <strong>Transfer is effective only upon the Agency's receipt and clearance of all outstanding fees listed in all invoices.</strong></p>
+
+    <h2>2. Agency Representations</h2>
+    <p>The Agency represents that the delivered work is original, created by Agency staff or contractors who have signed similar IP transfers, and does not knowingly infringe upon third-party rights. Open-source components are listed in Exhibit A.</p>
+
+    <h2>3. License-Back</h2>
+    <p>The Client grants the Agency a non-exclusive, royalty-free, perpetual license to display the project as part of its professional portfolio and marketing case studies unless opted out in writing via <span class="field">contact@codevertex.solutions</span>.</p>
+
+    <h2>4. Exhibit A: Third-Party Components</h2>
+    <table>
+        <thead><tr><th>Component Name</th><th>License Type (MIT/GPL/etc.)</th><th>Status</th></tr></thead>
+        <tbody>
+            <tr><td><span class="field">[e.g. React.js] (Agency)</span></td><td>MIT</td><td>Standard</td></tr>
+            <tr><td><span class="field">[etc.] (Agency)</span></td><td>—</td><td>—</td></tr>
+        </tbody>
+    </table>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Agency (Assignor)</div>
+            <div class="field" style="margin-top:10px;">[PM Signature] (Agency)</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Client Acknowledgment</div>
+            <div class="field" style="margin-top:10px;">[Authorized Signature] (Client)</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 6</footer>
+</div>
+
+<!-- DOC-06 | PAYMENT TERMS AGREEMENT -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">FINANCIAL // CONFIDENTIAL</span>
+            REF: #CV-PAY-24
+        </div>
+    </header>
+
+    <h1>Payment Terms Agreement</h1>
+    
+    <div class="highlight-box">
+        <strong>Default Currency:</strong> USD (United States Dollars) | <strong>Net Terms:</strong> 7 Days
+    </div>
+
+    <h2>Standard Milestone Schedule</h2>
+    <table>
+        <thead><tr><th>Phase</th><th>Percentage</th><th>Type</th></tr></thead>
+        <tbody>
+            <tr><td>Booking Deposit</td><td>30%</td><td>Non-refundable</td></tr>
+            <tr><td>Major Milestone 1</td><td>30%</td><td>Standard</td></tr>
+            <tr><td>Final Handoff</td><td>40%</td><td>Payable before deployment</td></tr>
+        </tbody>
+    </table>
+
+    <h2>1. Late Payments & Penalty</h2>
+    <p>All invoices are due within 7 days. Overdue balances accrue 1.5% interest per month (subject to Sindh law). Production is suspended automatically 7 days after an overdue notice is issued.</p>
+
+    <h2>2. Re-activation Fee</h2>
+    <p>A mandatory <strong>$350 USD Re-activation Fee</strong> applies to restore a suspended project. Three or more instances of late payment constitute a material breach, triggering termination rights under the MSA.</p>
+
+    <h2>3. Refund Policy</h2>
+    <p>Deposits are non-refundable as they secure engineering capacity. Milestone payments are non-refundable once the milestone is signed off (MSO) per DOC-17.</p>
+
+    <h2>4. Currency & Tax</h2>
+    <p>All fees are in USD. The Client is responsible for all local taxes, withholding, or intermediary bank transfer fees to ensure the Agency receives the full invoiced amount.</p>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Agency Approval</div>
+            <div class="field" style="margin-top:10px;">[Finance Signature] (Agency)</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Client Approval</div>
+            <div class="field" style="margin-top:10px;">[Auth Signature] (Client)</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 7</footer>
+</div>
+
+<!-- DOC-07 | INVOICE -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">FINANCIAL // CONFIDENTIAL</span>
+            INV NO: <span class="field">[CV-24-001] (Agency)</span><br>
+            Date: <span class="field">[Date] (Agency)</span>
+        </div>
+    </header>
+
+    <h1>Invoice</h1>
+    
+    <div class="parties-block">
+        <div>
+            <strong>BILL TO:</strong><br>
+            <span class="field">[Client Legal Name] (Client)</span><br>
+            Tax ID: <span class="field">[Tax-ID] (Client)</span><br>
+            PO: <span class="field">[Optional PO #] (Client)</span>
+        </div>
+        <div>
+            <strong>DUE DATE:</strong> <span class="field">[Date + 7] (Agency)</span><br>
+            <strong>TERMS:</strong> Net 7<br>
+            <strong>STATUS:</strong> PENDING
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Rate (USD)</th>
+                <th>Total (USD)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><span class="field">[Milestone Description] (Agency)</span></td><td>1</td><td><span class="field">0.00</span></td><td><span class="field">0.00</span></td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td colspan="3" align="right"><strong>Subtotal:</strong></td><td><span class="field">$0.00</span></td></tr>
+            <tr><td colspan="3" align="right"><strong>Tax / GST:</strong></td><td><span class="field">$0.00</span></td></tr>
+            <tr><td colspan="3" align="right"><strong>Total Due:</strong></td><td><strong><span class="field">$0.00</span></strong></td></tr>
+        </tfoot>
+    </table>
+
+    <div class="highlight-box" style="font-size:9px;">
+        <strong>WIRE TRANSFER INSTRUCTIONS:</strong><br>
+        Bank: <span class="field">[Bank Name] (Agency)</span> | IBAN: <span class="field">[IBAN] (Agency)</span> | SWIFT: <span class="field">[SWIFT] (Agency)</span>
+    </div>
+
+    <p style="font-size:9px; text-align:center;"><em>Note: Final payment triggers IP Assignment per DOC-05.</em></p>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 8</footer>
+</div>
+
+<!-- DOC-08 | ESTIMATE / QUOTE -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">FINANCIAL // CONFIDENTIAL</span>
+            REF: #CV-EST-24
+        </div>
+    </header>
+
+    <h1>Estimate / Quote</h1>
+    
+    <div class="highlight-box">
+        Valid Until: <span class="field">[Date + 14] (Agency)</span> | Timeline: <span class="field">[X-X Weeks] (Agency)</span>
+    </div>
+
+    <div class="disclaimer">"This estimate is indicative only and subject to a formal Statement of Work (DOC-10). Signing this estimate authorizes the agency to begin SOW preparation only."</div>
+
+    <h2 style="margin-top:40px;">Investment Breakdown</h2>
+    <table>
+        <thead><tr><th>Module / Feature</th><th>Est. Hours</th><th>Rate</th><th>Total</th></tr></thead>
+        <tbody>
+            <tr><td><span class="field">[Feature A] (Agency)</span></td><td>20</td><td>$X</td><td>$X,000</td></tr>
+            <tr><td><span class="field">[Feature B] (Agency)</span></td><td>40</td><td>$X</td><td>$X,000</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td colspan="3" align="right"><strong>Total Estimate:</strong></td><td><strong><span class="field">$0.00</span></strong></td></tr>
+        </tfoot>
+    </table>
+
+    <h3>Exclusions</h3>
+    <p>Hosting, 3rd party API costs, and features not explicitly listed above are excluded from this estimate.</p>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Agency (Estimate Owner)</div>
+            <div class="field" style="margin-top:10px;">[Name] (Agency)</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Client Approval to Proceed</div>
+            <div class="field" style="margin-top:10px;">[Signature] (Client)</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 9</footer>
+</div>
+
+<!-- DOC-09 | PAYMENT OVERDUE NOTICE -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">FINANCIAL // URGENT</span>
+            REF: #CV-OVD-24
+        </div>
+    </header>
+
+    <h1>Payment Overdue Notice</h1>
+    
+    <div class="highlight-box">
+        Invoice Ref: <span class="field">[INV-000] (Agency)</span> | Days Overdue: <span class="field">[X] days (Agency)</span>
+    </div>
+
+    <p>This is a formal reminder regarding your outstanding balance. Per <strong>Section 1 of your Payment Terms Agreement (DOC-06)</strong>, your account is now in arrears.</p>
+
+    <h2>48-Hour Ultimatum</h2>
+    <p>Failure to settle the outstanding amount of <strong><span class="field">$0.00</span></strong> within the next 48 hours will result in:</p>
+    <ul>
+        <li>Staging and development server access being revoked.</li>
+        <li>Immediate production suspension for your project team.</li>
+        <li>Automatic application of a <strong>$350 Re-activation Fee</strong>.</li>
+        <li>Formal dispute escalation per <strong>DOC-03</strong>.</li>
+    </ul>
+
+    <div class="sig-block" style="margin-top:100px; width:200px;">
+        <div class="sig-label">Finance Team (Agency)</div>
+        <div class="field" style="margin-top:10px;">Authorized Official</div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 10</footer>
+</div>
+
+<!-- DOC-10 | STATEMENT OF WORK (SOW) -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">PROJECT // CONFIDENTIAL</span>
+            REF: #CV-SOW-24
+        </div>
+    </header>
+
+    <h1>Statement of Work (SOW)</h1>
+    
+    <div class="parties-block">
+        <div><strong>PROJECT:</strong> <span class="field">[Name] (Agency)</span></div>
+        <div><strong>CLIENT:</strong> <span class="field">[Entity] (Client)</span></div>
+    </div>
+
+    <h2>1. Core Objectives</h2>
+    <p><span class="field">[2–3 sentences describing what we are building and why.] (Agency)</span></p>
+
+    <h2>2. Deliverables List</h2>
+    <table>
+        <thead><tr><th>Component</th><th>Description</th></tr></thead>
+        <tbody>
+            <tr><td>Frontend</td><td><span class="field">[Specifics, e.g. React SPA] (Agency)</span></td></tr>
+            <tr><td>Backend</td><td><span class="field">[Specifics, e.g. Node.js API] (Agency)</span></td></tr>
+            <tr><td>Integrations</td><td><span class="field">[e.g. Stripe, OpenAI] (Agency)</span></td></tr>
+        </tbody>
+    </table>
+
+    <div class="highlight-box"><strong>OUT-OF-SCOPE:</strong> <span class="field">[Mobile App, SEO, etc.] (Agency)</span></div>
+
+    <h2>3. Milestones & Payment</h2>
+    <table>
+        <thead><tr><th>Milestone</th><th>Criteria</th><th>Est. Date</th><th>Payment</th></tr></thead>
+        <tbody>
+            <tr><td>Kickoff</td><td>Onboarding Complete</td><td><span class="field">[Date]</span></td><td>30%</td></tr>
+            <tr><td>MVP</td><td>Auth + Core Logic</td><td><span class="field">[Date]</span></td><td>30%</td></tr>
+            <tr><td>Launch</td><td>UAT Pass</td><td><span class="field">[Date]</span></td><td>40%</td></tr>
+        </tbody>
+    </table>
+
+    <p><strong>Note:</strong> Client must provide written acceptance or itemized feedback within 7 business days of delivery. Silence constitutes acceptance and triggers payment.</p>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Project Manager (Agency)</div>
+            <div class="field" style="margin-top:10px;">[Signature]</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Client Approval</div>
+            <div class="field" style="margin-top:10px;">[Signature]</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 11</footer>
+</div>
+
+<!-- DOC-11 | REVISION POLICY -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">PROJECT // CONFIDENTIAL</span>
+            REF: #CV-REV-24
+        </div>
+    </header>
+
+    <h1>Revision Policy</h1>
+    
+    <div class="highlight-box">
+        Included Revisions: <span class="field">[2] rounds per milestone (Agency)</span>
+    </div>
+
+    <h2>1. Definition of Revision</h2>
+    <p>Revisions are minor stylistic or functional adjustments within the defined SOW scope. Any request for new features, major layout changes, or logic modification not in the SOW is a <strong>Change Request (DOC-12)</strong>.</p>
+
+    <h2>2. Revision Expiry</h2>
+    <p>Feedback must be submitted within 3 business days of milestone delivery. If feedback is received late, the revision window for the following round resets to the next available sprint cycle.</p>
+
+    <h2>3. Overage Billing</h2>
+    <p>Rounds exceeding the included limit are billed at <strong><span class="field">$[X]</span>/hour</strong> or handled as a fixed-fee Change Request.</p>
+
+    <div class="sig-block" style="margin-top:100px; width:200px;">
+        <div class="sig-label">Agency Representative</div>
+        <div class="field" style="margin-top:10px;">Official Approval</div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 12</footer>
+</div>
+
+<!-- DOC-12 | CHANGE REQUEST FORM -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">PROJECT // CONFIDENTIAL</span>
+            REF: #CV-CR-24
+        </div>
+    </header>
+
+    <h1>Change Request Form</h1>
+    
+    <div class="parties-block">
+        <div>Project: <span class="field">[Name] (Agency)</span></div>
+        <div>CR No: <span class="field">[001] (Agency)</span></div>
+    </div>
+
+    <table>
+        <thead><tr><th>Change / New Feature</th><th>Est. Hours</th><th>Cost (USD)</th><th>TL Impact</th></tr></thead>
+        <tbody>
+            <tr><td><span class="field">[Description] (Client)</span></td><td><span class="field">0</span></td><td><span class="field">$0</span></td><td><span class="field">+0 days</span></td></tr>
+        </tbody>
+    </table>
+
+    <div class="highlight-box"><strong>Current Status:</strong> <span class="field">[Pending / Approved / Rejected] (Agency)</span></div>
+
+    <p style="font-weight:700;">"By signing, client representative confirms they have authority to commit the stated budget."</p>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Requested By (Client)</div>
+            <div class="field" style="margin-top:20px;">[Signature]</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Approved By (Agency)</div>
+            <div class="field" style="margin-top:20px;">[Signature]</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 13</footer>
+</div>
+
+<!-- DOC-13 | PAYMENT RECEIPT -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">FINANCIAL // CONFIDENTIAL</span>
+            REF: #CV-REC-24
+        </div>
+    </header>
+
+    <h1>Payment Receipt</h1>
+    
+    <div class="highlight-box">
+        Receipt No: <span class="field">[REC-001] (Agency)</span> | Amount: <span class="field">$0.00 (Agency)</span>
+    </div>
+
+    <table>
+        <thead><tr><th>Account Summary</th><th>USD</th></tr></thead>
+        <tbody>
+            <tr><td>Total Invoiced to Date</td><td><span class="field">$0.00</span></td></tr>
+            <tr><td>Total Received to Date</td><td><span class="field">$0.00</span></td></tr>
+            <tr><td><strong>Balance Remaining</strong></td><td><strong><span class="field">$0.00</span></strong></td></tr>
+        </tbody>
+    </table>
+
+    <p>Acknowledgment: Code Vertex Solutions hereby acknowledges receipt of funds for <strong><span class="field">[Project Phase] (Agency)</span></strong>.</p>
+
+    <div class="sig-block" style="margin-top:100px; width:200px;">
+        <div class="sig-label">Finance Team (Agency)</div>
+        <div class="field" style="margin-top:10px;">Official Receipt</div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 14</footer>
+</div>
+
+<!-- DOC-14 | RISK ASSESSMENT & TRACKING -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">PROJECT // INTERNAL</span>
+            REF: #CV-RISK-24
+        </div>
+    </header>
+
+    <h1>Risk Assessment & Tracking</h1>
+    
+    <table>
+        <thead><tr><th>Risk</th><th>Prob.</th><th>Impact</th><th>Mitigation</th><th>Owner</th></tr></thead>
+        <tbody>
+            <tr><td>Delay in Client Access</td><td>High</td><td>High</td><td>Strict 3-day notice</td><td>Client</td></tr>
+            <tr><td>API Unavailability</td><td>Low</td><td>Med</td><td>Fallback logic</td><td>Agency</td></tr>
+            <tr><td>Scope Creep</td><td>High</td><td>High</td><td>CR Protocol (DOC-12)</td><td>PM</td></tr>
+            <tr><td>Dev Unavailability</td><td>Med</td><td>Med</td><td>Shadow resources</td><td>Agency</td></tr>
+        </tbody>
+    </table>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 15</footer>
+</div>
+
+<!-- DOC-15 | QA / TESTING CHECKLIST -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">PROJECT // CONFIDENTIAL</span>
+            REF: #CV-QA-24
+        </div>
+    </header>
+
+    <h1>QA / Testing Checklist</h1>
+    
+    <h2>Agency Internal QA</h2>
+    <table>
+        <thead><tr><th>Test Category</th><th>Target Status</th><th>Result</th></tr></thead>
+        <tbody>
+            <tr><td>Auth / OAuth Flow</td><td>PASS</td><td><span class="field">[Result]</span></td></tr>
+            <tr><td>Data Persistence</td><td>PASS</td><td><span class="field">[Result]</span></td></tr>
+            <tr><td>Mobile Responsiveness</td><td>PASS</td><td><span class="field">[Result]</span></td></tr>
+            <tr><td>LCP Performance (< 2.5s)</td><td>PASS</td><td><span class="field">[Result]</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Client User Acceptance (UAT)</h2>
+    <table>
+        <thead><tr><th>Feature / Interaction</th><th>Expectation</th><th>Client Initial</th></tr></thead>
+        <tbody>
+            <tr><td><span class="field">[Log-in Flow] (Agency)</span></td><td>Smooth landing</td><td><span class="field">[ ]</span></td></tr>
+            <tr><td><span class="field">[Payment Flow] (Agency)</span></td><td>Secure check</td><td><span class="field">[ ]</span></td></tr>
+        </tbody>
+    </table>
+
+    <p style="font-weight:700;">"Final sign-off triggers Launch sequence and final payment milestone."</p>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 16</footer>
+</div>
+
+<!-- DOC-16 | CLIENT ONBOARDING FORM -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">CLIENT OPS // CONFIDENTIAL</span>
+            REF: #CV-ONB-24
+        </div>
+    </header>
+
+    <h1>Client Onboarding Form</h1>
+    
+    <div class="parties-block">
+        <div>Client Name: <span class="field">[Name] (Client)</span></div>
+        <div>Contact: <span class="field">[Email] (Client)</span></div>
+    </div>
+
+    <h2>1. Project Vision</h2>
+    <p><span class="field">[Describe primary goal...] (Client)</span></p>
+
+    <h2>2. Technical Access Checklist</h2>
+    <table>
+        <thead><tr><th>Item</th><th>Provided By</th><th>Due Date</th><th>Status</th></tr></thead>
+        <tbody>
+            <tr><td>GitHub Access</td><td>Client</td><td><span class="field">[Date]</span></td><td>PENDING</td></tr>
+            <tr><td>AWS/GCP Login</td><td>Client</td><td><span class="field">[Date]</span></td><td>PENDING</td></tr>
+            <tr><td>Stripe API Keys</td><td>Client</td><td><span class="field">[Date]</span></td><td>PENDING</td></tr>
+            <tr><td>Figma Assets</td><td>Client</td><td><span class="field">[Date]</span></td><td>PENDING</td></tr>
+        </tbody>
+    </table>
+
+    <div class="highlight-box">
+        <strong>Warning:</strong> Failure to provide access within 3 business days may impact the project delivery date per DOC-10.
+    </div>
+
+    <div class="sig-block" style="margin-top:50px; width:200px;">
+        <div class="sig-label">Onboarding Lead (Agency)</div>
+        <div class="field" style="margin-top:10px;">[Signature]</div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 17</footer>
+</div>
+
+<!-- DOC-17 | MILESTONE SIGN-OFF FORM -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">CLIENT OPS // CONFIDENTIAL</span>
+            REF: #CV-MSO-24
+        </div>
+    </header>
+
+    <h1>Milestone Sign-Off Form</h1>
+    
+    <div class="parties-block">
+        <div>Milestone: <span class="field">[Name] (Agency)</span></div>
+        <div>Date: <span class="field">[Date] (Agency)</span></div>
+    </div>
+
+    <table>
+        <thead><tr><th>Specific Deliverable Item</th><th>Client Client Initial</th></tr></thead>
+        <tbody>
+            <tr><td><span class="field">[Database Schema] (Agency)</span></td><td>[ ]</td></tr>
+            <tr><td><span class="field">[API Documentation] (Agency)</span></td><td>[ ]</td></tr>
+        </tbody>
+    </table>
+
+    <p>By signing below, the Client affirms that the deliverables for this milestone have been reviewed, tested, and accepted. <em>If not signed within 7 business days, milestone is deemed accepted per SOW DOC-10.</em></p>
+
+    <div class="sig-block" style="margin-top:100px; width:250px;">
+        <div class="sig-label">Authorized Client Signature</div>
+        <div class="field" style="margin-top:20px;">[Signature] (Client)</div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 18</footer>
+</div>
+
+<!-- DOC-18 | PROJECT COMPLETION CERTIFICATE -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">CLIENT OPS // CONFIDENTIAL</span>
+            REF: #CV-PCC-24
+        </div>
+    </header>
+
+    <h1>Project Completion Certificate</h1>
+    
+    <h2>Transfer Checklist</h2>
+    <table>
+        <thead><tr><th>Item</th><th>Status (Agency)</th><th>New Owner (Client)</th></tr></thead>
+        <tbody>
+            <tr><td>GitHub Org Ownership</td><td>COMPLETE</td><td>[ ]</td></tr>
+            <tr><td>Figma Master Files</td><td>COMPLETE</td><td>[ ]</td></tr>
+            <tr><td>Server Credentials</td><td>COMPLETE</td><td>[ ]</td></tr>
+            <tr><td>Database Backups</td><td>COMPLETE</td><td>[ ]</td></tr>
+            <tr><td>Env Variables Doc</td><td>COMPLETE</td><td>[ ]</td></tr>
+        </tbody>
+    </table>
+
+    <div class="highlight-box">
+        <strong>Final Discharge:</strong> Upon signing, the Client acknowledges full delivery of the project. A 30-day warranty for P0 bugs applies from today's date.
+    </div>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Agency Rep</div>
+            <div class="field">[Signature]</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Client Acknowledgment</div>
+            <div class="field">[Signature]</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 19</footer>
+</div>
+
+<!-- DOC-19 | CLIENT EXPERIENCE SURVEY -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">CLIENT OPS // SURVEY</span>
+            REF: #CV-CES-24
+        </div>
+    </header>
+
+    <h1>Client Experience Survey</h1>
+    
+    <h3>Net Promoter Score (NPS)</h3>
+    <p>How likely are you to recommend Code Vertex Solutions? (0 = Never, 10 = Absolutely)</p>
+    <div style="display:flex; gap:10px; font-weight:700;">
+        <div style="flex:1; border:1px solid #ccc; text-align:center; padding:5px;">0</div>
+        <!-- ... 1 to 9 -->
+        <div style="flex:1; border:1px solid #ccc; text-align:center; padding:5px;">10</div>
+    </div>
+
+    <h3>Performance Ratings (/5)</h3>
+    <p>Communication: [ ] Technical Execution: [ ] Speed: [ ] Overall: [ ]</p>
+
+    <h3>Testimonial (Optional)</h3>
+    <p style="font-size:9px;"><em>For portfolio use only — your words help us grow.</em></p>
+    <div style="height:100px; border:1px solid var(--border-light);"></div>
+
+    <div class="sig-block" style="margin-top:50px; width:200px;">
+        <div class="sig-label">Client Reviewer</div>
+        <div class="field" style="margin-top:10px;">[Signature]</div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 20</footer>
+</div>
+
+<!-- DOC-20 | DEVELOPMENT SOP -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">RESTRICTED // INTERNAL ONLY</span>
+            REF: #CV-SOP-DEV
+        </div>
+    </header>
+
+    <h1>Development SOP</h1>
+    <div class="highlight-box"><strong>CORE SECURITY RULE:</strong> Never commit secrets (API keys, passwords) to version control. Use encrypted secret managers.</div>
+
+    <h2>1. Security & Access</h2>
+    <p>MFA is mandatory for all tools. Offboarding requires immediate credential revocation within 60 minutes of termination.</p>
+
+    <h2>2. Code Review & PR Standards</h2>
+    <p>Minimum 1 senior approval for all merges to <code>staging</code>. Secrets rotation occurs every 90 days.</p>
+
+    <h2>3. Incident Response</h2>
+    <ul>
+        <li>P0 (Critical): 30min client notification SLA. CTO escalated.</li>
+        <li>P1 (Major): 2hr client notification SLA. Lead escalated.</li>
+    </ul>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 21</footer>
+</div>
+
+<!-- DOC-21 | QA & TESTING SOP -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">RESTRICTED // INTERNAL ONLY</span>
+            REF: #CV-SOP-QA
+        </div>
+    </header>
+
+    <h1>QA & Testing SOP</h1>
+    <div class="highlight-box"><strong>ZERO TOLERANCE:</strong> No production deploy without staging regression pass sign-off.</div>
+
+    <h2>1. Bug Classification</h2>
+    <p>Critical: Fix in 4 hours. Major: Fix in 24 hours. Minor: Fix in next sprint.</p>
+
+    <h2>2. Performance Standards</h2>
+    <p>Lighthouse Score >= 85. LCP < 2.5s. P95 API Response < 500ms.</p>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 22</footer>
+</div>
+
+<!-- DOC-22 | DESIGN SOP -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">RESTRICTED // INTERNAL ONLY</span>
+            REF: #CV-SOP-DES
+        </div>
+    </header>
+
+    <h1>Design SOP</h1>
+    <h2>1. Figma Hygiene</h2>
+    <p>Layers must be named. Styles must use tokens. Version by milestone: [ProjectName]-v[X]-[MilestoneName].</p>
+
+    <h2>2. Post-Approval Changes</h2>
+    <p>Design changes requested after MSO (DOC-17) must be billed as a Change Request (DOC-12). No exceptions.</p>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 23</footer>
+</div>
+
+<!-- DOC-23 | DEPLOYMENT SOP -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">RESTRICTED // INTERNAL ONLY</span>
+            REF: #CV-SOP-DEP
+        </div>
+    </header>
+
+    <h1>Deployment SOP</h1>
+    <div class="highlight-box"><strong>PRE-DEPLOYMENT:</strong> Full database and asset backup must be verified before any production push.</div>
+
+    <h2>1. Rollback Procedure</h2>
+    <p>If health check fails post-launch, rollback must occur within 15 minutes. Client must be notified immediately via DOC-25.</p>
+
+    <h2>2. Downtime SLA</h2>
+    <p>Planned maintenance: 48-hour notice. Unplanned: Notify within 30 minutes.</p>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 24</footer>
+</div>
+
+<!-- DOC-24 | PROJECT TRACKING SHEET -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">RESTRICTED // INTERNAL ONLY</span>
+            REF: #CV-TRK-24
+        </div>
+    </header>
+
+    <h1>Project Tracking Sheet</h1>
+    <table>
+        <thead><tr><th>Task</th><th>Status</th><th>Owner</th><th>Blocked Reason</th></tr></thead>
+        <tbody>
+            <tr><td><span class="field">[Feature X]</span></td><td>[In Progress]</td><td>[Name]</td><td>—</td></tr>
+            <tr><td><span class="field">[Feature Y]</span></td><td>[Blocked]</td><td>[Name]</td><td>Waiting for API key</td></tr>
+        </tbody>
+    </table>
+    <p><em>Weekly Friday Status Reports mandatory for all active SOWs.</em></p>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 25</footer>
+</div>
+
+<!-- DOC-25 | OFFICIAL COMMUNICATION -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">BRANDING // TEMPLATE</span>
+            REF: #CV-COM-24
+        </div>
+    </header>
+
+    <h1>Official Communication</h1>
+    <div class="highlight-box">RE: <span class="field">[Document Reference Code] (Agency)</span></div>
+    <p>Date: <span class="field">[Date]</span></p>
+    <p><span class="field">[Message Body Placeholder...] (Agency)</span></p>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 26</footer>
+</div>
+
+<!-- DOC-27 | PROJECT PROPOSAL -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">BRANDING // PROPOSAL</span>
+            REF: #CV-PROP-24
+        </div>
+    </header>
+
+    <h1>Project Proposal</h1>
+    <h2>EXECUTIVE SUMMARY</h2>
+    <p><span class="field">[Brief vision...] (Agency)</span></p>
+
+    <h2>TIMELINE & INVESTMENT</h2>
+    <p>Estimated Duration: <span class="field">[X months]</span> Investment: <span class="field">$[X,000]</span></p>
+
+    <div class="disclaimer">"This proposal is confidential and non-binding pending a formal SOW (DOC-10)."</div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 27</footer>
+</div>
+
+<!-- DOC-28 | PROJECT CASE STUDY -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">BRANDING // CASE STUDY</span>
+            REF: #CV-CASE-24
+        </div>
+    </header>
+
+    <div style="position:absolute; top:40%; left:10%; font-size:60px; color:rgba(0,0,0,0.05); transform:rotate(-30deg); pointer-events:none;">DRAFT &bull; NOT FOR PUBLICATION</div>
+
+    <h1>Project Case Study</h1>
+    <h3>CHALLENGE</h3>
+    <p><span class="field">[What was broken?] (Agency)</span></p>
+    <h3>SOLUTION</h3>
+    <p><span class="field">[What did we build?] (Agency)</span></p>
+    <h3>RESULTS</h3>
+    <p><span class="field">[How did it help?] (Agency)</span></p>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 28</footer>
+</div>
+
+<!-- DOC-29 | INTERNAL WIKI -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">RESTRICTED // INTERNAL ONLY</span>
+            REF: #CV-WIKI-24
+        </div>
+    </header>
+
+    <h1>Internal Wiki / Knowledge Base</h1>
+    <table>
+        <thead><tr><th>Date</th><th>Incident</th><th>Resolution</th><th>Prevention</th></tr></thead>
+        <tbody>
+            <tr><td>[2024-03]</td><td>Stripe Webhook Fail</td><td>Retry logic add</td><td>Automated health checks</td></tr>
+        </tbody>
+    </table>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 29</footer>
+</div>
+
+<!-- DOC-30 | EMPLOYEE HANDBOOK -->
+<div class="page">
+    <header>
+        <div class="logo-placeholder">
+    <img src="../public/logo.jpeg" alt="Code Vertex Solutions">
+    <div style="display:flex; flex-direction:column;">
+        <span style="font-weight:900; font-size:14px; letter-spacing:-0.5px; margin-top: -2px;">CODE VERTEX SOLUTIONS</span>
+        <span style="font-size:10px; font-weight:400; color:#666; margin-top:2px;">From Concept to Code — Rapidly</span>
+    </div>
+</div>
+        <div class="header-info">
+            <span class="badge">RESTRICTED // INTERNAL ONLY</span>
+            REF: #CV-HR-24
+        </div>
+    </header>
+
+    <h1>Employee Handbook (Agency)</h1>
+    <p>Welcome to the Code Vertex team. We build for performance. We trade complexity for clarity.</p>
+
+    <h2>1. Working Hours & Emergency</h2>
+    <p>10am–4pm PKT Core Hours. Mandatory 2-hour client overlap. On-call mandatory for P0 launch events.</p>
+
+    <h2>2. Leave Policy</h2>
+    <p><strong>[X] PAID DAYS PER YEAR</strong> — Agency must populate this before issuing.</p>
+
+    <h2>3. Disciplinary Procedure</h2>
+    <p>Verbal warning &rarr; Written warning &rarr; Termination. Gross misconduct (data theft, NDA breach) may bypass prior steps.</p>
+
+    <div class="signature-grid">
+        <div class="sig-block">
+            <div class="sig-label">Employee Acknowledgment</div>
+            <div class="field">[Signature]</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-label">Date</div>
+            <div class="field">[Date]</div>
+        </div>
+    </div>
+
+    <footer>CONFIDENTIAL &bull; CODE VERTEX SOLUTIONS | PAGE 30</footer>
+</div>
+
+</body>
+</html>
