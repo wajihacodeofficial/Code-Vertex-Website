@@ -168,7 +168,7 @@ const Navbar: React.FC = () => {
                 to="/contact"
                 onClick={() => window.scrollTo(0, 0)}
                 className="btn btn-primary"
-                style={{ padding: '0.9rem 2.5rem', fontSize: '0.7rem' }}
+                style={{ padding: '0.6rem 1.5rem', fontSize: '0.75rem', whiteSpace: 'nowrap' }}
               >
                 HIRE US
               </Link>
@@ -387,9 +387,10 @@ const Navbar: React.FC = () => {
                 style={{
                   width: '100%',
                   textAlign: 'center',
-                  fontSize: '0.9rem',
-                  padding: '1.5rem',
+                  fontSize: '0.75rem',
+                  padding: '1rem',
                   borderRadius: '16px',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 HIRE US
