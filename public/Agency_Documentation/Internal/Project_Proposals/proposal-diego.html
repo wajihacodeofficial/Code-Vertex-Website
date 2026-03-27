@@ -29,6 +29,8 @@
         padding: 0;
         line-height: 1.5;
         background: #eee;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
 
       .page::before {
@@ -61,19 +63,21 @@
       @media print {
         body {
           background: none;
+          margin: 0;
+          padding: 0;
         }
         @page {
-          size: A4;
-          margin: 1in;
+          size: A4 portrait;
+          margin: 0;  /* Removes browser header/footer URLs */
         }
         .page {
           margin: 0;
-          padding: 0;
-          min-height: auto;
-          width: auto;
-          height: auto;
+          padding: 25.4mm; /* Standard 1 inch margins */
+          min-height: 297mm;
+          width: 210mm;
           box-shadow: none;
           page-break-after: always;
+          page-break-inside: avoid;
         }
       }
 
