@@ -10,27 +10,25 @@ import {
 interface Document {
   id: string;
   name: string;
-  category: 'Legal' | 'Financial' | 'Scope';
+  category: 'Legal' | 'Financial' | 'Scope' | 'Process';
   isPrivate: boolean;
   description: string;
   previewHash: string;
+  isPDF?: boolean;
 }
 
 const documents: Document[] = [
-  // LEGAL & FINANCIAL
-  { id: '1', name: 'Master Service Agreement (MSA)', category: 'Legal', isPrivate: false, description: 'Core agreement covering services, payments, IP transfer, and liability.', previewHash: 'Internal/Project_Agreements/master-service-agreement-msa' },
-  { id: '2', name: 'Non-Disclosure Agreement (NDA)', category: 'Legal', isPrivate: false, description: 'Mutual confidentiality protection for code, data, and business logic.', previewHash: 'Legal_Financial/NDA/non-disclosure-agreement-nda' },
-  { id: '18', name: 'Privacy Policy', category: 'Legal', isPrivate: false, description: 'Global compliance and data protection protocol for client projects.', previewHash: 'Client_Facing/privacy-policy' },
-  
-  // INTERNAL & OPERATIONAL
-  { id: '11', name: 'Statement of Work (SOW)', category: 'Scope', isPrivate: false, description: 'Full project scope, milestones, acceptance criteria, and payment triggers.', previewHash: 'Internal/SOW/statement-of-work-sow' },
-  { id: '12', name: 'Project Proposal', category: 'Scope', isPrivate: false, description: 'High-level business proposal outlining solution, roadmap, and investment.', previewHash: 'Internal/Project_Proposals/project-proposal' },
-  { id: '15', name: 'QA / Testing Checklist', category: 'Scope', isPrivate: false, description: 'Internal QA gate and client UAT sign-off checklist.', previewHash: 'Internal/QA_Checklists/qa-testing-checklist' },
-  { id: '22', name: 'Project Handover Doc', category: 'Scope', isPrivate: false, description: 'Final delivery checklist including credentials and source access.', previewHash: 'Internal/Project_Handover/form-completion' },
+  // LEGAL & COMPLIANCE (Must be public)
+  { id: 'l1', name: 'Privacy Policy', category: 'Legal', isPrivate: false, description: 'Global compliance and data protection protocol for client projects.', previewHash: '/privacy', isPDF: false },
+  { id: 'l2', name: 'Terms of Service', category: 'Legal', isPrivate: false, description: 'Standard terms governing the use of our services and website.', previewHash: '/terms', isPDF: false },
+  { id: 'l3', name: 'Cookie Policy', category: 'Legal', isPrivate: false, description: 'Detailed disclosure of tracking technologies and user privacy controls.', previewHash: '/cookie', isPDF: false },
+  { id: 'l4', name: 'Website Legal Suite', category: 'Legal', isPrivate: false, description: 'Consolidated set of standard website governance documentation.', previewHash: '/docs/WebsiteLegal.pdf', isPDF: true },
 
-  // FINANCIAL
-  { id: '7', name: 'Invoice Template', category: 'Financial', isPrivate: false, description: 'Professional invoice with wire transfer instructions.', previewHash: 'Legal_Financial/Invoices/invoice' },
-  { id: '10', name: 'Payment Receipt', category: 'Financial', isPrivate: false, description: 'Immutable receipt with running account summary.', previewHash: 'Legal_Financial/Payment_Receipts/payment-receipt' },
+  // MARKETING & PROCESS (Publicly shared to build trust)
+  { id: 'm1', name: 'Agency Methodology', category: 'Process', isPrivate: false, description: 'High-level overview of our development lifecycle and quality standards.', previewHash: '/protocol', isPDF: false },
+  { id: 'm2', name: 'Service & Solutions Guide', category: 'Process', isPrivate: false, description: 'Detailed list of technical capabilities and service offerings.', previewHash: '/services', isPDF: false },
+  { id: 'm3', name: 'Client Onboarding Guide (Light)', category: 'Process', isPrivate: false, description: 'A light guide for new clients to understand our collaboration workflow.', previewHash: '/docs/ClientOnboarding.pdf', isPDF: true },
+  { id: 'm4', name: 'Portfolio Overview', category: 'Scope', isPrivate: false, description: 'Curated selection of high-impact digital solutions and case studies.', previewHash: '/portfolio', isPDF: false },
 ];
 
 // ─── FORMS ───────────────────────────────────────────────────────────────────
@@ -45,11 +43,9 @@ interface Form {
 }
 
 const forms: Form[] = [
-  { id: 'f01', name: 'Client Onboarding Form', category: 'Onboarding', filledBy: 'Client', description: 'Kick off your project with company details, goals, and access requirements.', formHash: 'Internal/Client_Intake_Forms/form-onboarding', hasPDF: false },
-  { id: 'f02', name: 'Project Kickoff Confirmation', category: 'Onboarding', filledBy: 'Client', description: 'Formally confirm your MSA, SOW, and deposit commitment.', formHash: 'Internal/Kickoff_Checklists/form-kickoff', hasPDF: true },
-  { id: 'f05', name: 'Change Request Form', category: 'Project', filledBy: 'Client', description: 'Request scope changes outside the original SOW with cost estimate.', formHash: 'Internal/Change_Requests/form-change', hasPDF: true },
-  { id: 'f08', name: 'Project Completion Certificate', category: 'Sign-Off', filledBy: 'Client', description: 'Confirm all deliverables received and begin warranty period.', formHash: 'Internal/Project_Handover/form-completion', hasPDF: true },
-  { id: 'f07', name: 'Client Feedback Survey (NPS)', category: 'Feedback', filledBy: 'Client', description: 'Post-project survey with optional portfolio testimonial.', formHash: 'Internal/Project_Handover/form-feedback', hasPDF: false },
+  { id: 'f01', name: 'Client Inquiry Form', category: 'Project', filledBy: 'Client', description: 'Kick off your project with company details, goals, and requirements.', formHash: '/contact', hasPDF: false },
+  { id: 'f02', name: 'Basic Onboarding Form', category: 'Onboarding', filledBy: 'Client', description: 'Kick off your project with company details, goals, and access requirements.', formHash: 'Internal/Client_Intake_Forms/form-onboarding', hasPDF: false },
+  { id: 'f07', name: 'Client Feedback Survey', category: 'Feedback', filledBy: 'Client', description: 'Post-project survey with optional portfolio testimonial.', formHash: 'Internal/Project_Handover/form-feedback', hasPDF: false },
 ];
 
 // ─── ICONS ───────────────────────────────────────────────────────────────────
@@ -57,6 +53,7 @@ const docCategoryIcons: Record<string, React.ReactNode> = {
   Legal:     <Shield size={20} style={{ color: '#60a5fa' }} />,
   Financial: <CreditCard size={20} style={{ color: '#34d399' }} />,
   Scope:     <Package size={20} style={{ color: '#fbbf24' }} />,
+  Process:   <ClipboardList size={20} style={{ color: '#c084fc' }} />,
 };
 
 const formCategoryIcons: Record<string, React.ReactNode> = {
@@ -74,7 +71,7 @@ const Resources: React.FC = () => {
   const [selectedDocCat, setSelectedDocCat] = useState('All');
   const [selectedFormCat, setSelectedFormCat] = useState('All');
 
-  const docCategories = ['All', 'Legal', 'Financial', 'Scope'];
+  const docCategories = ['All', 'Legal', 'Financial', 'Scope', 'Process'];
   const formCategories = ['All', 'Onboarding', 'Project', 'Sign-Off', 'Feedback'];
 
   const filteredDocs = documents.filter(doc => {
@@ -163,8 +160,14 @@ const Resources: React.FC = () => {
                           <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800', letterSpacing: '0.1em' }}>{doc.category.toUpperCase()}</span>
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
-                          <a href={`/Agency_Documentation/${doc.previewHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                            <ExternalLink size={14} /> OPEN DOCUMENT
+                          <a 
+                            href={doc.previewHash.startsWith('/') ? doc.previewHash : `/Agency_Documentation/${doc.previewHash}.html`} 
+                            target={doc.previewHash.startsWith('http') || doc.isPDF ? "_blank" : "_self"} 
+                            rel="noreferrer" 
+                            className="btn btn-primary" 
+                            style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                          >
+                            <ExternalLink size={14} /> {doc.isPDF ? 'VIEW PDF' : 'OPEN RESOURCE'}
                           </a>
                         </div>
                       </div>
@@ -209,7 +212,13 @@ const Resources: React.FC = () => {
                           <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: '800', letterSpacing: '0.1em' }}>{form.category.toUpperCase()}</span>
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
-                          <a href={`/Agency_Documentation/${form.formHash}.html`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                          <a 
+                            href={form.formHash.startsWith('/') ? form.formHash : `/Agency_Documentation/${form.formHash}.html`} 
+                            target={form.formHash.startsWith('http') ? "_blank" : "_self"} 
+                            rel="noreferrer" 
+                            className="btn btn-primary" 
+                            style={{ flex: 1, padding: '12px', fontSize: '0.7rem', letterSpacing: '0.08em', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                          >
                             <ExternalLink size={14} /> OPEN FORM
                           </a>
                         </div>
